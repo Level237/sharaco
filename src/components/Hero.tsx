@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
   return (
@@ -10,7 +11,7 @@ export default function Hero() {
     <div className="mx-auto max-w-7xl  lg:px-8">
       <div className="w-full flex flex-col lg:flex-row">
         <div className="flex justify-between lg:hidden px-4">
-          <a href="https://pagedone.io/" className="flex items-center">
+          <a href="/" className="flex items-center">
             <svg
               width="164"
               height="33"
@@ -557,11 +558,14 @@ export default function Hero() {
             >
               Register
             </button>
+
+            <Link to="/login">
             <button
               className="bg-sky-600 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm lg:ml-5 hover:bg-sky-700"
             >
               Try to free
             </button>
+            </Link>
           </div>
         </div>
       </div>
