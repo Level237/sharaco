@@ -98,8 +98,10 @@ export default function LoginPage() {
         <LoginForm/>
       </div>
       </div>
-     <div className="flex-1 h-[100vh] bg-sky-600">
-
+     <div className="flex-1 flex justify-center items-center h-[100vh] bg-sky-600">
+        <div className="flex justify-center items-center">
+          <img src="https://blush.design/api/download?shareUri=OlpJwFBpVrt0lKgm&c=Hair_0%7Ec5767a-0.1%7Ef5bbee_Skin_0%7E4b3425-0.1%7E4b3425&w=800&h=800&fm=png" className="w-full h-full" alt="" />
+        </div>
      </div>
     </section>
   )
