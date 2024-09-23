@@ -553,12 +553,12 @@ export default function Hero() {
             className="flex lg:items-center justify-start flex-col lg:flex-row max-lg:gap-4 lg:flex-1 lg:justify-end"
           >
             <button
-              className="bg-indigo-50 text-indigo-600 rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-indigo-100"
+              className="bg-indigo-50 text-sky-600 rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-indigo-100"
             >
               Register
             </button>
             <button
-              className="bg-indigo-600 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm lg:ml-5 hover:bg-indigo-700"
+              className="bg-sky-600 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm lg:ml-5 hover:bg-sky-700"
             >
               Try to free
             </button>
@@ -572,14 +572,13 @@ export default function Hero() {
   >
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative text-center">
       <div
-        className="border border-indigo-600 p-1 w-60 mx-auto rounded-full flex items-center justify-between mb-4"
+        className="border border-sky-600 p-1 w-60 mx-auto rounded-full flex items-center justify-between mb-4"
       >
         <span className="font-inter text-xs font-medium text-gray-900 ml-3"
-          >Explore how to use for brands.</span
-        >
+          >Explore how to use for brands.</span>
         <a
           href="javascript:;"
-          className="w-8 h-8 rounded-full flex justify-center items-center bg-indigo-600"
+          className="w-8 h-8 rounded-full flex justify-center items-center bg-sky-600"
         >
           <svg
             width="17"
@@ -602,7 +601,7 @@ export default function Hero() {
         className="max-w-2xl mx-auto text-center font-manrope font-bold text-4xl text-gray-900 mb-5 md:text-5xl leading-[50px]"
       >
         Take control of your Quotes and
-        <span className="text-indigo-600"> grow your bussness </span>
+        <span className="text-sky-600"> grow your bussness </span>
       </h1>
       <p
         className="max-w-sm mx-auto text-center text-base font-normal leading-7 text-gray-500 mb-9"
@@ -612,7 +611,7 @@ export default function Hero() {
       </p>
       <a
         href="javascript:;"
-        className="w-full md:w-auto mb-14 inline-flex items-center justify-center py-3 px-7 text-base font-semibold text-center text-white rounded-full bg-indigo-600 shadow-xs hover:bg-indigo-700 transition-all duration-500"
+        className="w-full md:w-auto mb-14 inline-flex items-center justify-center py-3 px-7 text-base font-semibold text-center text-white rounded-full bg-sky-600 shadow-xs hover:bg-sky-700 transition-all duration-500"
       >
         Create an account
         <svg
