@@ -15,7 +15,7 @@ export default function LoginForm() {
         rounded-md
         bg-gray-50
         py-2
-       
+        opacity-75
         px-4'
         />
         
@@ -29,6 +29,7 @@ export default function LoginForm() {
         border 
         rounded-md
         bg-gray-50
+        opacity-75
         py-2
         px-4'
         />
