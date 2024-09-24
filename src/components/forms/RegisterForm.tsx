@@ -3,7 +3,7 @@ import { Unlock } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function LoginForm() {
+export default function RegisterForm() {
   return (
     <div className="flex w-[68%] mt-8 flex-col gap-4">
         <div className=''>
@@ -49,7 +49,7 @@ export default function LoginForm() {
         </div>
 
         <div className='mt-8 text-sm text-center'>
-            <h2>Already have an account? <Link to="/register"><span className='text-sky-600 cursor-pointer'>Create an account</span></Link></h2>
+            <h2>Don't have an account? <Link to="/login"><span className='text-sky-600 cursor-pointer'>login</span></Link></h2>
         </div>
         </div>
         
