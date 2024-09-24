@@ -5,7 +5,7 @@ import RegisterForm from '../components/forms/RegisterForm';
 
 export default function RegisterPage() {
   return (
-    <section className="flex bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-stone-100 via-sky-100 to-stone-200 items-center flex-row h-[100vh]  w-full">
+    <section className="flex overflow-hidden bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-stone-100 via-sky-100 to-stone-200 items-center flex-row h-[100vh]  w-full">
          <div className="flex-1 flex justify-center items-center h-[100vh] bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-sky-600 via-purple-900 to-sky-800">
         <div className="flex justify-center items-center">
           <img src="https://blush.design/api/download?shareUri=cV_BQM4wNL0vrpGi&c=Monochromatic_0%7E52dc82-0.2%7Eebbf5e_Skin_0%7E694d3d-0.2%7Eb18058&w=800&h=800&fm=png" className="w-[80%] h-[80%]" alt="" />
