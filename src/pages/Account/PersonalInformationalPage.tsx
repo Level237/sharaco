@@ -5,8 +5,8 @@ import StepAccount from '../../components/StepAccount';
 export default function PersonalInformationalPage() {
   return (
     <section className="flex overflow-hidden bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-stone-100 via-sky-100 to-stone-200 items-center flex-row h-[100vh]  w-full">
-    <div className="flex-1 flex justify-start items-center h-[100vh] bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-sky-600 via-purple-900 to-sky-800">
-   <div className="flex pl-36  justify-start items-start">
+    <div className="w-96 flex justify-start items-center h-[100vh] bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-sky-600 via-purple-900 to-sky-800">
+   <div className="flex pl-12  justify-start items-start">
      <StepAccount/>
    </div>
 </div>
@@ -24,7 +24,7 @@ export default function PersonalInformationalPage() {
        </h2>
      </div>
      </div>
-     <div>
+     <div className='mr-36'>
    <PersonalForm/>
  </div>
  </div>
