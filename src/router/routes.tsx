@@ -3,6 +3,7 @@ import Homepage from '../pages/Homepage';
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from '../pages/RegisterPage';
 import PersonalInformationalPage from "../pages/Account/PersonalInformationalPage";
+import UserTypePage from "../pages/Account/UserTypePage";
 
 export const routes=createBrowserRouter([{
     path:'/',
@@ -16,8 +17,11 @@ export const routes=createBrowserRouter([{
     element:<RegisterPage/>
 },
 {
-    path:'/step-one/personal-information',
+    path:'/step-two/personal-information',
     element:<PersonalInformationalPage/>
+},{
+    path:'/step-one/user-type',
+    element:<UserTypePage/>
 }
 
 ])

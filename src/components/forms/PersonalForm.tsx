@@ -52,18 +52,17 @@ export default function PersonalForm() {
      </div>
      <div className=' flex flex-col gap-2 flex-1'>
             <label htmlFor="prenom" className='text-gray-500'>Comment avez-vous entendu parler de sharaco ?</label>
-     <input 
-        type='text' 
-        name='phone' 
-        
-        className='w-[100%]
+     <select className='w-[100%]
         border 
         rounded-md
         bg-slate-50
         py-3
         
-        px-4'
-        />
+        px-4' name="" id="">
+
+          <option value="facebook">Sur Facebook</option>
+          <option value="facebook">Sur Google</option>
+        </select>
      </div>
      <div className='flex items-end justify-end'>
       <button className='bg-sky-600 hover:bg-sky-700 text-white rounded-full px-6 py-3'>Continuer</button>
