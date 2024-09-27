@@ -5,6 +5,7 @@ import RegisterPage from '../pages/RegisterPage';
 import PersonalInformationalPage from "../pages/Account/PersonalInformationalPage";
 import UserTypePage from "../pages/Account/UserTypePage";
 import ProfessionPage from '../pages/Account/ProfessionPage';
+import ActivityPage from '../pages/Account/ActivityPage';
 
 export const routes=createBrowserRouter([{
     path:'/',
@@ -27,6 +28,10 @@ export const routes=createBrowserRouter([{
 {
     path:'/step-three/profession',
     element:<ProfessionPage/>
+},
+{
+    path:'/step-three/activities',
+    element:<ActivityPage/>
 }
 
 ])
