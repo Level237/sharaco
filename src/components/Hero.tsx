@@ -553,12 +553,13 @@ export default function Hero() {
           <div
             className="flex lg:items-center justify-start flex-col lg:flex-row max-lg:gap-4 lg:flex-1 lg:justify-end"
           >
+            <Link to="/register">
             <button
               className="bg-transparent text-sky-600 rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm hover:bg-indigo-200"
             >
               Register
             </button>
-
+            </Link>
             <Link to="/login">
             <button
               className="bg-sky-600 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-3 px-6 text-sm lg:ml-5 hover:bg-sky-700"
