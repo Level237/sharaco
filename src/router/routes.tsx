@@ -6,6 +6,7 @@ import PersonalInformationalPage from "../pages/Account/PersonalInformationalPag
 import UserTypePage from "../pages/Account/UserTypePage";
 import ProfessionPage from '../pages/Account/ProfessionPage';
 import ActivityPage from '../pages/Account/ActivityPage';
+import CompanyPage from '../pages/Account/CompagnyPage';
 
 export const routes=createBrowserRouter([{
     path:'/',
@@ -32,6 +33,9 @@ export const routes=createBrowserRouter([{
 {
     path:'/step-three/activities',
     element:<ActivityPage/>
+},{
+    path:'/step-three/company',
+    element:<CompanyPage/>
 }
 
 ])
