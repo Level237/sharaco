@@ -4,7 +4,7 @@ import LoginForm from "../components/forms/LoginForm";
 
 export default function LoginPage() {
   return (
-    <section className="flex bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-stone-100 via-sky-100 to-stone-200 items-center flex-row h-[100vh]  w-full">
+    <section className="flex overflow-hidden bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-stone-100 via-sky-100 to-stone-200 items-center flex-row h-[100vh]  w-full">
       <div className="flex-1 flex justify-center items-center h-[100vh] bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-sky-600 via-purple-900 to-sky-800">
         <div className="flex justify-center items-center">
           <img src="https://blush.design/api/download?shareUri=OlpJwFBpVrt0lKgm&c=Hair_0%7Ec5767a-0.1%7Ef5bbee_Skin_0%7E4b3425-0.1%7E4b3425&w=800&h=800&fm=png" className="w-full h-full" alt="" />
