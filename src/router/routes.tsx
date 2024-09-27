@@ -4,6 +4,7 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from '../pages/RegisterPage';
 import PersonalInformationalPage from "../pages/Account/PersonalInformationalPage";
 import UserTypePage from "../pages/Account/UserTypePage";
+import ProfessionPage from '../pages/Account/ProfessionPage';
 
 export const routes=createBrowserRouter([{
     path:'/',
@@ -22,6 +23,10 @@ export const routes=createBrowserRouter([{
 },{
     path:'/step-one/user-type',
     element:<UserTypePage/>
+},
+{
+    path:'/step-three/profession',
+    element:<ProfessionPage/>
 }
 
 ])

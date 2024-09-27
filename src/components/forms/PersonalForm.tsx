@@ -61,7 +61,8 @@ export default function PersonalForm() {
         px-4' name="" id="">
 
           <option value="facebook">Sur Facebook</option>
-          <option value="facebook">Sur Google</option>
+          <option value="facebook">Recherche sur le net</option>
+          <option value="facebook">Proches,amis,collègues</option>
         </select>
      </div>
      <div className='flex items-end justify-end'>
