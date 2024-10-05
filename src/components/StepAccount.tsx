@@ -35,7 +35,7 @@ export default function StepAccount({typeStep}:any) {
             <User className='w-4 h-4 text-black font-bold'/>
           
         </span>
-        <h3 className="font-medium text-md ml-2 leading-tight">your account</h3>
+        <h3 className={`font-medium ${typeStep === 3 ? "text-white" : ""} text-md ml-2 leading-tight`}>your account</h3>
         
     </li>
 </ol>
