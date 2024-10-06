@@ -13,14 +13,14 @@ export default function AccountStepPage() {
     </div>
      <div className="flex flex-1 flex-col  gap-6 py-24"> 
          
-         <div className="flex flex-col gap-4">
-           <h2 className="text-3xl text-center font-bold">
+         <div className="flex justify-center items-center flex-col gap-4">
+           <h2 className="text-2xl font-bold">
              Félicitation vous aviez créer votre compte avec success
            </h2>
           
        
          </div>
-         <div className='mr-36'>
+         <div className=''>
        <AccountFinal/>
      </div>
      </div>
