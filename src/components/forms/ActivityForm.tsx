@@ -25,7 +25,7 @@ export default function ActivityForm() {
       </select>
    </div>
    <div className='flex items-end justify-end'>
-    <button className='bg-sky-600 hover:bg-sky-700 text-white rounded-full px-6 py-3'>Continuer</button>
+    <button className='bg-sky-600 text-sm hover:bg-sky-700 text-white rounded-full px-6 py-3'>Continuer</button>
    </div>
   </div>
   )
