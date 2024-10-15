@@ -8,6 +8,7 @@ import ProfessionPage from '../pages/Account/ProfessionPage';
 import ActivityPage from '../pages/Account/ActivityPage';
 import CompanyPage from '../pages/Account/CompagnyPage';
 import AccountStepPage from '../pages/Account/AccountStepPage';
+import { DashboardPage } from '../pages/Auth/DashboardPage';
 
 export const routes=createBrowserRouter([{
     path:'/',
@@ -40,6 +41,9 @@ export const routes=createBrowserRouter([{
 },{
     path:'/step-final/account',
     element:<AccountStepPage/>
+},{
+    path:'/dashboard',
+    element:<DashboardPage/>
 }
 
 ])
