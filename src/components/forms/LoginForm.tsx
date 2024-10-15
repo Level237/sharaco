@@ -12,7 +12,8 @@ export default function LoginForm() {
         name='email' 
         placeholder='Email'
         className='w-[100%]
-        border 
+        border
+        border-[#00000067]
         rounded-md
         bg-slate-50
         py-3
@@ -27,7 +28,8 @@ export default function LoginForm() {
         name='password' 
         placeholder='Password'
         className='w-full
-        border 
+        border
+        border-[#00000067]
         rounded-md
         bg-gray-50
         opacity-75
