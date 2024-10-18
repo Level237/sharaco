@@ -1,11 +1,27 @@
 
+import { Login } from '../../api/auth/LoginServer';
 import { Unlock } from 'lucide-react'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 export default function LoginForm() {
+
+    const dispatch=useDispatch();
+
+    const handleSubmit=(e:any)=>{
+        e.preventDefault();
+
+        const credentials={
+            email:'admin@sharaco.com',
+            password:"password"
+        }
+        dispatch(Login(credentials))
+    }
   return (
-    <div className="flex w-[68%] mt-8 flex-col gap-4">
+    
+        <form onSubmit={handleSubmit} action="">
+            <div className="flex w-[68%] mt-8 flex-col gap-4">
         <div className=''>
         <input 
         type='email' 
@@ -47,14 +63,17 @@ export default function LoginForm() {
         </div>
 
         <div className='mt-8'>
-            <button className='bg-sky-600 text-white py-2 rounded-lg w-full'>Log in</button>
+            <button type='submit' className='bg-sky-600 text-white py-2 rounded-lg w-full'>Log in</button>
         </div>
 
         <div className='mt-8 text-sm text-center'>
             <h2>Already have an account? <Link to="/register"><span className='text-sky-600 cursor-pointer'>Create an account</span></Link></h2>
         </div>
         </div>
+        </div>
+        </form>
         
-      </div>
+       
+     
   )
 }
