@@ -10,6 +10,8 @@ import CompanyPage from '../pages/Account/CompagnyPage';
 import AccountStepPage from '../pages/Account/AccountStepPage';
 import { DashboardPage } from '../pages/Auth/DashboardPage';
 import { DashboardLayout } from '../components/Layouts/DashboardLayout';
+import { PrivateRoute } from "../pages/Auth/PrivateRoute";
+
 
 export const routes=createBrowserRouter([{
     path:'/',
@@ -44,7 +46,7 @@ export const routes=createBrowserRouter([{
     element:<AccountStepPage/>
 },{
     path:'/dashboard',
-    element:<DashboardLayout><DashboardPage/></DashboardLayout>
+    element:<PrivateRoute><DashboardLayout><DashboardPage/></DashboardLayout></PrivateRoute>
 }
 
 ])
