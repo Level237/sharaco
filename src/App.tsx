@@ -2,13 +2,18 @@
 import './App.css'
 import { RouterProvider } from 'react-router-dom'
 import { routes } from './router/routes'
-import NextTopLoader from 'nextjs-toploader';
+import { Provider } from 'react-redux';
+import store from './store';
 function App() {
   
 
-  return <RouterProvider router={routes}>
-    
-  </RouterProvider>
+  return 
+  <Provider store={store}>
+
+<RouterProvider router={routes}/>
+  </Provider>
+  
+
 }
 
 export default App
