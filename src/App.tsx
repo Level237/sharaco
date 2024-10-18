@@ -7,11 +7,13 @@ import store from './store';
 function App() {
   
 
-  return 
-  <Provider store={store}>
+  return (
+    <Provider store={store}>
 
 <RouterProvider router={routes}/>
   </Provider>
+  )
+  
   
 
 }

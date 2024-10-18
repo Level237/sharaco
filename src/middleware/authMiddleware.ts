@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 
+
 const authMiddleware=(store:any)=>(next:any)=>(action:any)=>{
 
     const {type}=action;
@@ -15,7 +16,7 @@ const authMiddleware=(store:any)=>(next:any)=>(action:any)=>{
             return;
         }
 
-        axios.defaults.headers.commons['Authorization']=`Bearer ${token}`;
+        axios.defaults.headers.common['Authorization']=`Bearer ${token}`
 
         axios.post('/api/v1/user/me')
         .then((response:any)=>{
