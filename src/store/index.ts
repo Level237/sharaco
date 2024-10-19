@@ -2,14 +2,31 @@ import { combineReducers, configureStore, } from '@reduxjs/toolkit';
 import authReducer from './authStore';
 import { thunk } from 'redux-thunk';
 import authMiddleware from "../middleware/authMiddleware";
+import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-const rootReducer=combineReducers({
-    auth:authReducer
-})
+
+
+const persistConfigLocalStorage={
+    key:'auth',
+    storage,
+    blacklist: ["somethingTemporary"],
+}
+
+const persistReducerAuth=persistReducer(persistConfigLocalStorage,authReducer)
+
 const store=configureStore({
-    reducer:rootReducer,
+    reducer:{
+        auth:persistReducerAuth
+    },
     middleware:(getDefaultMiddleware)=>
-        getDefaultMiddleware().concat(thunk,authMiddleware),
+        getDefaultMiddleware({
+            serializableCheck: {
+              ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+          }).concat(thunk),
 })
 
+export const persistor=persistStore(store)
 export default store;

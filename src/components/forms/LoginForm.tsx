@@ -9,7 +9,7 @@ export default function LoginForm() {
     const { isAuthenticated } = useSelector((state:any) => state.auth);
     const dispatch=useDispatch();
     const navigate=useNavigate()
-
+    console.log(isAuthenticated)
     const handleSubmit=(e:any)=>{
         e.preventDefault();
 

@@ -7,7 +7,8 @@ export const Login=(credentials:any)=>async(dispatch:any)=>{
         const response=await axios.post(`http://127.0.0.1:8000/api/login`,credentials)
         const token=response.data.access_token;
 
-        localStorage.setItem('token', token);
+        console.log(token)
+        console.log(response)
         dispatch({type:'LOGIN_SUCCESS',payload:token})
     }
     catch(error:any){

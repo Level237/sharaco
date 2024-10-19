@@ -1,5 +1,6 @@
 import { authType } from "@/types/authType";
 
+
 const initialAuthState:authType={
     isAuthenticated: false,
   user: null,

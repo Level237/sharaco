@@ -17,8 +17,8 @@ const authMiddleware=(store:any)=>(next:any)=>(action:any)=>{
         }
 
         axios.defaults.headers.common['Authorization']=`Bearer ${token}`
-
-        axios.post('/api/v1/user/me')
+            //console.log()
+        axios.post('http://127.0.0.1:8000/api/v1/user/me')
         .then((response:any)=>{
             next(action)
         }).catch((error:any) => {

@@ -6,8 +6,13 @@ import ChartTwo from '../../components/Charts/ChartTwo';
 import ChatCard from '../../components/Chat/ChatCard';
 import MapOne from '../../components/Maps/MapOne';
 import TableOne from '../../components/Tables/TableOne';
+import { useSelector } from 'react-redux';
+import { persistor } from '../../store';
 
 export const DashboardPage=() => {
+  const { user } = useSelector((state:any) => state.auth);
+  //persistor.purge();
+  console.log(user)
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
