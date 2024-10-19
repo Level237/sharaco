@@ -1,13 +1,14 @@
 
 import { Login } from '../../api/auth/LoginServer';
 import { Unlock } from 'lucide-react'
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function LoginForm() {
-
+    const { isAuthenticated } = useSelector((state:any) => state.auth);
     const dispatch=useDispatch();
+    const navigate=useNavigate()
 
     const handleSubmit=(e:any)=>{
         e.preventDefault();
@@ -18,6 +19,12 @@ export default function LoginForm() {
         }
         dispatch(Login(credentials))
     }
+
+    useEffect(()=>{
+        if(isAuthenticated){
+            navigate('/dashboard');
+        }
+    },[isAuthenticated,navigate])
   return (
     
         <form onSubmit={handleSubmit} action="">
