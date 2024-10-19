@@ -5,6 +5,7 @@ const initialAuthState:authType={
     isAuthenticated: false,
   user: null,
   error: null,
+  token:null,
   loading: false,
 }
 
@@ -15,7 +16,7 @@ const authReducer=(state=initialAuthState,action:any)=>{
           return {
             ...state,
             loading: true,   
-    
+            token:null,
             error: null,
           };
         case 'LOGIN_SUCCESS':
@@ -23,7 +24,7 @@ const authReducer=(state=initialAuthState,action:any)=>{
             ...state,
             isAuthenticated: true,
             user: action.payload.user,
-    
+            token:action.payload.token,
             error: null,
             loading: false,
           };

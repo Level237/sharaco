@@ -9,9 +9,9 @@ import storage from "redux-persist/lib/storage";
 
 
 const persistConfigLocalStorage={
-    key:'auth',
+    key:'auths',
     storage,
-    blacklist: ["somethingTemporary"],
+    //blacklist: ["somethingTemporary"],
 }
 
 const persistReducerAuth=persistReducer(persistConfigLocalStorage,authReducer)

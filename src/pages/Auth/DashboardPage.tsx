@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CardDataStats from '../../components/CardDataStats';
 import ChartOne from '../../components/Charts/ChartOne';
 import ChartThree from '../../components/Charts/ChartThree';
@@ -8,11 +8,20 @@ import MapOne from '../../components/Maps/MapOne';
 import TableOne from '../../components/Tables/TableOne';
 import { useSelector } from 'react-redux';
 import { persistor } from '../../store';
+import { getUser } from '../../api/auth/getUser';
 
 export const DashboardPage=() => {
   const { user } = useSelector((state:any) => state.auth);
   //persistor.purge();
-  console.log(user)
+  useEffect(()=>{
+
+    const getU=async()=>{
+      const users=await getUser(user)
+      return users;
+    }
+   
+    getU().then((r:any)=>console.log(r))
+  },[user])
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
