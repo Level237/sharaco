@@ -15,12 +15,7 @@ export const DashboardPage=() => {
   //persistor.purge();
   useEffect(()=>{
 
-    const getU=async()=>{
-      const users=await getUser(user)
-      return users;
-    }
-   
-    getU().then((r:any)=>console.log(r))
+    console.log(user)
   },[user])
   return (
     <>
