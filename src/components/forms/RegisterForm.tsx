@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function RegisterForm() {
   return (
-    <div className="flex w-[68%] mt-8 flex-col gap-4">
+    <div className="flex w-[68%] mt-5 flex-col gap-4">
         <div className=''>
         <input 
         type='email' 
@@ -51,7 +51,7 @@ export default function RegisterForm() {
         </div>
 
         <div className='mt-8 text-sm text-center'>
-            <h2>Don't have an account? <Link to="/login"><span className='text-sky-600 cursor-pointer'>login</span></Link></h2>
+            <h2 className='text-black'>Don't have an account? <Link to="/login"><span className='text-sky-600 cursor-pointer'>login</span></Link></h2>
         </div>
         </div>
         

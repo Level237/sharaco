@@ -91,7 +91,7 @@ export default function RegisterPage() {
           </a>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-3xl text-black font-bold">
               Register
             </h2>
             <div>
