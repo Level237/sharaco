@@ -25,7 +25,7 @@ const store=configureStore({
             serializableCheck: {
               ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
-          }).concat(thunk),
+          }).concat(thunk,authMiddleware),
 })
 
 export const persistor=persistStore(store)
