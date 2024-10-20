@@ -2,10 +2,19 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ClickOutside from '../../ClickOutside';
 import UserOne from '../../../assets/images/user/user-01.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { Logout } from '../../../api/auth/LogoutServer';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { user } = useSelector((state:any) => state.auth);
+  const { token } = useSelector((state:any) => state.auth);
+  const dispatch=useDispatch()
 
+  const handleLogout=()=>{
+
+      dispatch(Logout(token))
+  }
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
       <Link
@@ -15,7 +24,7 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {user.name}
           </span>
           <span className="block text-xs">UX Designer</span>
         </span>
@@ -119,7 +128,9 @@ const DropdownUser = () => {
               </Link>
             </li>
           </ul>
-          <button className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+          <button 
+          onClick={handleLogout}
+          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
             <svg
               className="fill-current"
               width="22"

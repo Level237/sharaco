@@ -21,9 +21,7 @@ export default function LoginForm() {
     }
 
     useEffect(()=>{
-        if(isAuthenticated){
-            navigate('/dashboard');
-        }
+       
     },[isAuthenticated,navigate])
   return (
     

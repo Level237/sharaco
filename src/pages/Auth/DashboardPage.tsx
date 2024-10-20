@@ -12,6 +12,7 @@ import { getUser } from '../../api/auth/getUser';
 
 export const DashboardPage=() => {
   const { user } = useSelector((state:any) => state.auth);
+  
   //persistor.purge();
   useEffect(()=>{
 

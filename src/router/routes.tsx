@@ -11,6 +11,7 @@ import AccountStepPage from '../pages/Account/AccountStepPage';
 import { DashboardPage } from '../pages/Auth/DashboardPage';
 import { DashboardLayout } from '../components/Layouts/DashboardLayout';
 import { PrivateRoute } from "../pages/Auth/PrivateRoute";
+import { GuardRoute } from "../pages/GuartRoute";
 
 
 export const routes=createBrowserRouter([{
@@ -19,10 +20,10 @@ export const routes=createBrowserRouter([{
 },
 {
     path:'/login',
-    element:<LoginPage/>
+    element:<GuardRoute> <LoginPage/></GuardRoute>
 },{
     path:'/register',
-    element:<RegisterPage/>
+    element:<GuardRoute> <RegisterPage/></GuardRoute>
 },
 {
     path:'/step-two/personal-information',
