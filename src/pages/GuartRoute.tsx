@@ -14,5 +14,5 @@ export  const  GuardRoute: React.FC<{ children: ReactNode }> = ({ children }) =>
             
         }
     },[isAuthenticated])
-    return isAuthenticated && children;
+    return !isAuthenticated && children;
 }

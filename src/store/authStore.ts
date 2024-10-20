@@ -41,9 +41,15 @@ const authReducer=(state=initialAuthState,action:any)=>{
             ...state,
             isAuthenticated: false,
             user: null,
+            token:null,
             error: null,
             loading: false,
           };
+        case 'ERROR':
+          return {
+            ...state,
+            error:action.payload.message,
+          }
         default:
           return state;
       }
