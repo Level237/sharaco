@@ -3,7 +3,7 @@ import React from 'react'
 export default function Header() {
   return (
     <>
-      <header id="header" className="navbar bg-[#fff] dark:bg-[#25282a] navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered ">
+      <header id="header" className="navbar border-[#ffffff1e] bg-transparent backdrop-blur border-b bg-[#fff] dark:bg-[#25282a] navbar-expand-lg navbar-fixed navbar-height navbar-container ">
         <div className="navbar-nav-wrap">
           {/* Logo */}
           <a className="navbar-brand" href="index.html.htm" aria-label="Front">

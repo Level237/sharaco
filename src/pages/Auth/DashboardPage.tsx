@@ -29,7 +29,7 @@ export const DashboardPage=() => {
         {/* Content */}
         <div className="content container-fluid">
           {/* Page Header */}
-          <div className="page-header">
+          <div className="mb-7">
             <div className="row align-items-center">
               <div className="col-sm mb-2 mb-sm-0">
                 <h1 className="text-white text-xl font-bold dark:text-white">Dashboard</h1>
@@ -454,13 +454,13 @@ export const DashboardPage=() => {
           </div>
           {/* End Row */}
           {/* Card */}
-          <div className="card bg-[#fff] dark:bg-[#25282a] mb-3 mb-lg-5">
+          <div className="card dark:border-[#6b6a6a36] bg-[#fff] dark:bg-[#25282a] mb-3 mb-lg-5">
             {/* Header */}
-            <div className="card-header">
+            <div className="px-3 py-3">
               <div className="row justify-content-between align-items-center flex-grow-1">
                 <div className="col-md">
                   <div className="d-flex justify-content-between align-items-center">
-                    <h4 className="card-header-title">Users</h4>
+                    <h4 className="card-header-title text-white">Users</h4>
                     {/* Datatable Info */}
                     <div id="datatableCounterInfo" style={{display: 'none'}}>
                       <div className="d-flex align-items-center">
@@ -553,10 +553,11 @@ export const DashboardPage=() => {
               </div>
               {/* End Row */}
             </div>
+            <Separator className='w-full bg-[#ffffff18]'/>
             {/* End Header */}
             {/* Table */}
             <div className="table-responsive  datatable-custom">
-              <table id="datatable" className="table  table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options="{
+              <table id="datatable" className="table  table-borderless  table-nowrap table-align-middle card-table" data-hs-datatables-options="{
                  &quot;columnDefs&quot;: [{
                     &quot;targets&quot;: [0, 1, 4],
                     &quot;orderable&quot;: false
@@ -572,7 +573,8 @@ export const DashboardPage=() => {
                  &quot;isShowPaging&quot;: false,
                  &quot;pagination&quot;: &quot;datatablePagination&quot;
                }">
-                <thead className=" bg-[#fff] dark:bg-[#25282a]">
+                
+                <thead className=" bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a]">
                   <tr>
                     <th scope="col" className="table-column-pe-0 ">
                       <div className="form-check ">
@@ -588,7 +590,9 @@ export const DashboardPage=() => {
                     <th>User ID</th>
                   </tr>
                 </thead>
+                
                 <tbody>
+                  
                   <tr>
                     <td className="table-column-pe-0">
                       <div className="form-check">
