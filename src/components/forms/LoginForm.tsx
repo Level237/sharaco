@@ -7,9 +7,12 @@ import { Link, useNavigate } from 'react-router-dom'
 
 export default function LoginForm() {
     const { isAuthenticated } = useSelector((state:any) => state.auth);
+    const { token } = useSelector((state:any) => state.auth);
     const dispatch=useDispatch();
     const navigate=useNavigate()
     console.log(isAuthenticated)
+
+    
     const handleSubmit=(e:any)=>{
         e.preventDefault();
 

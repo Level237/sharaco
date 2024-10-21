@@ -1,13 +1,21 @@
 import React, { useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion"
 import { useDispatch, useSelector } from 'react-redux'
+import { Logout } from '@/api/auth/LogoutServer'
 export default function UserDropdown() {
 
   const [isVisible,setVisible]=useState(false)
   const {user}=useSelector((state:any)=>state.auth)
+  const {token}=useSelector((state:any)=>state.auth)
   const dispatch=useDispatch();
-  const handleVisible=()=>{
 
+  const handleLogout=()=>{
+
+    dispatch(Logout(token))
+}
+
+  const handleVisible=()=>{
+  
     setVisible(!isVisible)
   }
   return (
@@ -103,7 +111,7 @@ export default function UserDropdown() {
                       {/* End Dropdown */}
                       <a className="dropdown-item text-white" href="#">Manage team</a>
                       <div className="dropdown-divider" />
-                      <a className="dropdown-item text-white" href="#">Sign out</a>
+                      <a className="dropdown-item text-white" onClick={handleLogout}>Sign out</a>
                     </motion.div>}
                     
                   </AnimatePresence>
