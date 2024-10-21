@@ -19,7 +19,7 @@ export default function Sidebar() {
             </button>
             {/* End Navbar Vertical Toggle */}
             {/* Content */}
-            <div className="navbar-vertical-content">
+            <div className="navbar-vertical-content dark:bg-[#25282a]">
               <div id="navbarVerticalMenu" className="nav nav-pills nav-vertical card-navbar-nav">
                 {/* Collapse */}
             

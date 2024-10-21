@@ -4,6 +4,7 @@ import { persistor } from '../../store';
 import { getUser } from '../../api/auth/getUser';
 import Header from '../../components/auth/Header';
 import Sidebar from '../../components/auth/Sidebar';
+import { Separator } from '@/components/ui/separator';
 
 export const DashboardPage=() => {
   const { user } = useSelector((state:any) => state.auth);
@@ -31,7 +32,7 @@ export const DashboardPage=() => {
           <div className="page-header">
             <div className="row align-items-center">
               <div className="col-sm mb-2 mb-sm-0">
-                <h1 className="page-header-title">Dashboard</h1>
+                <h1 className="text-white text-xl font-bold dark:text-white">Dashboard</h1>
               </div>
               {/* End Col */}
               <div className="col-sm-auto">
@@ -48,7 +49,7 @@ export const DashboardPage=() => {
           <div className="row">
             <div className="col-sm-6  col-lg-3 mb-3 mb-lg-5">
               {/* Card */}
-              <a className="card bg-[#fff] dark:bg-[#25282a] dark:border-[#6b6a6a36] dark:shadow-none card-hover-shadow h-100" href="#">
+              <a className="card bg-[#b1b1b17c] dark:bg-[#25282a] dark:border-[#6b6a6a36] dark:shadow-none card-hover-shadow h-100" href="#">
                 <div className="card-body ">
                   <h6 className="card-subtitle">Total Users</h6>
                   <div className="row align-items-center gx-2 mb-1">
@@ -109,7 +110,7 @@ export const DashboardPage=() => {
             </div>
             <div className="col-sm-6 col-lg-3 mb-3 mb-lg-5">
               {/* Card */}
-              <a className="card bg-[#fff] dark:bg-[#25282a] dark:border-[#6b6a6a36] card-hover-shadow h-100" href="#">
+              <a className="card bg-[#fff] dark:bg-[#25282a] dark:border-[#6b6a6a36] shadow-none card-hover-shadow h-100" href="#">
                 <div className="card-body">
                   <h6 className="card-subtitle">Sessions</h6>
                   <div className="row align-items-center gx-2 mb-1">
@@ -170,7 +171,7 @@ export const DashboardPage=() => {
             </div>
             <div className="col-sm-6 col-lg-3 mb-3 mb-lg-5">
               {/* Card */}
-              <a className="card  bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] card-hover-shadow h-100" href="#">
+              <a className="card  bg-[#fff] shadow-none dark:border-[#6b6a6a36] dark:bg-[#25282a] card-hover-shadow h-100" href="#">
                 <div className="card-body">
                   <h6 className="card-subtitle">Avg. Click Rate</h6>
                   <div className="row align-items-center gx-2 mb-1">
@@ -231,7 +232,7 @@ export const DashboardPage=() => {
             </div>
             <div className="col-sm-6 col-lg-3 mb-3 mb-lg-5">
               {/* Card */}
-              <a className="card bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] card-hover-shadow h-100" href="#">
+              <a className="card shadow-none bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] card-hover-shadow h-100" href="#">
                 <div className="card-body">
                   <h6 className="card-subtitle">Pageviews</h6>
                   <div className="row align-items-center gx-2 mb-1">
@@ -295,8 +296,8 @@ export const DashboardPage=() => {
               {/* Card */}
               <div className="card bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] h-100">
                 {/* Header */}
-                <div className="card-header bg-[#fff] dark:bg-[#25282a] card-header-content-between">
-                  <h4 className="card-header-title text-white dark:text-black">Import data into Front Dashboard</h4>
+                <div className="px-3 py-3 bg-[#fff] dark:bg-[#25282a] card-header-content-between">
+                  <h4 className="card-header-title text-white dark:text-black">Devis en cours</h4>
                   {/* Dropdown */}
                   <div className="dropdown">
                     <button type="button" className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle" id="reportsOverviewDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -320,11 +321,12 @@ export const DashboardPage=() => {
                       </a>
                     </div>
                   </div>
+                  
                   {/* End Dropdown */}
                 </div>
                 {/* End Header */}
                 {/* Body */}
-                
+                <Separator className='w-full bg-[#ffffff18]'/>
                 {/* End Body */}
               </div>
               {/* End Card */}
@@ -332,10 +334,10 @@ export const DashboardPage=() => {
             {/* End Col */}
             <div className="col-lg-7 mb-3 mb-lg-5">
               {/* Card */}
-              <div className="card bg-[#fff] dark:bg-[#25282a] h-100">
+              <div className="card  bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] h-100">
                 {/* Header */}
-                <div className="card-header card-header-content-sm-between">
-                  <h4 className="card-header-title mb-2 mb-sm-0">Monthly expenses</h4>
+                <div className="px-3 py-3 card-header-content-sm-between">
+                  <h4 className="card-header-title text-white dark:text-black mb-2 mb-sm-0">Monthly expenses</h4>
                   {/* Nav */}
                   <ul className="nav nav-segment nav-fill" id="expensesTab" role="tablist">
                     <li className="nav-item" data-bs-toggle="chart-bar" data-datasets="thisWeek" data-trigger="click" data-action="toggle">
@@ -347,13 +349,14 @@ export const DashboardPage=() => {
                   </ul>
                   {/* End Nav */}
                 </div>
+                <Separator className='w-full bg-[#ffffff18]'/>
                 {/* End Header */}
                 {/* Body */}
                 <div className="card-body">
                   <div className="row mb-4">
                     <div className="col-sm mb-2 mb-sm-0">
                       <div className="d-flex align-items-center">
-                        <span className="h1 mb-0">35%</span>
+                        <span className="h1 text-primary mb-0">35%</span>
                         <span className="text-success ms-2">
                           <i className="bi-graph-up" /> 25.3%
                         </span>

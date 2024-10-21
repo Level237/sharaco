@@ -5,7 +5,7 @@ export default function Hero() {
   return (
    <>
     <nav
-    className="py-5 border-b-default border-solid border-gray-200 z-10 w-full bg-inherit"
+    className=" border-b-default border-solid border-gray-200 z-10 w-full bg-inherit"
     id="topnav"
   >
     <div className="mx-auto max-w-7xl  lg:px-8">
