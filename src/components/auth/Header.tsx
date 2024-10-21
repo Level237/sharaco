@@ -3,7 +3,7 @@ import React from 'react'
 export default function Header() {
   return (
     <>
-      <header id="header" className="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
+      <header id="header" className="navbar bg-[#fff] dark:bg-[#25282a] navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered ">
         <div className="navbar-nav-wrap">
           {/* Logo */}
           <a className="navbar-brand" href="index.html.htm" aria-label="Front">
@@ -21,14 +21,14 @@ export default function Header() {
             </button>
             {/* End Navbar Vertical Toggle */}
             {/* Search Form */}
-            <div className="dropdown ms-2">
+            <div className="dropdown ms-2 bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] ">
               {/* Input Group */}
-              <div className="d-none d-lg-block">
+              <div className="d-none d-lg-block bg-[#fff] dark:bg-[#25282a]">
                 <div className="input-group input-group-merge input-group-borderless input-group-hover-light navbar-input-group">
                   <div className="input-group-prepend input-group-text">
                     <i className="bi-search" />
                   </div>
-                  <input type="search" className="js-form-search form-control" placeholder="Search in front" aria-label="Search in front" data-hs-form-search-options="{
+                  <input type="search" className="js-form-search  form-control" placeholder="Search in front" aria-label="Search in front" data-hs-form-search-options="{
                    &quot;clearIcon&quot;: &quot;#clearSearchResultsIcon&quot;,
                    &quot;dropMenuElement&quot;: &quot;#searchDropdownMenu&quot;,
                    &quot;dropMenuOffset&quot;: 20,

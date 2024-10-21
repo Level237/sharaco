@@ -3,7 +3,7 @@ import React from 'react'
 export default function Sidebar() {
   return (
     <>
-       <aside className="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-dark bg-dark">
+       <aside className="js-navbar-vertical-aside bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-dark ">
         <div className="navbar-vertical-container">
           <div className="navbar-vertical-footer-offset">
             {/* Logo */}
@@ -22,18 +22,9 @@ export default function Sidebar() {
             <div className="navbar-vertical-content">
               <div id="navbarVerticalMenu" className="nav nav-pills nav-vertical card-navbar-nav">
                 {/* Collapse */}
-                <div className="nav-item">
-                  <a className="nav-link dropdown-toggle active" href="#navbarVerticalMenuDashboards" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuDashboards" aria-expanded="true" aria-controls="navbarVerticalMenuDashboards">
-                    <i className="bi-house-door nav-icon" />
-                    <span className="nav-link-title">Dashboards</span>
-                  </a>
-                  <div id="navbarVerticalMenuDashboards" className="nav-collapse collapse show" data-bs-parent="#navbarVerticalMenu">
-                    <a className="nav-link active" href="index.html.htm">Default</a>
-                    <a className="nav-link " href="dashboard-alternative.html.htm">Alternative</a>
-                  </div>
-                </div>
+            
                 {/* End Collapse */}
-                <span className="dropdown-header mt-4">Pages</span>
+                
                 <small className="bi-three-dots nav-subtitle-replacer" />
                 {/* Collapse */}
                 <div className="navbar-nav nav-compact">

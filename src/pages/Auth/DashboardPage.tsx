@@ -46,10 +46,10 @@ export const DashboardPage=() => {
           {/* End Page Header */}
           {/* Stats */}
           <div className="row">
-            <div className="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+            <div className="col-sm-6  col-lg-3 mb-3 mb-lg-5">
               {/* Card */}
-              <a className="card card-hover-shadow h-100" href="#">
-                <div className="card-body">
+              <a className="card bg-[#fff] dark:bg-[#25282a] dark:border-[#6b6a6a36] dark:shadow-none card-hover-shadow h-100" href="#">
+                <div className="card-body ">
                   <h6 className="card-subtitle">Total Users</h6>
                   <div className="row align-items-center gx-2 mb-1">
                     <div className="col-6">
@@ -109,7 +109,7 @@ export const DashboardPage=() => {
             </div>
             <div className="col-sm-6 col-lg-3 mb-3 mb-lg-5">
               {/* Card */}
-              <a className="card card-hover-shadow h-100" href="#">
+              <a className="card bg-[#fff] dark:bg-[#25282a] dark:border-[#6b6a6a36] card-hover-shadow h-100" href="#">
                 <div className="card-body">
                   <h6 className="card-subtitle">Sessions</h6>
                   <div className="row align-items-center gx-2 mb-1">
@@ -170,7 +170,7 @@ export const DashboardPage=() => {
             </div>
             <div className="col-sm-6 col-lg-3 mb-3 mb-lg-5">
               {/* Card */}
-              <a className="card card-hover-shadow h-100" href="#">
+              <a className="card  bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] card-hover-shadow h-100" href="#">
                 <div className="card-body">
                   <h6 className="card-subtitle">Avg. Click Rate</h6>
                   <div className="row align-items-center gx-2 mb-1">
@@ -231,7 +231,7 @@ export const DashboardPage=() => {
             </div>
             <div className="col-sm-6 col-lg-3 mb-3 mb-lg-5">
               {/* Card */}
-              <a className="card card-hover-shadow h-100" href="#">
+              <a className="card bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] card-hover-shadow h-100" href="#">
                 <div className="card-body">
                   <h6 className="card-subtitle">Pageviews</h6>
                   <div className="row align-items-center gx-2 mb-1">
@@ -291,12 +291,12 @@ export const DashboardPage=() => {
           </div>
           {/* End Stats */}
           <div className="row">
-            <div className="col-lg-5 mb-3 mb-lg-5">
+            <div className="col-lg-5  mb-3 mb-lg-5">
               {/* Card */}
-              <div className="card h-100">
+              <div className="card bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] h-100">
                 {/* Header */}
-                <div className="card-header card-header-content-between">
-                  <h4 className="card-header-title">Import data into Front Dashboard</h4>
+                <div className="card-header bg-[#fff] dark:bg-[#25282a] card-header-content-between">
+                  <h4 className="card-header-title text-white dark:text-black">Import data into Front Dashboard</h4>
                   {/* Dropdown */}
                   <div className="dropdown">
                     <button type="button" className="btn btn-ghost-secondary btn-icon btn-sm rounded-circle" id="reportsOverviewDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -324,93 +324,7 @@ export const DashboardPage=() => {
                 </div>
                 {/* End Header */}
                 {/* Body */}
-                <div className="card-body">
-                  <p>See and talk to your users and leads immediately by importing your data into the Front Dashboard platform.</p>
-                  <ul className="list-group list-group-flush list-group-no-gutters">
-                    <li className="list-group-item">
-                      <h5 className="card-title">Import users from:</h5>
-                    </li>
-                    {/* List Group Item */}
-                    <li className="list-group-item">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0">
-                          <img className="avatar avatar-xs avatar-4x3" src="assets/svg/brands/capsule-icon.svg" alt="Image Description" />
-                        </div>
-                        <div className="flex-grow-1 ms-3">
-                          <div className="row align-items-center">
-                            <div className="col">
-                              <h5 className="mb-0">Capsule</h5>
-                              <span className="d-block fs-6 text-body">Users</span>
-                            </div>
-                            {/* End Col */}
-                            <div className="col-auto">
-                              <a className="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                                Launch <span className="d-none d-sm-inline-block">importer</span>
-                                <i className="bi-box-arrow-up-right ms-1" />
-                              </a>
-                            </div>
-                            {/* End Col */}
-                          </div>
-                          {/* End Row */}
-                        </div>
-                      </div>
-                    </li>
-                    {/* End List Group Item */}
-                    {/* List Group Item */}
-                    <li className="list-group-item">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0">
-                          <img className="avatar avatar-xs avatar-4x3" src="assets/svg/brands/mailchimp-icon.svg" alt="Image Description" />
-                        </div>
-                        <div className="flex-grow-1 ms-3">
-                          <div className="row align-items-center">
-                            <div className="col">
-                              <h5 className="mb-0">Mailchimp</h5>
-                              <span className="d-block fs-6 text-body">Users</span>
-                            </div>
-                            {/* End Col */}
-                            <div className="col-auto">
-                              <a className="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                                Launch <span className="d-none d-sm-inline-block">importer</span>
-                                <i className="bi-box-arrow-up-right ms-1" />
-                              </a>
-                            </div>
-                            {/* End Col */}
-                          </div>
-                          {/* End Row */}
-                        </div>
-                      </div>
-                    </li>
-                    {/* End List Group Item */}
-                    {/* List Group Item */}
-                    <li className="list-group-item">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0">
-                          <img className="avatar avatar-xs avatar-4x3" src="assets/svg/brands/google-webdev-icon.svg" alt="Image Description" />
-                        </div>
-                        <div className="flex-grow-1 ms-3">
-                          <div className="row align-items-center">
-                            <div className="col">
-                              <h5 className="mb-0">Webdev</h5>
-                              <span className="d-block fs-6 text-body">Users</span>
-                            </div>
-                            {/* End Col */}
-                            <div className="col-auto">
-                              <a className="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                                Launch <span className="d-none d-sm-inline-block">importer</span>
-                                <i className="bi-box-arrow-up-right ms-1" />
-                              </a>
-                            </div>
-                            {/* End Col */}
-                          </div>
-                          {/* End Row */}
-                        </div>
-                      </div>
-                    </li>
-                    {/* End List Group Item */}
-                    <li className="list-group-item"><span className="small text-muted">Or you can <a className="link" href="#">sync data to Front Dashboard</a> to ensure your data is always up-to-date.</span></li>
-                  </ul>
-                </div>
+                
                 {/* End Body */}
               </div>
               {/* End Card */}
@@ -418,7 +332,7 @@ export const DashboardPage=() => {
             {/* End Col */}
             <div className="col-lg-7 mb-3 mb-lg-5">
               {/* Card */}
-              <div className="card h-100">
+              <div className="card bg-[#fff] dark:bg-[#25282a] h-100">
                 {/* Header */}
                 <div className="card-header card-header-content-sm-between">
                   <h4 className="card-header-title mb-2 mb-sm-0">Monthly expenses</h4>
@@ -537,7 +451,7 @@ export const DashboardPage=() => {
           </div>
           {/* End Row */}
           {/* Card */}
-          <div className="card mb-3 mb-lg-5">
+          <div className="card bg-[#fff] dark:bg-[#25282a] mb-3 mb-lg-5">
             {/* Header */}
             <div className="card-header">
               <div className="row justify-content-between align-items-center flex-grow-1">
@@ -638,8 +552,8 @@ export const DashboardPage=() => {
             </div>
             {/* End Header */}
             {/* Table */}
-            <div className="table-responsive datatable-custom">
-              <table id="datatable" className="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options="{
+            <div className="table-responsive  datatable-custom">
+              <table id="datatable" className="table  table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options="{
                  &quot;columnDefs&quot;: [{
                     &quot;targets&quot;: [0, 1, 4],
                     &quot;orderable&quot;: false
@@ -655,15 +569,15 @@ export const DashboardPage=() => {
                  &quot;isShowPaging&quot;: false,
                  &quot;pagination&quot;: &quot;datatablePagination&quot;
                }">
-                <thead className="thead-light">
+                <thead className=" bg-[#fff] dark:bg-[#25282a]">
                   <tr>
-                    <th scope="col" className="table-column-pe-0">
-                      <div className="form-check">
+                    <th scope="col" className="table-column-pe-0 ">
+                      <div className="form-check ">
                         <input className="form-check-input" type="checkbox" defaultValue id="datatableCheckAll" />
                         <label className="form-check-label" htmlFor="datatableCheckAll" />
                       </div>
                     </th>
-                    <th className="table-column-ps-0">Full name</th>
+                    <th className="table-column-ps-0 ">Full name</th>
                     <th>Status</th>
                     <th>Type</th>
                     <th>Email</th>
@@ -1136,12 +1050,12 @@ export const DashboardPage=() => {
             </div>
             {/* End Table */}
             {/* Footer */}
-            <div className="card-footer">
+            <div className="card-footer ">
               {/* Pagination */}
-              <div className="row justify-content-center justify-content-sm-between align-items-sm-center">
+              <div className="row  justify-content-center justify-content-sm-between align-items-sm-center">
                 <div className="col-sm mb-2 mb-sm-0">
-                  <div className="d-flex justify-content-center justify-content-sm-start align-items-center">
-                    <span className="me-2">Showing:</span>
+                  <div className="d-flex  justify-content-center justify-content-sm-start align-items-center">
+                    <span className="me-2 ">Showing:</span>
                     {/* Select */}
                     <div className="tom-select-custom">
                       <select id="datatableEntries" className="js-select form-select form-select-borderless w-auto" autoComplete="off" data-hs-tom-select-options="{
