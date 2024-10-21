@@ -32,6 +32,12 @@ export default function Sidebar() {
                 <div id="navbarVerticalMenuPagesMenu">
                   {/* Collapse */}
                   <div className="nav-item">
+                    <a className="nav-link " href="api-keys.html.htm" data-placement="left">
+                      <i className="bi-house nav-icon" />
+                      <span className="nav-link-title">Dashboard</span>
+                    </a>
+                  </div>
+                  <div className="nav-item">
                     <a className="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesUsersMenu">
                       <i className="bi-people nav-icon" />
                       <span className="nav-link-title">Users</span>
@@ -219,12 +225,7 @@ export default function Sidebar() {
                     </div>
                   </div>
                   {/* End Collapse */}
-                  <div className="nav-item">
-                    <a className="nav-link " href="api-keys.html.htm" data-placement="left">
-                      <i className="bi-key nav-icon" />
-                      <span className="nav-link-title">API Keys</span>
-                    </a>
-                  </div>
+                 
                   <div className="nav-item">
                     <a className="nav-link " href="welcome-page.html.htm" data-placement="left">
                       <i className="bi-eye nav-icon" />

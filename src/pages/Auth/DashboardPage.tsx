@@ -5,6 +5,7 @@ import { getUser } from '../../api/auth/getUser';
 import Header from '../../components/auth/Header';
 import Sidebar from '../../components/auth/Sidebar';
 import { Separator } from '@/components/ui/separator';
+import { Plus } from 'lucide-react';
 
 export const DashboardPage=() => {
   const { user } = useSelector((state:any) => state.auth);
@@ -36,8 +37,8 @@ export const DashboardPage=() => {
               </div>
               {/* End Col */}
               <div className="col-sm-auto">
-                <a className="btn btn-primary" href="javascript:;" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
-                  <i className="bi-person-plus-fill me-1" /> Invite users
+                <a className="btn btn-primary flex items-center gap-1" href="" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
+                  <Plus className='w-4 h-4'/> <h2 className='text-white font-bold text-sm'>New Quote</h2>
                 </a>
               </div>
               {/* End Col */}
