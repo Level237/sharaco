@@ -9,11 +9,14 @@ import { Plus } from 'lucide-react';
 
 export const DashboardPage=() => {
   const { user } = useSelector((state:any) => state.auth);
-  
+  const { token } = useSelector((state:any) => state.auth);
+  console.log(token)
   //persistor.purge();
   useEffect(()=>{
 
-    console.log(user)
+    getUser().then((response)=>{
+      console.log(response)
+    }).catch(e=>console.log(e))
   },[user])
 
   return (

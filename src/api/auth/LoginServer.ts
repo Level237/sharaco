@@ -7,7 +7,7 @@ export const Login=(credentials:any)=>async(dispatch:any)=>{
     try{
         const response=await axios.post(`http://127.0.0.1:8000/api/login`,credentials)
         const token=response.data.access_token;
-        const user=await getUser(token)
+        const user=await getUser()
         const userAndToken={
             user:user,
             token:token
