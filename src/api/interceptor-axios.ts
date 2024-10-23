@@ -1,3 +1,4 @@
+import store from "@/store";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {  useNavigate } from 'react-router-dom';
@@ -9,16 +10,16 @@ const api = axios.create({
     timeout: 1000,
     headers: { 'Content-Type': 'application/json' }
   });
-  const { token } = useSelector((state:any) => state.auth);
+  
 api.interceptors.request.use(
     
     config=>{
-        
+        const { token } = store.getState().auth;
         console.log(token)
         if(token){
             //config.headers.Accept="application/json"
             //config.defaults.headers.common['Authorization']=`Bearer ${token}`
-            //config.headers.Authorization = `Bearer ${token}`;
+            config.headers.Authorization = `Bearer ${token}`;
         }
 
         return config

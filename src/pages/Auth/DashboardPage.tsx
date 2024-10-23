@@ -14,9 +14,7 @@ export const DashboardPage=() => {
   //persistor.purge();
   useEffect(()=>{
 
-    getUser().then((response)=>{
-      console.log(response)
-    }).catch(e=>console.log(e))
+   
   },[user])
 
   return (
