@@ -5,7 +5,7 @@ import { Unlock } from 'lucide-react'
 import React, { useEffect,useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { setCredentials } from '@/store/authSlice';
+import { selectCurrentToken, setCredentials } from '@/store/authSlice';
 
 export default function LoginForm() {
     const userRef=useRef();
@@ -13,12 +13,12 @@ export default function LoginForm() {
     const [user,setUser]=useState('');
     const [pwd,setPwd]=useState('');
     const [errMsg,setErrMsg]=useState('');
-
+    const token=useSelector(selectCurrentToken)
     const [login,{isLoading,isError,error}]=useLoginMutation()
     const dispatch=useDispatch();
     const navigate=useNavigate()
 
-
+    console.log(token)
     useEffect(()=>{
         //userRef.current.focus()
     })
@@ -32,11 +32,16 @@ export default function LoginForm() {
            
             const userObject={email:user,password:pwd}
             const userData=await login(userObject)
-            console.log(userData)
-            dispatch(setCredentials({...userData,user}))
+            console.log('dd')
+            
+            const userState={
+                'user':user,
+                'accessToken':userData.data.access_token
+            }
+            dispatch(setCredentials(userState))
             setUser('')
             setPwd('')
-            //navigate('/admin/dashboard')
+            navigate('/admin/dashboard')
 
     }
 

@@ -47,7 +47,7 @@ export const routes=createBrowserRouter([{
     element:<AccountStepPage/>
 },{
     path:'/admin',
-    element:<PrivateRoute/>,
+    element:<DashboardLayout><PrivateRoute/></DashboardLayout>,
     children:[
         {
             path:'dashboard',
