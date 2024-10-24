@@ -1,13 +1,12 @@
 import axios from "axios"
+import api from "../interceptor-axios"
 
-export const getUser=async(token:string)=>{
+export const getUser=async()=>{
 
     try {
-        axios.defaults.headers.common['Authorization']=`Bearer ${token}`
-        axios.defaults.headers.common['Accept']="application/json"
-        const response=await axios.get(`http://127.0.0.1:8000/api/v1/user/me`)
+        const response=await api.get(`/api/v1/user/me`)
 
-        return response.data;
+        return response;
     } catch (error:any) {
         
     }

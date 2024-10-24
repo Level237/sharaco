@@ -11,7 +11,6 @@ export  const  PrivateRoute: React.FC<{ children: ReactNode }> = ({ children }) 
         if(!isAuthenticated){
 
             navigate('/login')
-            
         }
     },[!isAuthenticated])
     return isAuthenticated && children;
