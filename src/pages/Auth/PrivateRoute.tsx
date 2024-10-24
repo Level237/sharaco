@@ -1,17 +1,15 @@
+import { selectCurrentToken } from '@/store/authSlice'
 import React, { ReactNode, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import {  useNavigate } from 'react-router-dom'
+import {  Navigate, Outlet, useLocation} from 'react-router-dom'
 
-export  const  PrivateRoute: React.FC<{ children: ReactNode }> = ({ children }) => {
+export  const  PrivateRoute=()=> {
+    
+    const token=useSelector(selectCurrentToken)
+    const location=useLocation()
 
-    const isAuthenticated=useSelector((state:any)=>state.auth.isAuthenticated)
-    const navigate=useNavigate()
-    useEffect(()=>{
 
-        if(!isAuthenticated){
-
-            navigate('/login')
-        }
-    },[!isAuthenticated])
-    return isAuthenticated && children;
+    return (
+        token ? <Outlet/> : <Navigate to="/login" state={{ from:location }} replace/>
+    )
 }

@@ -20,7 +20,7 @@ export const routes=createBrowserRouter([{
 },
 {
     path:'/login',
-    element:<GuardRoute> <LoginPage/></GuardRoute>
+    element:<LoginPage/>
 },{
     path:'/register',
     element:<GuardRoute> <RegisterPage/></GuardRoute>
@@ -46,8 +46,14 @@ export const routes=createBrowserRouter([{
     path:'/step-final/account',
     element:<AccountStepPage/>
 },{
-    path:'/dashboard',
-    element:<PrivateRoute><DashboardLayout><DashboardPage/></DashboardLayout></PrivateRoute>
+    path:'/admin',
+    element:<PrivateRoute/>,
+    children:[
+        {
+            path:'dashboard',
+            element:<DashboardPage/>
+        }
+    ]
 }
 
 ])
