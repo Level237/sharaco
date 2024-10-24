@@ -6,8 +6,11 @@ const baseQuery=fetchBaseQuery({
     baseUrl:"http://127.0.0.1:8000",
     credentials:"same-origin",
     prepareHeaders:(headers,{getState})=>{
+        headers.set('Access-Control-Allow-Origin', '*')
+        headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
         const token= getState().auth.token;
         if(token){
+            
             headers.set("Content-Type", "application/json");
             headers.set('authorization',`Bearer ${token}`)
         }

@@ -32,7 +32,7 @@ export default function LoginForm() {
            
             const userObject={email:user,password:pwd}
             const userData=await login(userObject)
-            console.log('dd')
+            console.log(userData)
             
             const userState={
                 'user':user,
