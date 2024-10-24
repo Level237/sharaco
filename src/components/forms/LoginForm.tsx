@@ -14,7 +14,7 @@ export default function LoginForm() {
     const [pwd,setPwd]=useState('');
     const [errMsg,setErrMsg]=useState('');
 
-    const [login,{isLoading}]=useLoginMutation()
+    const [login,{isLoading,isError,error}]=useLoginMutation()
     const dispatch=useDispatch();
     const navigate=useNavigate()
 
@@ -28,24 +28,16 @@ export default function LoginForm() {
     },[user,pwd])
     const handleSubmit=async(e:any)=>{
         e.preventDefault();
-        try {
-            const userData=await login({user,pwd}).unwrap()
+
+           
+            const userObject={email:user,password:pwd}
+            const userData=await login(userObject)
+            console.log(userData)
             dispatch(setCredentials({...userData,user}))
             setUser('')
             setPwd('')
-            navigate('/dashboard')
-        } catch (error:any) {
-            console.log(error.status)
-             if(error.status===400){
-                //console.log("error")
-                setErrMsg('Missing Username or Password')
-            }else if(error.response?.status===401){
-                setErrMsg('Unauthorized')
-            }else{
-                setErrMsg('Login Failed')
-            }
-            //errRef.current.focus();
-        }
+            //navigate('/admin/dashboard')
+
     }
 
 const handleUserInput=(e:any)=>setUser(e.target.value)
@@ -53,14 +45,15 @@ const handlePwdInput=(e:any)=>setPwd(e.target.value)
   return (
     
         <form onSubmit={handleSubmit} action="">
-           
+          
             <div className="flex w-[68%] mt-8 flex-col gap-4">
-            {errMsg && <div className='rounded-sm text-red-500 text-center w-[100%]'>{errMsg}</div>}
+            {isError && <div className='rounded-sm text-red-500 text-center w-[100%]'>{error?.error}</div>}
         <div className=''>
         <input 
         onChange={handleUserInput}
         type='email' 
-        name='email' 
+        name='email'
+        value={user} 
         placeholder='Email'
         className='w-[100%]
         border
@@ -77,6 +70,7 @@ const handlePwdInput=(e:any)=>setPwd(e.target.value)
         <input 
         type='password' 
         name='password' 
+        value={pwd}
         placeholder='Password'
         onChange={handlePwdInput}
         className='w-full
