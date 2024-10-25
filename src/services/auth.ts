@@ -1,7 +1,11 @@
-import { apiSlice } from "../apiSlice";
+import { baseQuery } from "@/services/baseQuery";
+import {createApi} from "@reduxjs/toolkit/query/react"
 
 
-export const authApiSlice=apiSlice.injectEndpoints({
+
+
+export const authService=createApi({
+    baseQuery:baseQuery,
     endpoints:builder=>({
         login:builder.mutation({
             query:(credentials)=>(
@@ -31,4 +35,4 @@ export const authApiSlice=apiSlice.injectEndpoints({
 
 export const {
     useLoginMutation
-}=authApiSlice
+}=authService
