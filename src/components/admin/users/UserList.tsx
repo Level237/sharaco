@@ -1,9 +1,10 @@
-import { useGetUsersQuery } from '@/api/users/userApiSlice'
+
+import { useGetUsersQuery } from '@/services/users';
 import React from 'react'
 
 export default function UserList() {
 
-    const {data:users,isLoading,isSuccess,isError,error}=useGetUsersQuery()
+    const {data:users,isLoading,isSuccess,isError,error}=useGetUsersQuery("Users")
 
     let content;
 

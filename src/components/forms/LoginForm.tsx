@@ -1,11 +1,12 @@
 
-import { useLoginMutation } from '@/api/auth/authApiSlice';
-import { Login } from '../../api/auth/LoginServer';
+
 import { Unlock } from 'lucide-react'
 import React, { useEffect,useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { selectCurrentToken, setCredentials } from '@/store/authSlice';
+
+import { useLoginMutation } from '@/services/auth';
+import { authTokenChange } from '@/store/authSlice';
 
 export default function LoginForm() {
     const userRef=useRef();
@@ -13,12 +14,12 @@ export default function LoginForm() {
     const [user,setUser]=useState('');
     const [pwd,setPwd]=useState('');
     const [errMsg,setErrMsg]=useState('');
-    const token=useSelector(selectCurrentToken)
+    //const token=useSelector(selectCurrentToken)
     const [login,{isLoading,isError,error}]=useLoginMutation()
     const dispatch=useDispatch();
     const navigate=useNavigate()
 
-    console.log(token)
+    
     useEffect(()=>{
         //userRef.current.focus()
     })
@@ -35,10 +36,10 @@ export default function LoginForm() {
             console.log(userData)
             
             const userState={
-                'user':user,
+                'refreshToken':userData.data.refresh_token,
                 'accessToken':userData.data.access_token
             }
-            dispatch(setCredentials(userState))
+            dispatch(authTokenChange(userState))
             setUser('')
             setPwd('')
             navigate('/admin/dashboard')

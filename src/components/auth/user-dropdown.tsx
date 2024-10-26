@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion"
 import { useDispatch, useSelector } from 'react-redux'
 import { Logout } from '@/api/auth/LogoutServer'
-import { selectCurrentToken, selectCurrentUser } from '../../store/authSlice';
+
 export default function UserDropdown() {
 
-  const user=useSelector(selectCurrentUser)
-  const token=useSelector(selectCurrentToken)
+
+
   const [isVisible,setVisible]=useState(false)
   const dispatch=useDispatch();
 
