@@ -1,11 +1,12 @@
-import { baseQuery } from "@/services/baseQuery";
+
 import {createApi} from "@reduxjs/toolkit/query/react"
+import { baseQueryNotAuth } from "./baseQueryNotAuth";
 
 
 
 
 export const authService=createApi({
-    baseQuery:baseQuery,
+    baseQuery:baseQueryNotAuth,
     endpoints:builder=>({
         login:builder.mutation({
             query:(credentials)=>(
@@ -28,6 +29,17 @@ export const authService=createApi({
                   return { error: baseQueryResult.data };
                 }
               },
+        },
+        
+        ),
+        logout:builder.mutation({
+            query:()=>({
+                url:"/api/v1/logout",
+                method:"POST",
+            })
+        }),
+        getUser:builder.query({
+                query:()=>'/api/v1/user/me',
         })
     })
 })

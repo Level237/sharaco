@@ -10,7 +10,7 @@ export const baseQueryWithReauth: BaseQueryFn<
   let result = await baseQuery(args, store, extraOptions);
 
   const authState = (store.getState()).auth;
-
+    
   if (result.error && result.error.status === 401) {
     if (!authState.token || !authState.refreshToken) return result;
 
@@ -18,7 +18,7 @@ export const baseQueryWithReauth: BaseQueryFn<
     store.dispatch(adjustUsedToken(authState.refreshToken as string));
 
     // Try to refresh the token
-    const refreshResult = await baseQuery("/refresh-token", store, extraOptions);
+    const refreshResult = await baseQuery("/api/refresh", store, extraOptions);
 
     if (refreshResult.data) {
       // Store the new tokens

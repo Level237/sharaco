@@ -1,11 +1,12 @@
 import { baseQuery } from "@/services/baseQuery";
 import {createApi} from "@reduxjs/toolkit/query/react"
+import { baseQueryWithReauth } from "./baseQueryWithReaut";
 
 
 
 
 export const userService=createApi({
-    baseQuery:baseQuery,
+    baseQuery:baseQueryWithReauth,
     tagTypes:['Users'],
     endpoints:builder=>({
         getUsers:builder.query({

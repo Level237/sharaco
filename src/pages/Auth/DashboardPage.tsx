@@ -9,14 +9,10 @@ import { Plus } from 'lucide-react';
 import UserList from '@/components/admin/users/UserList';
 
 export const DashboardPage=() => {
-  const { user } = useSelector((state:any) => state.auth);
-  const { token } = useSelector((state:any) => state.auth);
-  console.log(token)
-  //persistor.purge();
-  useEffect(()=>{
+  //const { user } = useSelector((state:any) => state.auth);
 
-  
-  },[user])
+  //persistor.purge();
+
 
   return (
     <section  className="has-navbar-vertical-aside navbar-vertical-aside-show-xl    footer-offset">

@@ -33,13 +33,15 @@ export default function LoginForm() {
            
             const userObject={email:user,password:pwd}
             const userData=await login(userObject)
-            console.log(userData)
+            console.log(userData.data.refresh_token)
             
             const userState={
                 'refreshToken':userData.data.refresh_token,
                 'accessToken':userData.data.access_token
             }
+           
             dispatch(authTokenChange(userState))
+            
             setUser('')
             setPwd('')
             navigate('/admin/dashboard')

@@ -1,10 +1,8 @@
 
 import { configureStore } from "@reduxjs/toolkit";
-
-import storage from "redux-persist/lib/storage";
-import persistStore from "redux-persist/es/persistStore";
 import { authService } from "@/services/auth";
 import { userService } from "@/services/users";
+import authSlice from "./authSlice";
 
 
 
@@ -14,7 +12,9 @@ export const store=
   configureStore({
     reducer:{
 
-        [authService.reducerPath]:authService.reducer
+        [authService.reducerPath]:authService.reducer,
+        [authSlice.reducerPath]:authSlice.reducer,
+        
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -22,5 +22,3 @@ export const store=
     devTools:true,
 
 })
-
-export const persistor=persistStore(store)
