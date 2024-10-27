@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { persistor } from '../../store';
 import { getUser } from '../../api/auth/getUser';
 import Header from '../../components/auth/Header';
-import Sidebar from '../../components/auth/Sidebar';
+import Sidebar from '../../components/auth/sidebar/Sidebar';
 import { Separator } from '@/components/ui/separator';
 import { Plus } from 'lucide-react';
 import UserList from '@/components/admin/users/UserList';

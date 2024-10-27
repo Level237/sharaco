@@ -2,11 +2,11 @@ export const menus=[
     {
         id:1,
         menu:"Dashboard",
-        icon:`<i className="bi-house nav-icon" />`
+        icon:'bi-house nav-icon'
     },{
         id:2,
         menu:"Devis",
-        icon:``,
+        icon:"bi-stickies nav-icon",
         items:[
             {
                 itemsId:"2-1",
@@ -21,7 +21,7 @@ export const menus=[
 
         id:3,
         menu:"Utilisateurs",
-        icon:`<i className="bi-people nav-icon" />`,
+        icon:`bi-people nav-icon`,
         items:[
             {
                 itemsId:"3-1",
@@ -34,6 +34,6 @@ export const menus=[
     },{
         id:4,
         menu:"Mon Profile",
-        icon:`<i className="bi-person nav-icon" />`
+        icon:`bi-person nav-icon`
     }
 ]
