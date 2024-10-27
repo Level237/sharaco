@@ -5,7 +5,7 @@ import React from 'react'
 export default function UserList() {
 
     const {data:users,isLoading,isSuccess,isError,error}=useGetUsersQuery("Users")
-
+    console.log(error)
     let content;
 
     if(isLoading){

@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion"
 import { useDispatch, useSelector } from 'react-redux'
 import { Logout } from '@/api/auth/LogoutServer'
+import { useGetUserQuery } from '@/services/auth'
 
 export default function UserDropdown() {
 
-
-
+  const {data,isLoading}=useGetUserQuery('Auth')
+  console.log(useGetUserQuery('Auth'))
   const [isVisible,setVisible]=useState(false)
   const dispatch=useDispatch();
 
@@ -14,6 +15,9 @@ export default function UserDropdown() {
   const handleVisible=()=>{
   
     setVisible(!isVisible)
+  }
+  const handleLogout=()=>{
+
   }
   return (
     <>
@@ -46,8 +50,7 @@ export default function UserDropdown() {
                             <img className="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description" />
                           </div>
                           <div className="flex-grow-1 ms-3">
-                            <h5 className="mb-0 text-white">{user.name}</h5>
-                            <p className="card-text text-body">{user.email}</p>
+                            
                           </div>
                         </div>
                       </div>
