@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import {AnimatePresence, motion} from "framer-motion"
 import { useDispatch, useSelector } from 'react-redux'
 import { Logout } from '@/api/auth/LogoutServer'
-import { useGetUserQuery } from '@/services/auth'
+import { useGetUserQuery, useLogoutMutation } from '@/services/auth'
+import { logoutUser } from '@/store/authSlice'
 
 export default function UserDropdown() {
 
-  const {data,isLoading}=useGetUserQuery('Auth')
-  console.log(useGetUserQuery('Auth'))
+  const [logout,{isLoading,isError,error}]=useLogoutMutation()
+
   const [isVisible,setVisible]=useState(false)
   const dispatch=useDispatch();
 
@@ -16,8 +17,9 @@ export default function UserDropdown() {
   
     setVisible(!isVisible)
   }
-  const handleLogout=()=>{
-
+  const handleLogout=async()=>{
+    const response=await logout();
+    dispatch(logoutUser())
   }
   return (
     <>

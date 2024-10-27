@@ -22,14 +22,14 @@ export default function Header() {
             </button>
             {/* End Navbar Vertical Toggle */}
             {/* Search Form */}
-            <div className="dropdown ms-2 bg-[#fff] dark:border-[#6b6a6a36] dark:bg-[#25282a] ">
+            <div className="dropdown ms-2 flex items-center bg-[#fff]  ">
               {/* Input Group */}
-              <div className="d-none d-lg-block bg-[#fff] dark:bg-[#25282a]">
+              <div className="d-none d-lg-block  bg-[#25282a]">
                 <div className="input-group input-group-merge input-group-borderless input-group-hover-light navbar-input-group">
                   <div className="input-group-prepend input-group-text">
                     <i className="bi-search" />
                   </div>
-                  <input type="search" className="js-form-search  form-control" placeholder="Search in front" aria-label="Search in front" data-hs-form-search-options="{
+                  <input type="search" className="js-form-search  rounded-xl dark:border-[#6b6a6a36] dark:bg-[#25282a] py-3.5 px-16" placeholder="Search in front" aria-label="Search in front" data-hs-form-search-options="{
                    &quot;clearIcon&quot;: &quot;#clearSearchResultsIcon&quot;,
                    &quot;dropMenuElement&quot;: &quot;#searchDropdownMenu&quot;,
                    &quot;dropMenuOffset&quot;: 20,
@@ -41,7 +41,7 @@ export default function Header() {
                   </a>
                 </div>
               </div>
-              <button className="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none" type="button" data-hs-form-search-options="{
+              <button className=" w-12" type="button" data-hs-form-search-options="{
                    &quot;clearIcon&quot;: &quot;#clearSearchResultsIcon&quot;,
                    &quot;dropMenuElement&quot;: &quot;#searchDropdownMenu&quot;,
                    &quot;dropMenuOffset&quot;: 20,

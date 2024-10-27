@@ -63,5 +63,6 @@ export const authService=createApi({
 
 export const {
     useLoginMutation,
-    useGetUserQuery
+    useGetUserQuery,
+    useLogoutMutation
 }=authService
