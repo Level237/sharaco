@@ -20,7 +20,9 @@ export const store=
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
-    .concat(authService.middleware,userService.middleware),
+    .concat(authService.middleware)
+    .concat(userService.middleware)
+    ,
     devTools:true,
 
 })

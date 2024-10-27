@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Logout } from '@/api/auth/LogoutServer'
 import { useGetUserQuery, useLogoutMutation } from '@/services/auth'
 import { logoutUser } from '@/store/authSlice'
+import { store } from '@/store'
 
 export default function UserDropdown() {
 
@@ -13,7 +14,7 @@ export default function UserDropdown() {
   const [isVisible,setVisible]=useState(false)
   const dispatch=useDispatch();
 
-
+  console.log(store.getState())
   const handleVisible=()=>{
   
     setVisible(!isVisible)
