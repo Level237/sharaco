@@ -7,6 +7,7 @@ import { baseQueryWithReauth } from "./baseQueryWithReaut";
 
 export const userService=createApi({
     baseQuery:baseQueryWithReauth,
+    reducerPath:"userService",
     tagTypes:['Users'],
     endpoints:builder=>({
         getUsers:builder.query({
@@ -15,10 +16,10 @@ export const userService=createApi({
             providesTags:(result=[])=>[
                 ...result.map(({id}:any)=>({type:'Users',id}) as const)
             ]
-        })
+        }),
     }),
 })
 
 export const {
-    useGetUsersQuery
+    useGetUsersQuery,
 }=userService

@@ -33,7 +33,7 @@ export default function Sidebar() {
                   {/* Collapse */}
                   <div className="nav-item">
                     <a className="nav-link " href="api-keys.html.htm" data-placement="left">
-                      <i className="bi-house nav-icon" />
+                      
                       <span className="nav-link-title">Dashboard</span>
                     </a>
                   </div>

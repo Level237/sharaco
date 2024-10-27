@@ -8,6 +8,7 @@ import { baseQueryWithReauth } from "./baseQueryWithReaut";
 
 export const authService=createApi({
     baseQuery:baseQueryWithReauth,
+    reducerPath:"authService",
     tagTypes:['Auth'],
     endpoints:builder=>({
         login:builder.mutation({
@@ -38,7 +39,8 @@ export const authService=createApi({
             query:()=>({
                 url:"/api/v1/logout",
                 method:"POST",
-            })
+            }),
+            invalidatesTags:['Auth']
         }),
         getUser:builder.query({
            

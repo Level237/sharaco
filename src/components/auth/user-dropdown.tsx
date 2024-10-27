@@ -7,8 +7,9 @@ import { logoutUser } from '@/store/authSlice'
 
 export default function UserDropdown() {
 
-  const [logout,{isLoading,isError,error}]=useLogoutMutation()
-
+  const [logout]=useLogoutMutation()
+  const {data}=useGetUserQuery('Auth')
+  console.log(data)
   const [isVisible,setVisible]=useState(false)
   const dispatch=useDispatch();
 
@@ -18,7 +19,7 @@ export default function UserDropdown() {
     setVisible(!isVisible)
   }
   const handleLogout=async()=>{
-    const response=await logout();
+    await logout();
     dispatch(logoutUser())
   }
   return (
@@ -52,7 +53,8 @@ export default function UserDropdown() {
                             <img className="avatar-img" src="assets/img/160x160/img6.jpg" alt="Image Description" />
                           </div>
                           <div className="flex-grow-1 ms-3">
-                            
+                            <h5 className="mb-0 text-white">{data.name}</h5>
+                            <p className="card-text text-body">{data.email}</p>
                           </div>
                         </div>
                       </div>
