@@ -5,7 +5,7 @@ import { getUser } from '../../api/auth/getUser';
 import Header from '../../components/auth/Header';
 import Sidebar from '../../components/auth/sidebar/Sidebar';
 import { Separator } from '@/components/ui/separator';
-import { ChartArea, ChartBar, ChartLine, MoreHorizontal, Plus } from 'lucide-react';
+import { ChartArea, ChartBar, ChartLine, MoreHorizontal, Plus, Share } from 'lucide-react';
 import UserList from '@/components/admin/users/UserList';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ChartDemo } from '@/components/ChartDemo';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 export const DashboardPage=() => {
   //const { user } = useSelector((state:any) => state.auth);
 
@@ -127,7 +128,7 @@ export const DashboardPage=() => {
       <Card className="flex-1  bg-slate-900 border-[#ffffff25]" >
       <CardHeader>
         <CardTitle className='text-sm flex items-center justify-between font-medium text-white'>
-          <span>Recents quotes</span>
+          <span className=''>Recents quotes</span>
           <Button variant="ghost" size="icon">
             <MoreHorizontal className="h-6 w-6 dark:text-white" />
           </Button>
@@ -141,7 +142,88 @@ export const DashboardPage=() => {
       </CardHeader>
      
       <CardContent className="font-bold text-2xl">
-       
+       <section className='flex flex-col gap-5'>
+        <div className='flex flex-row justify-between items-center'>
+        <div className="flex flex-row items-center gap-3">
+              <Avatar className="h-12 w-12">
+                
+                <AvatarFallback className='bg-orange-600'><span className='text-sm'>M</span></AvatarFallback>
+              </Avatar>
+              <div className='flex flex-col'>
+              <span className="font-medium text-base dark:text-white">Martin</span>
+              <span className='text-sm font-light text-muted-foreground'>User</span>
+              </div>
+              
+              </div>
+              <div>
+                <Button>
+                  <span className='text-sm'>View more</span>
+                  <Share/> </Button>
+              </div>
+
+        </div>
+      <Separator/>
+      <div className='flex flex-row justify-between items-center'>
+        <div className="flex flex-row items-center gap-3">
+              <Avatar className="h-12 w-12">
+                
+                <AvatarFallback className='bg-orange-600'><span className='text-sm'>M</span></AvatarFallback>
+              </Avatar>
+              <div className='flex flex-col'>
+              <span className="font-medium text-base dark:text-white">Martin</span>
+              <span className='text-sm font-light text-muted-foreground'>User</span>
+              </div>
+              
+              </div>
+              <div>
+                <Button>
+                  <span className='text-sm'>View more</span>
+                  <Share/> </Button>
+              </div>
+
+        </div>
+      <Separator/>
+      <div className='flex flex-row justify-between items-center'>
+        <div className="flex flex-row items-center gap-3">
+              <Avatar className="h-12 w-12">
+                
+                <AvatarFallback className='bg-orange-600'><span className='text-sm'>M</span></AvatarFallback>
+              </Avatar>
+              <div className='flex flex-col'>
+              <span className="font-medium text-base dark:text-white">Martin</span>
+              <span className='text-sm font-light text-muted-foreground'>User</span>
+              </div>
+              
+              </div>
+              <div>
+                <Button>
+                  <span className='text-sm'>View more</span>
+                  <Share/> </Button>
+              </div>
+
+        </div>
+      <Separator/>
+      <div className='flex flex-row justify-between items-center'>
+        <div className="flex flex-row items-center gap-3">
+              <Avatar className="h-12 w-12">
+                
+                <AvatarFallback className='bg-orange-600'><span className='text-sm'>M</span></AvatarFallback>
+              </Avatar>
+              <div className='flex flex-col'>
+              <span className="font-medium text-base dark:text-white">Martin</span>
+              <span className='text-sm font-light text-muted-foreground'>User</span>
+              </div>
+              
+              </div>
+              <div>
+                <Button>
+                  <span className='text-sm'>View more</span>
+                  <Share/> </Button>
+              </div>
+
+        </div>
+      <Separator/>
+       </section>
         
       </CardContent>
       <CardFooter>
@@ -150,7 +232,7 @@ export const DashboardPage=() => {
         
       </CardFooter>
     </Card>
-    <div className='w-[28rem]'>
+    <div className='w-[35rem]'>
     <ChartDemo/>
     </div>
       </div>
