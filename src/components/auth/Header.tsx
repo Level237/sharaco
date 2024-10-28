@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Search, Bell, ChevronDown } from "lucide-react"
+import { Search, Bell, ChevronDown, Menu, Settings, LogOut, Sun } from "lucide-react"
 
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -10,51 +10,81 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useTheme } from "../theme-provider"
+import { useGetUserQuery, useLogoutMutation } from "@/services/auth"
+import { logoutUser } from "@/store/authSlice"
+import { useDispatch } from "react-redux"
 
-export default function Header({ isSidebarOpen }: { isSidebarOpen: boolean }){
+export default function Header({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}){
+  const {data,isLoading,error}=useGetUserQuery('Auth')
+  const [logout]=useLogoutMutation()
+  const { setTheme } = useTheme();
+  const dispatch=useDispatch();
+  const handleLogout=async()=>{
+    await logout();
+    dispatch(logoutUser())
+
+  }
   return (
+    
     <>
-      <header className={`bg-background border-b border-b-2 text-foreground p-4 flex items-center justify-between transition-all duration-300 ease-in-out ${isSidebarOpen ? '' : 'ml-12'}`}>
-      <div className="flex-2 max-w-xl">
-        <div className="relative">
-          <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
-          <Input
-            type="search"
-            placeholder="Rechercher..."
-            className="pl-10 w-full"
-          />
-        </div>
-      </div>
-      <div className="flex items-center space-x-4">
-        <Button variant="ghost" size="icon" className="relative">
-          <Bell className="h-5 w-5" />
-          <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full" />
-        </Button>
-        <DropdownMenu>
+     <header className="sticky bg-slate-900 top-0 z-30 bg-transparent backdrop-blur-xl  flex h-16 items-center  justify-between border-b dark:border-[#ffffff17]  px-4 sm:px-6">
+          <Button variant="ghost" size="icon" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+            <Menu className="h-6 w-6 dark:text-white" />
+          </Button>
+          <div className="flex items-center space-x-4">
+            <div className="relative ">
+              <Search className="absolute  dark:text-white left-2 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search in front"
+                className="w-[300px] dark:border-[#ffffff17] dark:text-white pl-8"
+              />
+            </div>
+            <Button variant="ghost" size="icon">
+              <Bell className="h-5 w-5 dark:text-white" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <Settings className="h-5 w-5 dark:text-white" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <LogOut onClick={handleLogout} className="h-5 w-5 dark:text-white" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme("dark")}
+            >
+                <Sun className="h-5 w-5 dark:text-white" />
+
+            </Button>
+            <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center space-x-2">
               <Avatar className="h-8 w-8">
                 <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <span className="font-medium">John Doe</span>
-              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+              {!isLoading && <span className="font-medium dark:text-white">{data.name}</span>}
+              
+              <ChevronDown className="h-4 w-4 dark:text-white text-muted-foreground" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>Mon compte</DropdownMenuLabel>
+          <DropdownMenuContent align="end" className="w-56 dark:text-white dark:border-[#ffffff17]">
+            <DropdownMenuLabel >Mon compte</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Profil</DropdownMenuItem>
             <DropdownMenuItem>Paramètres</DropdownMenuItem>
             <DropdownMenuItem>Tableau de bord</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Se déconnecter</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>Se déconnecter</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
-    </header>
+          </div>
+        </header>
     </>
   )
 }

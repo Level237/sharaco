@@ -48,7 +48,7 @@ export const authService=createApi({
                 providesTags: ['Auth'],
                 transformErrorResponse: (baseQueryResult, error, arg) => {
                     // Ici, vous pouvez personnaliser la réponse d'erreur
-                    console.log(arg)
+                    console.log("dd")
                      if(baseQueryResult.status===401){
                         return { error: "l'email et le mot de passe ne peut pas etre vide" };
                     }else if(baseQueryResult.status===500){

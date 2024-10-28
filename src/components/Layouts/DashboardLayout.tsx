@@ -33,6 +33,7 @@ import {
 } from "@/components/ui/collapsible"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import Header from "../auth/Header"
 
 interface NavItem {
   title: string
@@ -102,62 +103,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Main Content */}
       <div className={cn("flex-1 transition-all duration-300 ease-in-out", isSidebarOpen ? "ml-64" : "ml-0")}>
         {/* Header */}
-        <header className="sticky bg-slate-900 top-0 z-30 bg-transparent backdrop-blur-sm  flex h-16 items-center  justify-between border-b dark:border-[#ffffff17]  px-4 sm:px-6">
-          <Button variant="ghost" size="icon" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-            <Menu className="h-6 w-6 dark:text-white" />
-          </Button>
-          <div className="flex items-center space-x-4">
-            <div className="relative ">
-              <Search className="absolute  dark:text-white left-2 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search in front"
-                className="w-[300px] dark:border-[#ffffff17] dark:text-white pl-8"
-              />
-            </div>
-            <Button variant="ghost" size="icon">
-              <Bell className="h-5 w-5 dark:text-white" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Settings className="h-5 w-5 dark:text-white" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <LogOut className="h-5 w-5 dark:text-white" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme("dark")}
-            >
-              
-                <Sun className="h-5 w-5 dark:text-white" />
-              
-                
-              
-            </Button>
-            <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center space-x-2">
-              <Avatar className="h-8 w-8">
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <span className="font-medium dark:text-white">John Doe</span>
-              <ChevronDown className="h-4 w-4 dark:text-white text-muted-foreground" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56 dark:text-white dark:border-[#ffffff17]">
-            <DropdownMenuLabel >Mon compte</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Profil</DropdownMenuItem>
-            <DropdownMenuItem>Paramètres</DropdownMenuItem>
-            <DropdownMenuItem>Tableau de bord</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Se déconnecter</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-          </div>
-        </header>
+        <Header setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen}/>
+        
 
         {/* Page Content */}
         <main className="flex-1 overflow-y-auto p-6">{children}</main>
