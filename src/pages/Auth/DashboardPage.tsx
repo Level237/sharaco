@@ -5,7 +5,7 @@ import { getUser } from '../../api/auth/getUser';
 import Header from '../../components/auth/Header';
 import Sidebar from '../../components/auth/sidebar/Sidebar';
 import { Separator } from '@/components/ui/separator';
-import { ChartArea, ChartBar, ChartLine, Plus } from 'lucide-react';
+import { ChartArea, ChartBar, ChartLine, MoreHorizontal, Plus } from 'lucide-react';
 import UserList from '@/components/admin/users/UserList';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,6 +16,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ChartDemo } from '@/components/ChartDemo';
 export const DashboardPage=() => {
   //const { user } = useSelector((state:any) => state.auth);
 
@@ -31,7 +33,7 @@ export const DashboardPage=() => {
       </div>
       <Separator/>
       <div className='grid grid-cols-4 gap-4'>
-      <Card className="w-full max-h-44 bg-gray-900 border-[#ffffff25]" >
+      <Card className="w-full max-h-44 bg-slate-900 border-[#ffffff25]" >
       <CardHeader>
         <CardTitle className='text-sm font-medium text-muted-foreground'>Totals Users</CardTitle>
 
@@ -53,7 +55,7 @@ export const DashboardPage=() => {
         
       </CardFooter>
     </Card>
-    <Card className="w-full max-h-44 bg-gray-900 border-[#ffffff25]" >
+    <Card className="w-full max-h-44 bg-slate-900 border-[#ffffff25]" >
       <CardHeader>
         <CardTitle className='text-sm font-medium text-muted-foreground'>Totals Users</CardTitle>
 
@@ -75,7 +77,7 @@ export const DashboardPage=() => {
         
       </CardFooter>
     </Card>
-    <Card className="w-full max-h-44 bg-gray-900 border-[#ffffff25]" >
+    <Card className="w-full max-h-44 bg-slate-900 border-[#ffffff25]" >
       <CardHeader>
         <CardTitle className='text-sm font-medium text-muted-foreground'>Totals Users</CardTitle>
 
@@ -97,10 +99,10 @@ export const DashboardPage=() => {
         
       </CardFooter>
     </Card>
-    <Card className="w-full max-h-44 bg-gray-900 border-[#ffffff25]" >
+    <Card className="w-full max-h-44 bg-slate-900 border-[#ffffff25]" >
       <CardHeader>
         <CardTitle className='text-sm font-medium text-muted-foreground'>Totals Users</CardTitle>
-
+        
       </CardHeader>
       <CardContent className="font-bold text-2xl">
        
@@ -119,6 +121,38 @@ export const DashboardPage=() => {
         
       </CardFooter>
     </Card>
+      </div>
+
+      <div className='flex gap-3 mt-9'>
+      <Card className="flex-1  bg-slate-900 border-[#ffffff25]" >
+      <CardHeader>
+        <CardTitle className='text-sm flex items-center justify-between font-medium text-white'>
+          <span>Recents quotes</span>
+          <Button variant="ghost" size="icon">
+            <MoreHorizontal className="h-6 w-6 dark:text-white" />
+          </Button>
+          
+        </CardTitle>
+        <Separator className='mt-[-1.2rem] mb-[1rem]'/>
+      <CardDescription className='text-muted-foreground mt-5'>
+
+      See and talk to your users and leads immediately by importing your data into the Front Dashboard platform.
+      </CardDescription>
+      </CardHeader>
+     
+      <CardContent className="font-bold text-2xl">
+       
+        
+      </CardContent>
+      <CardFooter>
+          
+          
+        
+      </CardFooter>
+    </Card>
+    <div className='w-[28rem]'>
+    <ChartDemo/>
+    </div>
       </div>
     </section>
   );

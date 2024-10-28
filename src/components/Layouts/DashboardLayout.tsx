@@ -66,7 +66,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const { setTheme } = useTheme();
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex  bg-background h-[100%]">
       {/* Sidebar */}
       <aside
         className={cn(
@@ -74,10 +74,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="flex h-full flex-col border-r dark:border-[#ffffff28] bg-background text-card-foreground">
+        <div className="flex h-full flex-col border-r dark:border-[#ffffff17] bg-background bg-slate-900">
           {/* Logo */}
-          <div className="flex h-16 items-center border-b dark:border-[#ffffff28] px-6">
-            <span className="text-2xl dark:text-white   font-bold">Sharaco</span>
+          <div className="flex h-16 items-center border-b dark:border-[#ffffff17] px-6">
+            <span className="text-2xl dark:text-primary   font-bold">Sharaco</span>
           </div>
 
           {/* Navigation */}
@@ -90,8 +90,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </ScrollArea>
 
           {/* Footer */}
-          <div className="border-t dark:border-[#ffffff28] p-4">
-            <Button variant="ghost" className="w-full dark:border-[#ffffff28] dark:text-white" onClick={() => setIsSidebarOpen(false)}>
+          <div className="border-t dark:border-[#ffffff17] p-4">
+            <Button variant="ghost" className="w-full dark:border-[#ffffff17] dark:text-white" onClick={() => setIsSidebarOpen(false)}>
               <Menu className="mr-2 h-4 w-4 dark:text-white" />
               Collapse Sidebar
             </Button>
@@ -102,7 +102,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Main Content */}
       <div className={cn("flex-1 transition-all duration-300 ease-in-out", isSidebarOpen ? "ml-64" : "ml-0")}>
         {/* Header */}
-        <header className="sticky top-0 z-30  flex h-16 items-center  justify-between border-b dark:border-[#ffffff28]  px-4 sm:px-6">
+        <header className="sticky bg-slate-900 top-0 z-30 bg-transparent backdrop-blur-sm  flex h-16 items-center  justify-between border-b dark:border-[#ffffff17]  px-4 sm:px-6">
           <Button variant="ghost" size="icon" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <Menu className="h-6 w-6 dark:text-white" />
           </Button>
@@ -112,7 +112,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <Input
                 type="search"
                 placeholder="Search in front"
-                className="w-[300px] dark:border-[#ffffff28] dark:text-white pl-8"
+                className="w-[300px] dark:border-[#ffffff17] dark:text-white pl-8"
               />
             </div>
             <Button variant="ghost" size="icon">
@@ -146,7 +146,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <ChevronDown className="h-4 w-4 dark:text-white text-muted-foreground" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56 dark:text-white dark:border-[#ffffff28]">
+          <DropdownMenuContent align="end" className="w-56 dark:text-white dark:border-[#ffffff17]">
             <DropdownMenuLabel >Mon compte</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Profil</DropdownMenuItem>
