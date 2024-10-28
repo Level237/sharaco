@@ -9,9 +9,10 @@ import ActivityPage from '../pages/Account/ActivityPage';
 import CompanyPage from '../pages/Account/CompagnyPage';
 import AccountStepPage from '../pages/Account/AccountStepPage';
 import { DashboardPage } from '../pages/Auth/DashboardPage';
-import { DashboardLayout } from '../components/Layouts/DashboardLayout';
+
 import { PrivateRoute } from "../pages/Auth/PrivateRoute";
 import { GuardRoute } from "../pages/GuartRoute";
+import DashboardLayout from "@/components/Layouts/DashboardLayout";
 
 
 export const routes=createBrowserRouter([{
