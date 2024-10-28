@@ -22,7 +22,7 @@ export const DashboardPage=() => {
       {/* ========== END HEADER ========== */}
       {/* ========== MAIN CONTENT ========== */}
       {/* Navbar Vertical */}
-     <Sidebar/>
+   
       {/* End Navbar Vertical */}
       <main id="content" role="main" className="main">
         {/* Content */}
@@ -31,7 +31,7 @@ export const DashboardPage=() => {
           <div className="mb-7">
             <div className="row align-items-center">
               <div className="col-sm mb-2 mb-sm-0">
-                <h1 className="text-white text-xl font-bold dark:text-white">Dashboard</h1>
+                <h1 className="text-black text-xl font-bold dark:text-white">Dashboard</h1>
               </div>
               {/* End Col */}
               <div className="col-sm-auto">

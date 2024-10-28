@@ -1,4 +1,4 @@
-import { menus } from '@/data/sidebarData'
+import { menus } from '@/data/sidebar/DashboardData'
 import { Item } from './item'
 
 export default function ListItems() {

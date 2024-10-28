@@ -13,8 +13,8 @@ export const Item: React.FC<{ menu:string,icon:string,id:number,items:any }> = (
     <>
       <div  key={id} className="nav-item">
                     <a className={`nav-link ${items && "dropdown-toggle"} `} onClick={handleVisible}  role="button"  aria-expanded="false" aria-controls="navbarVerticalMenuPagesUsersMenu">
-                    <i className={icon} />
-                      <span className="nav-link-title">{menu}</span>
+                    <icon/>
+                      <span className="text-black nav-link-title">{menu}</span>
                     </a>
                     <AnimatePresence>
                     {isVisible && items &&    <motion.div 
@@ -25,7 +25,7 @@ export const Item: React.FC<{ menu:string,icon:string,id:number,items:any }> = (
                       {items.map((item:any)=>{
 
                         return (
-                            <a className="nav-link " href="users.html.htm">{item.title}</a> 
+                            <a className="nav-link text-black" href="users.html.htm">{item.title}</a> 
                         )
                       })}
                     </motion.div>}
