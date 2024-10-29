@@ -1,12 +1,6 @@
 import { NavItemInterface } from "@/interfaces/NavItemsInterface";
 import {
-    ChevronDown,
     ChevronRight,
-    Search,
-    Bell,
-    Settings,
-    LogOut,
-    Menu,
     Home,
     Users,
     UserCircle,
@@ -15,8 +9,6 @@ import {
     Briefcase,
     Key,
     FileText,
-    Moon,
-    Sun,
   } from "lucide-react";
 
 export const navItems: NavItemInterface[] = [

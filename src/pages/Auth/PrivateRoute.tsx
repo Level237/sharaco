@@ -1,5 +1,3 @@
-import { selectCurrentToken } from '@/store/authSlice'
-import React, { ReactNode, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import {  Navigate, Outlet, useLocation} from 'react-router-dom'
 
