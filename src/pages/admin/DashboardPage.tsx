@@ -1,12 +1,7 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { persistor } from '../../store';
-import { getUser } from '../../api/auth/getUser';
-import Header from '../../components/auth/Header';
-import Sidebar from '../../components/auth/sidebar/Sidebar';
+
 import { Separator } from '@/components/ui/separator';
-import { ChartArea, ChartBar, ChartLine, MoreHorizontal, Plus, Share } from 'lucide-react';
-import UserList from '@/components/admin/users/UserList';
+import { ChartLine, MoreHorizontal, Share } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -16,13 +11,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ChartDemo } from '@/components/ChartDemo';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-export const DashboardPage=() => {
-  //const { user } = useSelector((state:any) => state.auth);
 
-  //persistor.purge();
+import { ChartDemo } from '@/components/ChartDemo';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+export const DashboardPage=() => {
+
 
 
   return (

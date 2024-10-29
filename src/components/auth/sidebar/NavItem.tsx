@@ -4,6 +4,7 @@ import { NavItemInterface } from "@/interfaces/NavItemsInterface"
 import { cn } from "@/lib/utils"
 import { ChevronRight } from "lucide-react"
 import React from "react"
+import { Link } from "react-router-dom"
 
 
 export function NavItem({ item }: { item: NavItemInterface }) {
@@ -32,10 +33,10 @@ export function NavItem({ item }: { item: NavItemInterface }) {
   
     return (
       <Button variant="ghost" className="w-full hover:bg-[#00000018] dark:hover:bg-[#ffffff1a] dark:text-white justify-start" asChild>
-        <a href={item.href} >
+        <Link  to={item.href} >
           {item.icon}
           <span className="ml-2 dark:text-white">{item.title}</span>
-        </a>
+        </Link>
       </Button>
     )
   }

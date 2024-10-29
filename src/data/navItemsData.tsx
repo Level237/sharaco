@@ -29,7 +29,7 @@ export const navItems: NavItemInterface[] = [
         { title: "eCommerce", icon: <ChevronRight className="h-4 w-4" />, href: "#" },
       ],
     },
-    { title: "Users", icon: <Users className="h-4 w-4" />, href: "#" },
+    { title: "Users", icon: <Users className="h-4 w-4" />, href: "/admin/users" },
     { title: "User Profile", icon: <UserCircle className="h-4 w-4" />, href: "#" },
     { title: "Account", icon: <CreditCard className="h-4 w-4" />, href: "#" },
     { title: "E-commerce", icon: <ShoppingCart className="h-4 w-4" />, href: "#" },
