@@ -1,4 +1,4 @@
-import * as React from "react"
+
 import { Search, Bell, ChevronDown, Menu, Settings, LogOut, Sun } from "lucide-react"
 
 import { Input } from "@/components/ui/input"
@@ -9,9 +9,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
 import { useTheme } from "../theme-provider"
 import { useGetUserQuery, useLogoutMutation } from "@/services/auth"
@@ -19,7 +18,8 @@ import { logoutUser } from "@/store/authSlice"
 import { useDispatch } from "react-redux"
 
 export default function Header({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}){
-  const {data,isLoading,error}=useGetUserQuery('Auth')
+  const {data,isLoading}=useGetUserQuery('Auth')
+  console.log(data)
   const [logout]=useLogoutMutation()
   const { setTheme } = useTheme();
   const dispatch=useDispatch();

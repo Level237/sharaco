@@ -13,7 +13,7 @@ import { DashboardPage } from '../pages/admin/DashboardPage';
 import { PrivateRoute } from "../pages/Auth/PrivateRoute";
 import { GuardRoute } from "../pages/GuartRoute";
 import DashboardLayout from "@/components/Layouts/DashboardLayout";
-import UserList from "@/pages/admin/users/List";
+import UserListPage from "@/pages/admin/users/UserListPage";
 
 
 
@@ -57,7 +57,7 @@ export const routes=createBrowserRouter([{
             element:<DashboardPage/>
         },{
             path:'users',
-            element:<UserList/>
+            element:<UserListPage/>
         }
     ]
 }
