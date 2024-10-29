@@ -44,7 +44,7 @@ export default function LoginForm() {
             
             setUser('')
             setPwd('')
-            navigate('/admin/dashboard')
+            navigate('/dashboard')
 
     }
 

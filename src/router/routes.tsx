@@ -49,14 +49,14 @@ export const routes=createBrowserRouter([{
     path:'/step-final/account',
     element:<AccountStepPage/>
 },{
-    path:'/admin',
+    path:'/',
     element:<DashboardLayout><PrivateRoute/></DashboardLayout>,
     children:[
         {
             path:'dashboard',
             element:<DashboardPage/>
         },{
-            path:'users',
+            path:'quotes',
             element:<UserListPage/>
         }
     ]

@@ -121,7 +121,7 @@ export const DashboardPage=() => {
       <Card className="flex-1  bg-slate-900 border-[#ffffff25]" >
       <CardHeader>
         <CardTitle className='text-sm flex items-center justify-between font-medium text-white'>
-          <span className=''>Recents quotes</span>
+          <span className=''>My Recents quotes</span>
           <Button variant="ghost" size="icon">
             <MoreHorizontal className="h-6 w-6 dark:text-white" />
           </Button>

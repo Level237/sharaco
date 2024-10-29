@@ -19,7 +19,7 @@ export default function Sidebar({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOp
         <div className="flex h-full flex-col border-r dark:border-[#ffffff17] bg-background bg-slate-900">
           {/* Logo */}
           <div className="flex h-16 items-center border-b dark:border-[#ffffff17] px-6">
-            <Link to={"/admin/dashboard"}>
+            <Link to={"/dashboard"}>
             <span className="text-2xl dark:text-primary   font-bold">Sharaco</span>
             </Link>
            
