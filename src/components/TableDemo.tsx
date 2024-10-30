@@ -261,6 +261,7 @@ let data=null
                 className="h-24  text-center"
               >
                 Empty quotes
+                
               </TableCell>
             </TableRow>
           )}
