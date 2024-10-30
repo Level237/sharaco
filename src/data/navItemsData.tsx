@@ -9,6 +9,7 @@ import {
     Briefcase,
     Key,
     FileText,
+    Trash,
   } from "lucide-react";
 
 export const navItems: NavItemInterface[] = [
@@ -22,7 +23,7 @@ export const navItems: NavItemInterface[] = [
       ],
     },
     { title: "Quotes", icon: <FileText className="h-4 w-4" />, href: "/quotes" },
-    { title: "User Profile", icon: <UserCircle className="h-4 w-4" />, href: "#" },
+    { title: "Draft", icon: <Trash className="h-4 w-4" />, href: "#" },
     { title: "Account", icon: <CreditCard className="h-4 w-4" />, href: "#" },
     { title: "E-commerce", icon: <ShoppingCart className="h-4 w-4" />, href: "#" },
     { title: "Projects", icon: <Briefcase className="h-4 w-4" />, href: "#" },

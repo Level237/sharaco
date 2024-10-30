@@ -8,12 +8,13 @@ import ProfessionPage from '../pages/Account/ProfessionPage';
 import ActivityPage from '../pages/Account/ActivityPage';
 import CompanyPage from '../pages/Account/CompagnyPage';
 import AccountStepPage from '../pages/Account/AccountStepPage';
-import { DashboardPage } from '../pages/admin/DashboardPage';
+import { DashboardPage } from '../pages/users/DashboardPage';
 
 import { PrivateRoute } from "../pages/Auth/PrivateRoute";
 import { GuardRoute } from "../pages/GuartRoute";
 import DashboardLayout from "@/components/Layouts/DashboardLayout";
-import UserListPage from "@/pages/admin/users/UserListPage";
+import QuoteListPage from "@/pages/users/quotes/QuoteListPage";
+
 
 
 
@@ -57,7 +58,7 @@ export const routes=createBrowserRouter([{
             element:<DashboardPage/>
         },{
             path:'quotes',
-            element:<UserListPage/>
+            element:<QuoteListPage/>
         }
     ]
 }

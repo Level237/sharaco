@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 
-export default function UserList() {
+export default function QuoteListPage() {
    
   return (
     <section  className="flex flex-col gap-5 ">
