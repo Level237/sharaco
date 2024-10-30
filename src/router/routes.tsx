@@ -14,6 +14,7 @@ import { PrivateRoute } from "../pages/Auth/PrivateRoute";
 import { GuardRoute } from "../pages/GuartRoute";
 import DashboardLayout from "@/components/Layouts/DashboardLayout";
 import QuoteListPage from "@/pages/users/quotes/QuoteListPage";
+import NewQuotePage from "@/pages/users/quotes/NewQuotePage";
 
 
 
@@ -59,6 +60,9 @@ export const routes=createBrowserRouter([{
         },{
             path:'quotes',
             element:<QuoteListPage/>
+        },{
+            path:'/new/quote',
+            element:<NewQuotePage/>
         }
     ]
 }

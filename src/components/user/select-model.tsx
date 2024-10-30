@@ -12,16 +12,32 @@ import {
   import { Button } from "@/components/ui/button"
 import React, { useState } from "react"
 import { Separator } from "../ui/separator"
+import { useNavigate } from "react-router-dom"
+import { timeout } from "@/lib/delay"
   
   export function SelectModel({children}:{children:React.ReactNode}) {
 
     const [selected,setSelected]=useState(null)
+    const [isLoading,setIsLoading]=useState(false)
+    const navigate=useNavigate()
     const handleSelectTemplate=(id:any)=>{
         setSelected(id)
     }
 
     const handleClear=()=>{
         setSelected(null)
+    }
+
+    const handleSelected=async(e:any)=>{
+        e.preventDefault()
+        setIsLoading(true)
+        await timeout(3000).then(()=>{
+            navigate('/new/quote')
+        })
+        //console.log(isLoading)
+        
+           
+        
     }
     return (
       <AlertDialog>
@@ -52,8 +68,8 @@ import { Separator } from "../ui/separator"
           </AlertDialogHeader>
           <AlertDialogFooter className="absolute bottom-8 right-8">
             <AlertDialogCancel onClick={handleClear}  className="dark:text-white">Cancel</AlertDialogCancel>
-            {selected ==null && <AlertDialogAction disabled>Continue</AlertDialogAction>}
-            {selected !==null && <AlertDialogAction>Continue</AlertDialogAction>}
+            <AlertDialogAction onClick={handleSelected} disabled={selected==null || isLoading}>{isLoading ? "Loading..." : "Continue"}</AlertDialogAction>
+            
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
