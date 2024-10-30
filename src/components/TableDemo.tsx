@@ -42,12 +42,14 @@ import {
 } from "@/components/ui/table"
 import { UserType } from "@/types/User"
 import { useGetUsersQuery } from "@/services/users"
+import { QuoteType } from "@/types/Quote"
+import { useGetQuotesQuery } from "@/services/quotes"
 
 
 
 
 
-export const columns: ColumnDef<UserType>[] = [
+export const columns: ColumnDef<QuoteType>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -71,35 +73,21 @@ export const columns: ColumnDef<UserType>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "name",
-    header: "Name",
+    accessorKey: "logo",
+    header: "Logo",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("name")}</div>
+      <div className="capitalize">{row.getValue("logo")}</div>
     ),
   },
   {
-    accessorKey: "company_name",
-    header: "Company",
+    accessorKey: "title",
+    header: "Title",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("company_name")}</div>
+      <div className="capitalize">{row.getValue("title")}</div>
     ),
   },
   
-  {
-    accessorKey: "email",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Email
-          <CaretSortIcon className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
-  },
+ 
   
   {
     id: "actions",
@@ -137,7 +125,7 @@ export function DataTableDemo() {
 
 
   
-  const {data:users,isLoading,isSuccess,isError,error}=useGetUsersQuery("Users")
+  const {data:quotes,isLoading,isSuccess,isError,error}=useGetQuotesQuery('Quotes')
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -147,7 +135,7 @@ export function DataTableDemo() {
   const [rowSelection, setRowSelection] = React.useState({})
 let data=null
  if(!isLoading){
-  data=users
+  data=quotes
  }else{
   data=[]
  }
@@ -190,7 +178,7 @@ let data=null
   <>
     <div className="flex items-center py-4">
       <Input
-        placeholder="Filter emails..."
+        placeholder="Filter quotes"
         value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
         onChange={(event) =>
           table.getColumn("email")?.setFilterValue(event.target.value)
@@ -272,7 +260,7 @@ let data=null
                 colSpan={columns.length}
                 className="h-24  text-center"
               >
-                No results.
+                Empty quotes
               </TableCell>
             </TableRow>
           )}

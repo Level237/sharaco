@@ -21,5 +21,5 @@ export const userService=createApi({
 })
 
 export const {
-    useGetUsersQuery,
+   useGetUsersQuery
 }=userService
