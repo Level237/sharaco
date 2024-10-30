@@ -17,7 +17,7 @@ import { useGetUserQuery, useLogoutMutation } from "@/services/auth"
 import { logoutUser } from "@/store/authSlice"
 import { useDispatch } from "react-redux"
 
-export default function Header({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}){
+export default function Header({setIsSidebarOpen,isSidebarOpen,isShowLogo}:{setIsSidebarOpen:any,isSidebarOpen:boolean,isShowLogo:boolean}){
   const {data,isLoading}=useGetUserQuery('Auth')
   console.log(data)
   const [logout]=useLogoutMutation()
@@ -32,9 +32,13 @@ export default function Header({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpe
     
     <>
      <header className="sticky bg-slate-900 top-0 z-30 bg-transparent backdrop-blur-xl  flex h-16 items-center  justify-between border-b dark:border-[#ffffff17]  px-4 sm:px-6">
-          <Button variant="ghost" size="icon" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+      {!isShowLogo && <Button variant="ghost" size="icon" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <Menu className="h-6 w-6 dark:text-white" />
-          </Button>
+            
+            
+          </Button>} 
+          
+          {isShowLogo && <span className="text-2xl dark:text-primary   font-bold">Sharaco</span>}
           <div className="flex items-center space-x-4">
             <div className="relative ">
               <Search className="absolute  dark:text-white left-2 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />

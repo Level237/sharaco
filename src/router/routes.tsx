@@ -15,6 +15,7 @@ import { GuardRoute } from "../pages/GuartRoute";
 import DashboardLayout from "@/components/Layouts/DashboardLayout";
 import QuoteListPage from "@/pages/users/quotes/QuoteListPage";
 import NewQuotePage from "@/pages/users/quotes/NewQuotePage";
+import QuoteLayout from "@/components/Layouts/QuoteLayout";
 
 
 
@@ -60,7 +61,13 @@ export const routes=createBrowserRouter([{
         },{
             path:'quotes',
             element:<QuoteListPage/>
-        },{
+        }
+    ]
+},{
+    path:'/',
+    element:<QuoteLayout><PrivateRoute/></QuoteLayout>,
+    children:[
+        {
             path:'/new/quote',
             element:<NewQuotePage/>
         }
