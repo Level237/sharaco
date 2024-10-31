@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../auth/Header'
 import { cn } from '@/lib/utils'
+import SideTools from '../user/SideTools'
 
 export default function QuoteLayout({ children }: { children: React.ReactNode }) {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
@@ -9,11 +10,11 @@ export default function QuoteLayout({ children }: { children: React.ReactNode })
     return (
       <div className="flex  bg-background h-[100%]">
 
-        
+<SideTools setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen}/>
         {/* Main Content */}
-        <div className={cn("flex-1 transition-all duration-300 ease-in-out ml-0")}>
+        <div className={cn("flex-1 transition-all duration-300 ease-in-out", isSidebarOpen ? "ml-72" : "ml-0")}>
           {/* Header */}
-          <Header setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} isShowLogo={true}/>
+          <Header setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} isShowLogo={false}/>
           
   
           {/* Page Content */}
