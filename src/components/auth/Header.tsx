@@ -1,5 +1,5 @@
 
-import { Search, Bell, ChevronDown, Menu, Settings, LogOut, Sun } from "lucide-react"
+import { Search, Bell, ChevronDown, Menu, Settings, LogOut, Sun, Download } from "lucide-react"
 
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -17,7 +17,7 @@ import { useGetUserQuery, useLogoutMutation } from "@/services/auth"
 import { logoutUser } from "@/store/authSlice"
 import { useDispatch } from "react-redux"
 
-export default function Header({setIsSidebarOpen,isSidebarOpen,isShowLogo}:{setIsSidebarOpen:any,isSidebarOpen:boolean,isShowLogo:boolean}){
+export default function Header({setIsSidebarOpen,isQuoteLayout,isSidebarOpen,isShowLogo}:{setIsSidebarOpen:any,isSidebarOpen:boolean,isShowLogo:boolean,isQuoteLayout:boolean}){
   const {data,isLoading}=useGetUserQuery('Auth')
   console.log(data)
   const [logout]=useLogoutMutation()
@@ -40,14 +40,15 @@ export default function Header({setIsSidebarOpen,isSidebarOpen,isShowLogo}:{setI
           
           {isShowLogo && <span className="text-2xl dark:text-primary   font-bold">Sharaco</span>}
           <div className="flex items-center space-x-4">
-            <div className="relative ">
+            {!isQuoteLayout && <div className="relative ">
               <Search className="absolute  dark:text-white left-2 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search in front"
                 className="w-[300px] dark:border-[#ffffff17] dark:text-white pl-8"
               />
-            </div>
+            </div>}
+            
             <Button variant="ghost" size="icon">
               <Bell className="h-5 w-5 dark:text-white" />
             </Button>
@@ -87,6 +88,10 @@ export default function Header({setIsSidebarOpen,isSidebarOpen,isShowLogo}:{setI
             <DropdownMenuItem onClick={handleLogout}>Se déconnecter</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        {isQuoteLayout  && <div>
+          <Button className="text-white"><Download/> Exporter</Button>
+        </div>}
+        
           </div>
         </header>
     </>

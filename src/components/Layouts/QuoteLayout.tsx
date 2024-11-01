@@ -14,7 +14,7 @@ export default function QuoteLayout({ children }: { children: React.ReactNode })
         {/* Main Content */}
         <div className={cn("flex-1 transition-all duration-300 ease-in-out", isSidebarOpen ? "ml-72" : "ml-0")}>
           {/* Header */}
-          <Header setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} isShowLogo={false}/>
+          <Header setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} isQuoteLayout={true} isShowLogo={false}/>
           
   
           {/* Page Content */}
