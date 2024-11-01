@@ -110,6 +110,14 @@ export default function DocumentFreelance() {
             </div>
 
             </div>
+            <div className='flex mt-5 flex-row items-center justify-between'>
+              <div>
+
+              </div>
+              <div>
+              <h2 className='text-sm'>Total: <span className='font-bold'>34 898 Fcfa</span></h2>
+              </div>
+            </div>
       </section>
 
   )
