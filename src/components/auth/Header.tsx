@@ -88,7 +88,7 @@ export default function Header({setIsSidebarOpen,isQuoteLayout,isSidebarOpen,isS
             <DropdownMenuItem onClick={handleLogout}>Se déconnecter</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        {isQuoteLayout  && <div>
+        {isQuoteLayout  && isSidebarOpen && <div>
           <Button className="text-white"><Download/> Exporter</Button>
         </div>}
         
