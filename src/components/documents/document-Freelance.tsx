@@ -39,6 +39,77 @@ export default function DocumentFreelance() {
               <h2 className='text-xs text-left text-muted'>Valide jusqu'au 31/01/2024</h2>
               </div>
             </div>
+            <div>
+
+
+            <div className="relative overflow-x-auto mt-12">
+                <table className="w-full text-sm text-left border  rtl:text-right text-black">
+                    <thead className="text-xs text-white uppercase bg-gray-50 dark:bg-primary ">
+                        <tr>
+                            <th scope="col" className="px-6 py-3">
+                              Designation
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                               Price
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                               Quantity
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Total
+                            </th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        <tr className="bg-white border-b  ">
+                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                Apple MacBook Pro 17
+                            </th>
+                            <td className="px-6 py-4">
+                                Silver
+                            </td>
+                            <td className="px-6 py-4">
+                                Laptop
+                            </td>
+                            <td className="px-6 py-4">
+                                $2999
+                            </td>
+                        </tr>
+                        <tr className="bg-white border-b  ">
+                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                Apple MacBook Pro 17
+                            </th>
+                            <td className="px-6 py-4">
+                                Silver
+                            </td>
+                            <td className="px-6 py-4">
+                                Laptop
+                            </td>
+                            <td className="px-6 py-4">
+                                $2999
+                            </td>
+                        </tr>
+                        <tr className="bg-white border-b  ">
+                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                Apple MacBook Pro 17
+                            </th>
+                            <td className="px-6 py-4">
+                                Silver
+                            </td>
+                            <td className="px-6 py-4">
+                                Laptop
+                            </td>
+                            <td className="px-6 py-4">
+                                $2999
+                            </td>
+                        </tr>
+                      
+                    </tbody>
+                </table>
+            </div>
+
+            </div>
       </section>
 
   )
