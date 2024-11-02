@@ -20,8 +20,8 @@ import { Building, User } from "lucide-react"
     const [selected,setSelected]=useState(null)
     const [isLoading,setIsLoading]=useState(false)
     const navigate=useNavigate()
-    const handleSelectTemplate=(id:any)=>{
-        setSelected(id)
+    const handleSelectTemplate=(title:any)=>{
+        setSelected(title)
     }
 
     const handleClear=()=>{
@@ -53,8 +53,8 @@ import { Building, User } from "lucide-react"
              
              
               <div className="flex  justify-around mt-8">
-                    <div  className="flex cursor-pointer  flex-col justify-center gap-3">
-                        <div className="border hover:bg-[#0285c736] hover:border-primary hover:border-[0.3rem] hover:text-primary rounded dark:border-[#ffffff17] p-10">
+                    <div   className={`flex cursor-pointer flex-col justify-center gap-3`}>
+                        <div onClick={()=>handleSelectTemplate("particulier")} className={`border hover:bg-[#0285c736] ${selected==="particulier" && "bg-[#0285c736] border-primary text-primary"} hover:border-primary hover:border-[0.3rem] hover:text-primary rounded dark:border-[#ffffff17] p-10`}>
                             <User className="w-16 h-16"/>
                         </div>
                         <h2 className="text-lg text-center">Particulier</h2>
@@ -63,7 +63,7 @@ import { Building, User } from "lucide-react"
                     </div>
                     
                     <div  className="flex cursor-pointer  flex-col justify-center gap-3">
-                        <div className="border hover:bg-[#0285c736] hover:border-primary hover:border-[0.3rem] hover:text-primary rounded dark:border-[#ffffff17] p-10">
+                    <div onClick={()=>handleSelectTemplate("entreprise")} className={`border hover:bg-[#0285c736] ${selected==="entreprise" && "bg-[#0285c736] border-primary text-primary"} hover:border-primary hover:border-[0.3rem] hover:text-primary rounded dark:border-[#ffffff17] p-10`}>
                             <Building className="w-16 h-16"/>
                         </div>
                         <h2 className="text-lg text-center">Entreprise</h2>
