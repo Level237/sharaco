@@ -59,6 +59,7 @@ import { timeout } from "@/lib/delay"
                        
                         
                     </div>
+                    
                     <div  className="flex cursor-pointer  flex-col justify-center gap-3">
                         <img onClick={()=>handleSelectTemplate("2")} className={`w-44 ${selected==="2" && "border-primary border-[0.4rem] rounded-md"} ${selected!=="2" && "hover:border hover:border-primary"} `} src="/devis.webp" alt="" />
                         <h2 className="text-md">Devis Entreprise</h2>
