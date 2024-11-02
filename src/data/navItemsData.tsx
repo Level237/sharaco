@@ -30,4 +30,5 @@ export const navItems: NavItemInterface[] = [
     { title: "Authentication", icon: <Key className="h-4 w-4" />, href: "#" },
     { title: "API Keys", icon: <Key className="h-4 w-4" />, href: "#" },
     { title: "Welcome Page", icon: <FileText className="h-4 w-4" />, href: "#" },
+    
   ]
