@@ -1,3 +1,4 @@
+import { PenBoxIcon, PlusCircle } from 'lucide-react'
 import React from 'react'
 
 export default function DocumentFreelance() {
@@ -6,7 +7,10 @@ export default function DocumentFreelance() {
       <section className='flex flex-col gap-4'>
             <div className='flex flex-row justify-between items-center'>
               <div className='flex flex-col gap-3'>
-              <h2 className='font-bold text-sm'>Martin Lunel</h2>
+                <div>
+                  <h2 className='font-bold text-sm'>Martin Lunel</h2>
+                </div>
+              
               <div>
                 <h2 className='text-xs text-black'>2e rue de douala</h2>
                 <h2 className='text-xs text-black'>6903852 Douala</h2>
@@ -17,12 +21,38 @@ export default function DocumentFreelance() {
               </div>
             
               <div className='flex flex-col gap-3'>
-              <h2 className='font-bold text-sm'>Elisa marquaise</h2>
+              <div className='relative'>
+                  <h2 className='font-bold text-right text-sm'>Elisa </h2>
+                  <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
+                    <PenBoxIcon className='w-[14px]  text-primary'/>
+                  </div>
+                </div>
               <div>
-                <h2 className='text-xs text-right text-black'>2e rue de douala</h2>
-                <h2 className='text-xs text-right text-black'>6903852 Douala</h2>
-                <h2 className='text-xs text-right text-black'>Cameroon</h2>
-                <h2 className='text-xs text-right text-black'>690394365</h2>
+              <div className='relative'>
+                  <h2 className='text-xs text-right text-black'>2e rue de douala</h2>
+                  <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
+                    <PenBoxIcon className='w-[14px]  text-primary'/>
+                  </div>
+                </div>
+                <div className='relative'>
+                  <h2 className='text-xs text-right text-black'>6903852 Douala</h2>
+                  <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
+                    <PenBoxIcon className='w-[14px]  text-primary'/>
+                  </div>
+                </div>
+                <div className='relative'>
+                  <h2 className='text-xs text-right text-black'>Cameroon</h2>
+                  <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
+                    <PenBoxIcon className='w-[14px]  text-primary'/>
+                  </div>
+                </div>
+                <div className='relative'>
+                  <h2 className='text-xs text-right text-black'>690394365</h2>
+                  <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
+                    <PenBoxIcon className='w-[14px]  text-primary'/>
+                  </div>
+                </div>
+                
               </div>
              
               </div>
@@ -42,9 +72,9 @@ export default function DocumentFreelance() {
             <div>
 
 
-            <div className="relative overflow-x-auto mt-12">
-                <table className="w-full text-sm text-left border  rtl:text-right text-black">
-                    <thead className="text-xs text-white uppercase bg-gray-50 dark:bg-primary ">
+            <div className="relative  mt-12">
+                <table className="w-full  text-sm text-left border  rtl:text-right text-black">
+                    <thead className="text-xs  text-white uppercase bg-gray-50 dark:bg-primary ">
                         <tr>
                             <th scope="col" className="px-6 py-3">
                               Designation
@@ -57,9 +87,10 @@ export default function DocumentFreelance() {
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Total
+                                
                             </th>
                         </tr>
-                        
+                       
                     </thead>
                     <tbody>
                         <tr className="bg-white border-b  ">
@@ -106,7 +137,11 @@ export default function DocumentFreelance() {
                         </tr>
                       
                     </tbody>
+                    
                 </table>
+                <div className='absolute bottom-[-7px] cursor-pointer right-[-7px]'>
+                          <PlusCircle className='text-primary w-5'/>
+                        </div>
             </div>
 
             </div>
