@@ -16,6 +16,7 @@ import DashboardLayout from "@/components/Layouts/DashboardLayout";
 import QuoteListPage from "@/pages/users/quotes/QuoteListPage";
 import NewQuotePage from "@/pages/users/quotes/NewQuotePage";
 import QuoteLayout from "@/components/Layouts/QuoteLayout";
+import ClientListPage from "@/pages/users/clients/ClientListPage";
 
 
 
@@ -61,6 +62,10 @@ export const routes=createBrowserRouter([{
         },{
             path:'quotes',
             element:<QuoteListPage/>
+        },
+        {
+            path:'clients',
+            element:<ClientListPage/>
         }
     ]
 },{

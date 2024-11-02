@@ -38,7 +38,7 @@ export default function Sidebar({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOp
           <div className="border-t dark:border-[#ffffff17] p-4">
             <Button variant="ghost" className="w-full dark:border-[#ffffff17] dark:text-white" onClick={() => setIsSidebarOpen(false)}>
               <Menu className="mr-2 h-4 w-4 dark:text-white" />
-              Collapse Sidebar
+              Sharaco v1.0
             </Button>
           </div>
         </div>

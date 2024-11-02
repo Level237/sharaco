@@ -13,8 +13,9 @@ import React, { useState } from "react"
 import { Separator } from "../ui/separator"
 import { useNavigate } from "react-router-dom"
 import { timeout } from "@/lib/delay"
+import { Building, User } from "lucide-react"
   
-  export function SelectModel({children}:{children:React.ReactNode}) {
+  export function SelectTypeUser({children}:{children:React.ReactNode}) {
 
     const [selected,setSelected]=useState(null)
     const [isLoading,setIsLoading]=useState(false)
@@ -43,30 +44,36 @@ import { timeout } from "@/lib/delay"
         <AlertDialogTrigger asChild>
          {children}
         </AlertDialogTrigger>
-        <AlertDialogContent className="h-[90%]  border dark:border-[#ffffff17]">
+        <AlertDialogContent className="  border dark:border-[#ffffff17]">
           <AlertDialogHeader>
-            <AlertDialogTitle className="dark:text-white">Templates</AlertDialogTitle>
+            <AlertDialogTitle className="dark:text-white">Clients</AlertDialogTitle>
             <Separator/>
             <AlertDialogDescription>
-                <span className="mt-12">Choose one template for your quote</span>
+                <span className="mt-12">Choisir un type de client à ajouter</span>
              
              
-              <div className="flex mt-16 justify-between gap-2 mx-6">
+              <div className="flex  justify-around mt-8">
                     <div  className="flex cursor-pointer  flex-col justify-center gap-3">
-                        <img onClick={()=>handleSelectTemplate("1")} className={`w-44 ${selected==="1" && "border-primary border-[0.4rem] rounded-md"} ${selected!=="1" && "hover:border hover:border-primary"} `} src="/devis.webp" alt="" />
-                        <h2 className="text-md">Devis Freelance</h2>
+                        <div className="border hover:bg-[#0285c736] hover:border-primary hover:border-[0.3rem] hover:text-primary rounded dark:border-[#ffffff17] p-10">
+                            <User className="w-16 h-16"/>
+                        </div>
+                        <h2 className="text-lg text-center">Particulier</h2>
                        
                         
                     </div>
                     
                     <div  className="flex cursor-pointer  flex-col justify-center gap-3">
-                        <img onClick={()=>handleSelectTemplate("2")} className={`w-44 ${selected==="2" && "border-primary border-[0.4rem] rounded-md"} ${selected!=="2" && "hover:border hover:border-primary"} `} src="/devis.webp" alt="" />
-                        <h2 className="text-md">Devis Entreprise</h2>
+                        <div className="border hover:bg-[#0285c736] hover:border-primary hover:border-[0.3rem] hover:text-primary rounded dark:border-[#ffffff17] p-10">
+                            <Building className="w-16 h-16"/>
+                        </div>
+                        <h2 className="text-lg text-center">Entreprise</h2>
+                       
+                        
                     </div>
               </div>
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter className="absolute bottom-8 right-8">
+          <AlertDialogFooter className="mt-4">
             <AlertDialogCancel onClick={handleClear}  className="dark:text-white">Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={handleSelected} disabled={selected==null || isLoading}>{isLoading ? "Loading..." : "Continue"}</AlertDialogAction>
             
