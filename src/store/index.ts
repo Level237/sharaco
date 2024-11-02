@@ -6,6 +6,7 @@ import authSlice from "./authSlice";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { quoteService } from "@/services/quotes";
 import quoteSlice from "./quoteSlice";
+import { clientService } from "@/services/client";
 
 
 
@@ -19,6 +20,7 @@ export const store=
         [authSlice.reducerPath]:authSlice.reducer,
         [userService.reducerPath]:userService.reducer,
         [quoteService.reducerPath]:quoteService.reducer,
+        [clientService.reducerPath]:clientService.reducer,
         [quoteSlice.reducerPath]:quoteSlice.reducer
         
     },
@@ -27,6 +29,7 @@ export const store=
     .concat(authService.middleware)
     .concat(userService.middleware)
     .concat(quoteService.middleware)
+    .concat(clientService.middleware)
     ,
     devTools:true,
 
