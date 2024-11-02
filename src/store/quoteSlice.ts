@@ -4,7 +4,7 @@ const quoteSlice=createSlice({
     name:'quote',
     initialState:{
         client_name:"Nom du Client",
-        localisation:"",
+        localisation:"Localisation",
         town:"",
         country:"",
         phone:""

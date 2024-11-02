@@ -7,18 +7,23 @@ import { Input } from '../ui/input'
 import { Separator } from '../ui/separator'
 import { ScrollArea } from '../ui/scroll-area'
 import { useDispatch, useSelector} from 'react-redux'
-import { setClientName } from '@/store/quoteSlice'
+import { setClientName, setLocalisation } from '@/store/quoteSlice'
 
 export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}) {
 
   const dispatch=useDispatch()
 
-  const clientName = useSelector((state:any) => state.quote.client_name);
+  const {client_name,localisation} = useSelector((state:any) => state.quote);
 
 
   const onChangeClientName=(e:any)=>{
     e.preventDefault();
     dispatch(setClientName({client_name:e.target.value}))
+  }
+
+  const onChangeLocalisation=(e:any)=>{
+    e.preventDefault();
+    dispatch(setLocalisation({localisation:e.target.value}))
   }
     return (
       <>
@@ -51,11 +56,11 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
          <ScrollArea className="flex-1  py-4">
          <div className='mb-6 mx-5'>
           <Label className='text-white'>Client name</Label>
-         <Input className='mt-3 text-slate-50' onChange={onChangeClientName} value={clientName} type="text" placeholder="Client name" />
+         <Input className='mt-3 text-slate-50' onChange={onChangeClientName} value={client_name} type="text" placeholder="Client name" />
           </div>
           <div className='mb-6 mx-5'>
           <Label className='text-white'>Localisation (Quartier)</Label>
-         <Input className='mt-3 text-slate-50' type="text" placeholder="Localisation" />
+         <Input className='mt-3 text-slate-50' type="text" onChange={onChangeLocalisation} value={localisation} placeholder="Localisation" />
           </div>
           <div className='mb-6 mx-5'>
           <Label className='text-white'>Ville</Label>
