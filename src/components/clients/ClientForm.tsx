@@ -16,6 +16,7 @@ export default function ClientForm() {
     <section className='flex h-[100vh] flex-col gap-5'>
       <form className='mx-8' action="">
 
+        <div>
         <div className='flex flex-row gap-3'>
         <div className='mb-6 mx-5 flex-1'>
           <Label className='text-white'>Nom du client</Label>
@@ -64,6 +65,8 @@ export default function ClientForm() {
         <div className='flex mx-5 justify-end'>
             <Button>Enregistrer</Button>
         </div>
+        </div>
+      
       </form>
     </section>
   )
