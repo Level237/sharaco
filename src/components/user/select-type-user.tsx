@@ -31,8 +31,8 @@ import { Building, User } from "lucide-react"
     const handleSelected=async(e:any)=>{
         e.preventDefault()
         setIsLoading(true)
-        await timeout(3000).then(()=>{
-            navigate('/new/quote')
+        await timeout(1000).then(()=>{
+            navigate(`/add/client?type=${selected}`)
         })
         //console.log(isLoading)
         
