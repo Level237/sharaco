@@ -19,9 +19,19 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
             </Link>
            
           </div>
-        
-       
+          <div className='grid mt-5 mx-5 gap-5 grid-cols-3'>
+              <div className='rounded-2xl py-1 bg-[#0285c736]  cursor-pointer text-muted-foreground'>
+                <h2 className='text-sm text-center text-primary '>Entete</h2>
+              </div>
+              <div className='rounded-2xl py-1   cursor-pointer text-muted-foreground'>
+                <h2 className='text-sm text-center'>Body</h2>
+              </div>
+              <div className='rounded-2xl py-1   cursor-pointer text-muted-foreground'>
+                <h2 className='text-sm text-center'>Footer</h2>
+              </div>
          </div>
+         </div>
+         
         </aside>
       </>
     )

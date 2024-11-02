@@ -13,9 +13,6 @@ export default function NewQuotePage() {
           <div className='flex items-center gap-2'>
           <span className='text-muted text-xs'>Buil with</span>  <span className='text-[#0285c7c0] font-bold text-xl'> Sharaco</span>
           </div>
-        
-       
-                        
                   </div>
       </div>
       
