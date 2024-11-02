@@ -5,6 +5,7 @@ import { userService } from "@/services/users";
 import authSlice from "./authSlice";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { quoteService } from "@/services/quotes";
+import quoteSlice from "./quoteSlice";
 
 
 
@@ -17,7 +18,8 @@ export const store=
         [authService.reducerPath]:authService.reducer,
         [authSlice.reducerPath]:authSlice.reducer,
         [userService.reducerPath]:userService.reducer,
-        [quoteService.reducerPath]:quoteService.reducer
+        [quoteService.reducerPath]:quoteService.reducer,
+        [quoteSlice.reducerPath]:quoteSlice.reducer
         
     },
     middleware: (getDefaultMiddleware) =>

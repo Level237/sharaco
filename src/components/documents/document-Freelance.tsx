@@ -1,7 +1,9 @@
 import { PenBoxIcon, PlusCircle } from 'lucide-react'
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 export default function DocumentFreelance() {
+  const clientName = useSelector((state:any) => state.quote.client_name);
   return (
   
       <section className='flex flex-col gap-4'>
@@ -22,7 +24,7 @@ export default function DocumentFreelance() {
             
               <div className='flex flex-col gap-3'>
               <div className='relative'>
-                  <h2 className='font-bold text-right text-sm'>Elisa </h2>
+                  <h2 className='font-bold text-right text-sm'>{clientName} </h2>
                   <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
                     <PenBoxIcon className='w-[14px]  text-primary'/>
                   </div>

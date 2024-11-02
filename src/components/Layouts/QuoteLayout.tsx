@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../auth/Header'
 import { cn } from '@/lib/utils'
 import SideTools from '../user/SideTools'
 
 export default function QuoteLayout({ children }: { children: React.ReactNode }) {
     const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
-
+    const [clientName,setClientName]=useState("")
 
     return (
       <div className="flex  bg-background h-[100%]">
