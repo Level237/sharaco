@@ -111,7 +111,7 @@ export const columns: ColumnDef<ClientType>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const user = row.original
-      const [deleteClient,{isLoading,isError,error}]=useDeleteClientMutation("Clients")
+      const [deleteClient]=useDeleteClientMutation("Clients")
       return (
         <section className="flex gap-5 justify-center items-center">
           <Edit  className="w-5 h-5 text-gray-500"/>
