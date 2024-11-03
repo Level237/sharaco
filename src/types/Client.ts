@@ -1,4 +1,5 @@
 export type ClientType={
+    id:string,
     client_name:string,
     country:string,
     town:string,

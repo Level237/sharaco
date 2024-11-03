@@ -23,10 +23,18 @@ export const clientService=createApi({
                 }
             )
         }),
+        deleteClient:builder.mutation({
+            query:(id)=>({
+                url:`/api/v1/clients/${id}`,
+                method:'DELETE'
+            }),
+            invalidatesTags:['Clients']
+        })
     }),
 })
 
 export const {
   useGetClientsQuery,
-  useAddClientMutation
+  useAddClientMutation,
+  useDeleteClientMutation
 }=clientService

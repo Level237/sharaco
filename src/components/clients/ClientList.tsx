@@ -39,7 +39,8 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { ClientType } from "@/types/Client"
-import { useGetClientsQuery } from "@/services/client"
+import { useDeleteClientMutation, useGetClientsQuery } from "@/services/client"
+import { Edit, Trash } from "lucide-react"
 
 
 
@@ -110,27 +111,12 @@ export const columns: ColumnDef<ClientType>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const user = row.original
-
+      const [deleteClient,{isLoading,isError,error}]=useDeleteClientMutation("Clients")
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <DotsHorizontalIcon className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(user.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <section className="flex gap-5 justify-center items-center">
+          <Edit  className="w-5 h-5 text-gray-500"/>
+         <Trash onClick={()=>deleteClient(user.id)}  className="w-5 h-5 cursor-pointer text-red-500"/>
+        </section>
       )
     },
   },
