@@ -14,12 +14,15 @@ import { Button } from '../ui/button'
 import countryList from 'react-select-country-list'
 import { useAddClientMutation } from '@/services/client'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { ToastAction } from '../ui/toast'
+import { useToast } from '@/hooks/use-toast'
+
 export default function ClientForm() {
  
   const [addClient,{isLoading,isError,error}]=useAddClientMutation()
   const navigate=useNavigate()
   const [searchParams] = useSearchParams();
-
+  const { toast } = useToast()
   const type = searchParams.get("type"); 
   const [inputs,setInputs]=useState({
     name:{value:'',isValid:true},
@@ -56,14 +59,19 @@ export default function ClientForm() {
         isCompany=0;
       }
       const clientObject={client_name:inputs.name.value,country:inputs.country.value,town:inputs.town.value,client_email:inputs.email.value,isCompany:isCompany,phone_number:inputs.phone.value}
-      const t=await addClient(clientObject)
-      console.log(t)
+      await addClient(clientObject)
+      toast({
+        title: `Client ${inputs.name.value} Created successfuly`,
+        description: "Friday, February 10, 2023 at 5:57 PM",
+        action: (
+          <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+        ),
+      })
       navigate('/clients');
     }catch(e:any){
-      console.log("ll")
+      
     }
   }
-  console.log(inputs)
   return (
     <section className='flex h-[100vh] flex-col gap-5'>
       <form onSubmit={handleSubmit} className='mx-8' action="">

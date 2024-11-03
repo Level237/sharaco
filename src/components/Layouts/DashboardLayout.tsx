@@ -4,6 +4,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import Header from "../auth/Header"
 import Sidebar from "../auth/sidebar/Sidebar"
+import { Toaster } from "../ui/toaster"
 
 
 
@@ -24,7 +25,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
+        <main className="flex-1 overflow-y-auto p-6">{children} <Toaster /></main>
       </div>
     </div>
   )
