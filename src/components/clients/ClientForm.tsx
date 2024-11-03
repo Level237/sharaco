@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import {
@@ -11,13 +11,22 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 import { Button } from '../ui/button'
+import countryList from 'react-select-country-list'
 export default function ClientForm() {
+  const [value, setValue] = useState('')
+  const options = useMemo(() => countryList().getData(), [])
+  console.log(options)
+
+  const changeHandler = (value:any)=> {
+    setValue(value)
+  }
+
   return (
     <section className='flex h-[100vh] flex-col gap-5'>
       <form className='mx-8' action="">
 
         <div>
-        <div className='flex flex-row gap-3'>
+                  <div className='flex flex-row gap-3'>
         <div className='mb-6 mx-5 flex-1'>
           <Label className='text-white'>Nom du client</Label>
          <Input className='mt-3 h-11 text-slate-50' type="text" placeholder="Nom du Client" />
@@ -32,16 +41,13 @@ export default function ClientForm() {
           <Label className='text-white'>Pays du client</Label>
           <Select>
       <SelectTrigger className="flex-1 text-white mt-3 h-11">
-        <SelectValue placeholder="Select a fruit" />
+        <SelectValue placeholder="Select a country" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           <SelectLabel>Pays</SelectLabel>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes">Grapes</SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem>
+          
+       {options.map((country:any)=><SelectItem key={country.value} value={country.label}>{country.label}</SelectItem>)}
         </SelectGroup>
       </SelectContent>
     </Select>

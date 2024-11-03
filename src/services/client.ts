@@ -22,7 +22,7 @@ export const clientService=createApi({
                     body:data
                 }
             )
-        })
+        }),
     }),
 })
 
