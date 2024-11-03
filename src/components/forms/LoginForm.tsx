@@ -8,8 +8,6 @@ import { useLoginMutation } from '@/services/auth';
 import { authTokenChange } from '@/store/authSlice';
 
 export default function LoginForm() {
-    const userRef=useRef();
-    const errRef=useRef()
     const [user,setUser]=useState('');
     const [pwd,setPwd]=useState('');
     const [errMsg,setErrMsg]=useState('');
