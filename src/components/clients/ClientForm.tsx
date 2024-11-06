@@ -16,7 +16,8 @@ import { useAddClientMutation } from '@/services/client'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ToastAction } from '../ui/toast'
 import { useToast } from '@/hooks/use-toast'
-import { X } from 'lucide-react'
+import { Image, X } from 'lucide-react'
+import { FileUploader } from 'react-drag-drop-files'
 
 export default function ClientForm() {
  
@@ -34,23 +35,23 @@ export default function ClientForm() {
   }
   )
 
-  const [logo,setLogo]=useState("")
+  const [picture, setPicture] = useState({
+    title: '',
+    file: null
+})
+const fileTypes = ["JPG", "PNG", "JPEG"]
+const [fileSizeError, setFileSizeError] = useState('')
 
-  const convertToBase64=useCallback((e:any)=>{
-      var reader=new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onload=()=>{
-      console.log(reader.result)
-      setLogo(reader.result)
-    }
-    reader.onerror=error=>{
-      console.log("error",error)
-    }
-  },[logo])
+const handleChange = (file:any) => {
+  setFileSizeError('')
+  setPicture({
+      ...picture, file: file
+  })
+}
+const handleSizeError = () => {
+  setFileSizeError('The file size must not be greater than 2MB.')
+}
 
-const clearLogo=useCallback(()=>{
-    setLogo("")
-  },[logo])
   const options = useMemo(() => countryList().getData(), [])
 
   const changeHandler = (value:any) => {
@@ -141,24 +142,34 @@ const clearLogo=useCallback(()=>{
         {type==="entreprise" &&  <div className='w-80'>
 
 <div className="flex items-center justify-center w-full">
-   {logo.length > 0   && <div className='relative'>
-            <img src={logo} className="w-full h-full max-h-64" width="100" height="100" alt="logo"/>
-            <div onClick={clearLogo} className='absolute top-4 right-4'>
-            <X className='text-primary cursor-pointer'/>
-            </div>
-            </div>
-            }
+<div className='mb-3'>
+                                    <FileUploader
+                                        handleChange={handleChange} 
+                                        name="file" 
+                                        types={fileTypes} 
+                                        required={!picture.file}  
+                                        maxSize={2} 
+                                        onSizeError={handleSizeError}
+                                        classes="drop_area"
+                                      
+                                    />
 
-            {logo ==="" && <label  className="flex flex-col items-center justify-center w-full h-64 border-2 border-primary border-dashed rounded-lg cursor-pointer bg-slate-900   dark:border-gray-600 hover:border-gray-500 hover:bg-slate-800">
-        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-            </svg>
-            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-        </div>
-        <input  onChange={convertToBase64} type="file" className="hidden" />
-    </label>}
+                                    {!picture?.file && <div className='w-full h-44 gap-3 items-center bg-slate-500 p-10 mt-6 rounded-lg flex justify-center'><Image className='text-white'/><span className='text-sm text-white font-bold'>Your Logo</span></div>}
+                                    {
+                                        fileSizeError && <div className="text-white my-2 rounded p-2 bg-danger">
+                                            { fileSizeError }
+                                        </div>
+                                    }
+                                    {
+                                        picture?.file && 
+                                        <img 
+                                            src={URL.createObjectURL(picture.file)}
+                                            alt="Picture"
+                                            
+                                            className="rounded w-44 h-44 my-2"
+                                        />
+                                    }
+                                </div>
     
 </div> 
 
