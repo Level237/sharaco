@@ -154,7 +154,7 @@ const handleSizeError = () => {
                                       
                                     />
 
-                                    {!picture?.file && <div className='w-full h-44 gap-3 items-center bg-slate-500 p-10 mt-6 rounded-lg flex justify-center'><Image className='text-white'/><span className='text-sm text-white font-bold'>Your Logo</span></div>}
+                                    {!picture?.file && <div className='w-full h-44 gap-3 items-center bg-[#0285c718] p-10 mt-6 rounded-lg flex justify-center'><Image className='text-primary'/><span className='text-sm text-primary font-bold'>Your Logo</span></div>}
                                     {
                                         fileSizeError && <div className="text-white my-2 rounded p-2 bg-danger">
                                             { fileSizeError }
