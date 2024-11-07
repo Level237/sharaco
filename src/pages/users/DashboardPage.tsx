@@ -35,6 +35,8 @@ export const DashboardPage=() => {
       <CardContent className="font-bold text-2xl">
        
         75
+      </CardContent>
+      <CardFooter>
           <div className='flex items-center w-[60%] justify-between'>
             <div className='flex items-center bg-[#0285c718] rounded-md text-primary font-bold bg-opacity-80 px-1'>
             <ChartLine className='w-4'/><span className='text-xs'>12%</span>

@@ -7,9 +7,10 @@ export const baseQuery=fetchBaseQuery({
     prepareHeaders:(headers,{getState})=>{
         headers.set('Access-Control-Allow-Origin', '*')
         headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        
         const token = (getState()).auth.usedToken;
         if(token){
-            
+            headers.set("Content-Type","multipart/form-data")
             headers.set("Content-Type", "application/json");
             headers.set('authorization',`Bearer ${token}`)
         }

@@ -35,18 +35,14 @@ export default function ClientForm() {
   }
   )
 
-  const [picture, setPicture] = useState({
-    title: '',
-    file: null
-})
+  const [picture, setPicture] = useState("")
 const fileTypes = ["JPG", "PNG", "JPEG"]
 const [fileSizeError, setFileSizeError] = useState('')
 
 const handleChange = (file:any) => {
   setFileSizeError('')
-  setPicture({
-      ...picture, file: file
-  })
+  setPicture(file)
+  console.log(file)
 }
 const handleSizeError = () => {
   setFileSizeError('The file size must not be greater than 2MB.')
@@ -74,11 +70,28 @@ const handleSizeError = () => {
     try{
       e.preventDefault();
       let isCompany=1;
-      if(type==="particulier"){
-        isCompany=0;
+     if(type==="particulier"){
+      isCompany=0;
+     }
+     const formData = new FormData()
+     formData.append('client_name', inputs.name.value)
+     formData.append('country', inputs.country.value)
+     formData.append('town', inputs.town.value)
+     formData.append('client_email',inputs.email.value)
+     //client.append('isCompany',0)
+     formData.append('phone_number',inputs.phone.value)
+     
+      if(type==="entreprise"){
+        formData.append('logo',picture.name)
+        //console.log(picture.file)
       }
-      const clientObject={client_name:inputs.name.value,country:inputs.country.value,town:inputs.town.value,client_email:inputs.email.value,isCompany:isCompany,phone_number:inputs.phone.value}
-      await addClient(clientObject)
+
+      //const clientObject={client_name:inputs.name.value,country:inputs.country.value,town:inputs.town.value,client_email:inputs.email.value,isCompany:isCompany,phone_number:inputs.phone.value,logo:picture.file}
+      const response=await addClient(Object.fromEntries(formData))
+      //console.log(formData.get('logo'))
+      console.log(response)
+      //console.log(console.log(Object.fromEntries(formData)))
+      //console.log(picture.file)
       toast({
         title: `Client ${inputs.name.value} Created successfuly`,
         description: "Friday, February 10, 2023 at 5:57 PM",
@@ -86,14 +99,14 @@ const handleSizeError = () => {
           <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
         ),
       })
-      navigate('/clients');
+      //navigate('/clients');
     }catch(e:any){
       
     }
   }
   return (
     <section className='flex h-[100vh] flex-col gap-5'>
-      <form onSubmit={handleSubmit} className='mx-8' action="">
+      <form onSubmit={(e:any) => handleSubmit(e)} className='mx-8' encType='multipart/form-data'>
 
     <div className={`${type==="entreprise" && "items-center"} flex flex-row gap-3 `}>
         <div className='flex-1'>
@@ -144,26 +157,26 @@ const handleSizeError = () => {
 <div className="flex items-center justify-center w-full">
 <div className='mb-3'>
                                     <FileUploader
-                                        handleChange={handleChange} 
-                                        name="file" 
+                                        handleChange={(e:any)=>handleChange(e)} 
+                                        name="logo" 
                                         types={fileTypes} 
-                                        required={!picture.file}  
+                                          
                                         maxSize={2} 
                                         onSizeError={handleSizeError}
                                         classes="drop_area"
                                       
                                     />
 
-                                    {!picture?.file && <div className='w-full h-44 gap-3 items-center bg-[#0285c718] p-10 mt-6 rounded-lg flex justify-center'><Image className='text-primary'/><span className='text-sm text-primary font-bold'>Your Logo</span></div>}
+                                    {!picture && <div className='w-full h-44 gap-3 items-center bg-[#0285c718] p-10 mt-6 rounded-lg flex justify-center'><Image className='text-primary'/><span className='text-sm text-primary font-bold'>Your Logo</span></div>}
                                     {
                                         fileSizeError && <div className="text-white my-2 rounded p-2 bg-danger">
                                             { fileSizeError }
                                         </div>
                                     }
                                     {
-                                        picture?.file && 
+                                        picture && 
                                         <img 
-                                            src={URL.createObjectURL(picture.file)}
+                                            src={URL.createObjectURL(picture)}
                                             alt="Picture"
                                             
                                             className="rounded w-44 h-44 my-2"

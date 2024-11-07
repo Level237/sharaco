@@ -8,8 +8,8 @@ export const baseQueryNotAuth=fetchBaseQuery({
     prepareHeaders:(headers)=>{
         headers.set('Access-Control-Allow-Origin', '*')
         headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-            headers.set("Content-Type", "application/json");
-
+        headers.set("Content-Type", "application/json");
+        headers.set('Content-Type',"multipart/form-data")
         return headers;
     }
 })
