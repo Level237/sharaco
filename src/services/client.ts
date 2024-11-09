@@ -16,14 +16,10 @@ export const clientService=createApi({
         }),
         addClient:builder.mutation({
             query:(formData)=>({
-                    url:'/api/v1/clients',
-                    method:"POST",
-                    body:formData,
-                    
-                
-            })
-            
-           
+                url:'/api/v1/clients',
+                method:"POST",
+                body:formData,
+        })
         }),
         deleteClient:builder.mutation({
             query:(id)=>({

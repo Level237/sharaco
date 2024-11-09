@@ -10,8 +10,6 @@ export const baseQuery=fetchBaseQuery({
         
         const token = (getState()).auth.usedToken;
         if(token){
-            headers.set("Content-Type","multipart/form-data")
-            headers.set("Content-Type", "application/json");
             headers.set('authorization',`Bearer ${token}`)
         }
 

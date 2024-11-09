@@ -18,6 +18,7 @@ import { ToastAction } from '../ui/toast'
 import { useToast } from '@/hooks/use-toast'
 import { Image, X } from 'lucide-react'
 import { FileUploader } from 'react-drag-drop-files'
+import axios from 'axios'
 
 export default function ClientForm() {
  
@@ -42,7 +43,7 @@ const [fileSizeError, setFileSizeError] = useState('')
 const handleChange = (file:any) => {
   setFileSizeError('')
   setPicture(file)
-  console.log(file)
+  
 }
 const handleSizeError = () => {
   setFileSizeError('The file size must not be greater than 2MB.')
@@ -69,10 +70,8 @@ const handleSizeError = () => {
   const handleSubmit=async(e:any)=>{
     try{
       e.preventDefault();
-      let isCompany=1;
-     if(type==="particulier"){
-      isCompany=0;
-     }
+      let isCompany = type === "particulier" ? 0 : 1;
+
      const formData = new FormData()
      formData.append('client_name', inputs.name.value)
      formData.append('country', inputs.country.value)
@@ -81,24 +80,30 @@ const handleSizeError = () => {
      //client.append('isCompany',0)
      formData.append('phone_number',inputs.phone.value)
      
-      if(type==="entreprise"){
-        formData.append('logo',picture.name)
-        //console.log(picture.file)
-      }
-
-      //const clientObject={client_name:inputs.name.value,country:inputs.country.value,town:inputs.town.value,client_email:inputs.email.value,isCompany:isCompany,phone_number:inputs.phone.value,logo:picture.file}
-      const response=await addClient(Object.fromEntries(formData))
-      //console.log(formData.get('logo'))
-      console.log(response)
-      //console.log(console.log(Object.fromEntries(formData)))
-      //console.log(picture.file)
-      toast({
-        title: `Client ${inputs.name.value} Created successfuly`,
-        description: "Friday, February 10, 2023 at 5:57 PM",
-        action: (
-          <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-        ),
-      })
+        formData.append('logo',picture)
+        console.log(formData.get('logo'))
+      
+      
+      const clientObject={client_name:inputs.name.value,country:inputs.country.value,town:inputs.town.value,client_email:inputs.email.value,isCompany:isCompany,phone_number:inputs.phone.value,logo:picture}
+      try {  
+        console.log(formData)
+        const response = await addClient(formData);
+        //Traitez la réponse comme il se doit  
+        console.log(response);
+        
+        toast({  
+            title: `Client ${inputs.name.value} created successfully.`,  
+            description: "Client has been added.",  
+        });  
+        // Redirection ou autre logique si nécessaire  
+        //navigate('/clients');  
+    } catch (err:any) {  
+        console.error('Failed to add client:', err);  
+        toast({  
+            title: 'Error creating client',  
+            description: err.message || 'An error occurred.',  
+        });  
+    }  
       //navigate('/clients');
     }catch(e:any){
       
@@ -106,14 +111,14 @@ const handleSizeError = () => {
   }
   return (
     <section className='flex h-[100vh] flex-col gap-5'>
-      <form onSubmit={(e:any) => handleSubmit(e)} className='mx-8' encType='multipart/form-data'>
+      <form onSubmit={handleSubmit} className='mx-8' encType='multipart/form-data' >
 
     <div className={`${type==="entreprise" && "items-center"} flex flex-row gap-3 `}>
         <div className='flex-1'>
                 <div className='flex flex-row gap-3'>
                 <div className='mb-6 mx-5 flex-1'>
                   <Label className='text-white'>Nom du client</Label>
-                <Input className='mt-3 h-11 text-slate-50' type="text" onChange={(e:any)=>inputChangeHandler(e,"name")} value={inputs.name.value} placeholder="Nom du Client" />
+                <Input className='mt-3 h-11 text-slate-50' type="text" name='client_name' onChange={(e:any)=>inputChangeHandler(e,"name")} value={inputs.name.value} placeholder="Nom du Client" />
                   </div>
                   <div className='mb-6 mx-5 flex-1'>
                   <Label className='text-white'>Email du client</Label>
@@ -157,7 +162,7 @@ const handleSizeError = () => {
 <div className="flex items-center justify-center w-full">
 <div className='mb-3'>
                                     <FileUploader
-                                        handleChange={(e:any)=>handleChange(e)} 
+                                        handleChange={handleChange} 
                                         name="logo" 
                                         types={fileTypes} 
                                           

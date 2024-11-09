@@ -8,7 +8,7 @@ export const baseQueryWithReauth: BaseQueryFn<
   FetchBaseQueryError
 > = async (args:any, store:any, extraOptions:any) => {
   let result = await baseQuery(args, store, extraOptions);
-
+  
   const authState = (store.getState()).auth;
     
   if (result.error && result.error.status === 401) {
