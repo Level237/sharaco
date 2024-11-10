@@ -77,16 +77,13 @@ const handleSizeError = () => {
      formData.append('country', inputs.country.value)
      formData.append('town', inputs.town.value)
      formData.append('client_email',inputs.email.value)
-     //client.append('isCompany',0)
+     formData.append('isCompany',isCompany)
      formData.append('phone_number',inputs.phone.value)
      
         formData.append('logo',picture)
         console.log(formData.get('logo'))
-      
-      
-      const clientObject={client_name:inputs.name.value,country:inputs.country.value,town:inputs.town.value,client_email:inputs.email.value,isCompany:isCompany,phone_number:inputs.phone.value,logo:picture}
       try {  
-        console.log(formData)
+        
         const response = await addClient(formData);
         //Traitez la réponse comme il se doit  
         console.log(response);
@@ -96,7 +93,7 @@ const handleSizeError = () => {
             description: "Client has been added.",  
         });  
         // Redirection ou autre logique si nécessaire  
-        //navigate('/clients');  
+        navigate('/clients');  
     } catch (err:any) {  
         console.error('Failed to add client:', err);  
         toast({  
