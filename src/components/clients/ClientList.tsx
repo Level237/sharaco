@@ -41,6 +41,7 @@ import {
 import { ClientType } from "@/types/Client"
 import { useDeleteClientMutation, useGetClientsQuery } from "@/services/client"
 import { Edit, Trash } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 
 
 
@@ -73,7 +74,10 @@ export const columns: ColumnDef<ClientType>[] = [
     accessorKey: "logo",
     header: "Logo",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("logo")}</div>
+      <div className="capitalize"><Avatar className="h-8 w-8">
+      <AvatarImage src={`http://127.0.0.1:8000/storage/${row.getValue('logo')}`} alt="logo" />
+      <AvatarFallback>U</AvatarFallback>
+    </Avatar></div>
     ),
   },
   {
