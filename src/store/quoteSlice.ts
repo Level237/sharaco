@@ -4,7 +4,7 @@ const quoteSlice=createSlice({
     name:'quote',
     initialState:{
         client_name:"Nom du Client",
-        localisation:"Localisation",
+        email:"Email",
         town:"Ville",
         country:"",
         phone:""
@@ -12,14 +12,15 @@ const quoteSlice=createSlice({
 
     reducers:{
 
-        setClientName:(state,action)=>{
-            state.client_name=action.payload.client_name
+        setClient:(state,action)=>{
+            state.client_name=action.payload.client_name;
+            state.email=action.payload.email;
+            state.town=action.payload.town;
+            state.country=action.payload.country;
+            state.phone=action.payload.phone;
         },
-        setLocalisation:(state,action)=>{
-            state.localisation=action.payload.localisation
-        }
     }
 })
 
-export const {setClientName,setLocalisation}=quoteSlice.actions
+export const {setClient}=quoteSlice.actions
 export default quoteSlice;
