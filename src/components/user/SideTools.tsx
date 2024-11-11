@@ -17,7 +17,7 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
 
   const [id,setIdClient]=useQueryState("client", parseAsInteger.withDefault(0))
   const dispatch=useDispatch()
-
+  console.log(id)
   const {data:clients,isLoading}=useGetClientsQuery('Clients')
  const {data,isLoading:load}=useGetClientQuery(id)
 
@@ -79,7 +79,7 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
               </SelectContent>
             </Select>}
          <div>
-          {!load && !isLoading && id!==0 && <div className='mt-5'>
+          {id!==0 && <div className='mt-5'>
             
             <h2 className='text-muted-foreground text-sm'>Client selected: {data.client_name}</h2>
             </div>}

@@ -5,10 +5,11 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 export default function DocumentFreelance() {
-  const {client_name,localisation} = useSelector((state:any) => state.quote);
+
   const [searchParams] = useSearchParams();
   const clientId = searchParams.get("client"); 
   const {data,isLoading:load}=useGetClientQuery(clientId)
+  console.log(data)
   return (
   
       <section className='flex flex-col gap-4'>
