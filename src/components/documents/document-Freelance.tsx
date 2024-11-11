@@ -36,25 +36,25 @@ export default function DocumentFreelance() {
                 </div>
               <div>
               <div className='relative'>
-                  <h2 className='text-xs text-right text-black'>{localisation}</h2>
+                  <h2 className='text-xs text-right text-black'>{data.phone_number}</h2>
                   <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
                     <PenBoxIcon className='w-[14px]  text-primary'/>
                   </div>
                 </div>
                 <div className='relative'>
-                  <h2 className='text-xs text-right text-black'>6903852 Douala</h2>
+                  <h2 className='text-xs text-right text-black'>{data.town}</h2>
                   <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
                     <PenBoxIcon className='w-[14px]  text-primary'/>
                   </div>
                 </div>
                 <div className='relative'>
-                  <h2 className='text-xs text-right text-black'>Cameroon</h2>
+                  <h2 className='text-xs text-right text-black'>{data.country}</h2>
                   <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
                     <PenBoxIcon className='w-[14px]  text-primary'/>
                   </div>
                 </div>
                 <div className='relative'>
-                  <h2 className='text-xs text-right text-black'>690394365</h2>
+                  <h2 className='text-xs text-right text-black'>{data.client_email}</h2>
                   <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
                     <PenBoxIcon className='w-[14px]  text-primary'/>
                   </div>
