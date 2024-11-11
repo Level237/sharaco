@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const quoteSlice=createSlice({
     name:'quote',
     initialState:{
+        id:"",
         client_name:"Nom du Client",
         email:"Email",
         town:"Ville",
@@ -19,8 +20,11 @@ const quoteSlice=createSlice({
             state.country=action.payload.country;
             state.phone=action.payload.phone;
         },
+        setClientId:(state,action)=>{
+            state.id=action.payload.id
+        }
     }
 })
 
-export const {setClient}=quoteSlice.actions
+export const {setClient,setClientId}=quoteSlice.actions
 export default quoteSlice;

@@ -14,6 +14,10 @@ export const clientService=createApi({
                 ...result.map(({id}:any)=>({type:'Clients',id}) as const)
             ]
         }),
+        getClient:builder.query({
+            query:(id)=>`/api/v1/clients/${id}`,
+            keepUnusedDataFor:3,
+        }),
         addClient:builder.mutation({
             query:(formData)=>({
                 url:'/api/v1/clients',
@@ -34,5 +38,6 @@ export const clientService=createApi({
 export const {
   useGetClientsQuery,
   useAddClientMutation,
-  useDeleteClientMutation
+  useDeleteClientMutation,
+  useGetClientQuery
 }=clientService

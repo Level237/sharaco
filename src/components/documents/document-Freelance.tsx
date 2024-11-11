@@ -1,9 +1,14 @@
+import { useGetClientQuery } from '@/services/client';
 import { PenBoxIcon, PlusCircle } from 'lucide-react'
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
 export default function DocumentFreelance() {
   const {client_name,localisation} = useSelector((state:any) => state.quote);
+  const [searchParams] = useSearchParams();
+  const clientId = searchParams.get("client"); 
+  const {data,isLoading:load}=useGetClientQuery(clientId)
   return (
   
       <section className='flex flex-col gap-4'>
@@ -24,7 +29,7 @@ export default function DocumentFreelance() {
             
               <div className='flex flex-col gap-3'>
               <div className='relative'>
-                  <h2 className='font-bold text-right text-sm'>{client_name} </h2>
+                  <h2 className='font-bold text-right text-sm'>{data.client_name} </h2>
                   <div className='absolute cursor-pointer  top-[-5px] right-[-17px]'>
                     <PenBoxIcon className='w-[14px]  text-primary'/>
                   </div>

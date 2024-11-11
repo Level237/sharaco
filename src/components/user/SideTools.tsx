@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
 import { Label } from '../ui/label'
@@ -8,26 +8,32 @@ import { Separator } from '../ui/separator'
 import { ScrollArea } from '../ui/scroll-area'
 import { useDispatch, useSelector} from 'react-redux'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '../ui/select'
-import { useGetClientsQuery } from '@/services/client'
+import { useGetClientQuery, useGetClientsQuery } from '@/services/client'
+import { setClient, setClientId } from '@/store/quoteSlice'
+import { parseAsInteger, useQueryState } from 'nuqs'
+
 
 export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}) {
 
+  const [id,setIdClient]=useQueryState("client", parseAsInteger.withDefault(0))
   const dispatch=useDispatch()
 
-  const {data:clients,isLoading,isSuccess,isError,error}=useGetClientsQuery('Clients')
+  const {data:clients,isLoading}=useGetClientsQuery('Clients')
+ const {data,isLoading:load}=useGetClientQuery(id)
+
+  console.log(data)
   
 
-  const onChangeClientName=(e:any)=>{
-    e.preventDefault();
-    //dispatch(setClientName({client_name:e.target.value}))
-  }
-
   const onChangeClient=(value:any)=>{
-    console.log(value)
-  }
-  const onChangeLocalisation=(e:any)=>{
-    e.preventDefault();
-   
+    //dispatch(setClientId({id:value}))
+    setIdClient(value)
+    const clientObjet={
+      client_name:data.client_name,
+      email:data.client_email,
+      town:data.country,
+      phone:data.phone_number
+    }
+    dispatch(setClient(clientObjet))
   }
     return (
       <>
@@ -72,13 +78,14 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
                 </SelectGroup>
               </SelectContent>
             </Select>}
-         
+         <div>
+          {!load && !isLoading && id!==0 && <div className='mt-5'>
+            
+            <h2 className='text-muted-foreground text-sm'>Client selected: {data.client_name}</h2>
+            </div>}
+         </div>
           </div>
          </ScrollArea>
-         
-          
-       
-         
          </div>
          
         </aside>
