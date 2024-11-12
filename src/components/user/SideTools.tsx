@@ -16,12 +16,11 @@ import { parseAsInteger, useQueryState } from 'nuqs'
 export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}) {
 
   const [id,setIdClient]=useQueryState("client", parseAsInteger.withDefault(0))
+  const [tabQuote,setTabQuote]=useQueryState('tabs',{defaultValue:'header'})
   const dispatch=useDispatch()
-  console.log(id)
   const {data:clients,isLoading}=useGetClientsQuery('Clients')
  const {data,isLoading:load,isError}=useGetClientQuery(id)
 
-  console.log(data)
   
 
   const onChangeClient=(value:any)=>{
@@ -51,20 +50,20 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
            
           </div>
           <div className='grid mt-5 mx-5 gap-5 grid-cols-3'>
-              <div className='rounded-2xl py-2 bg-[#0285c736]  cursor-pointer text-muted-foreground'>
-                <h2 className='text-sm text-center text-primary '>Entete</h2>
+              <div onClick={()=>setTabQuote('header')} className={`rounded-2xl py-2 ${tabQuote==="header" && "bg-[#0285c736]"}  cursor-pointer text-muted-foreground`}>
+                <h2 className={`text-sm text-center ${tabQuote==="header" && "text-primary"} `}>Entete</h2>
               </div>
-              <div className='rounded-2xl py-1   cursor-pointer text-muted-foreground'>
-                <h2 className='text-sm text-center'>Body</h2>
+              <div onClick={()=>setTabQuote('body')} className={`rounded-2xl py-2 ${tabQuote==="body" && "bg-[#0285c736]"}  cursor-pointer text-muted-foreground`}>
+                <h2 className={`text-sm text-center ${tabQuote==="body" && "text-primary"} `}>Body</h2>
               </div>
-              <div className='rounded-2xl py-1   cursor-pointer text-muted-foreground'>
-                <h2 className='text-sm text-center'>Footer</h2>
+              <div onClick={()=>setTabQuote('footer')} className={`rounded-2xl py-2 ${tabQuote==="footer" && "bg-[#0285c736]"}  cursor-pointer text-muted-foreground`}>
+                <h2 className={`text-sm text-center ${tabQuote==="footer" && "text-primary"} `}>Footer</h2>
               </div>
          </div>
          <Separator className='mt-4'/>
          
          <ScrollArea className="flex-1  py-4">
-         <div className='mb-6 mx-5'>
+        {tabQuote==="header" &&  <div className='mb-6 mx-5'>
           <Label className='text-white'>Select client</Label>
           {!isLoading &&  <Select onValueChange={onChangeClient}>
               <SelectTrigger className="flex-1 text-white mt-3 h-11">
@@ -84,7 +83,7 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
             <h2 className='text-muted-foreground text-sm'>Client selected: {  data?.client_name || "c" }</h2>
             </div>}
          </div>
-          </div>
+          </div>}
          </ScrollArea>
          </div>
          
