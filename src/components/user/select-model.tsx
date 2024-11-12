@@ -32,7 +32,7 @@ import { timeout } from "@/lib/delay"
         e.preventDefault()
         setIsLoading(true)
         await timeout(3000).then(()=>{
-            navigate('/new/quote')
+            navigate('/new/quote/?client=null')
         })
         //console.log(isLoading)
         

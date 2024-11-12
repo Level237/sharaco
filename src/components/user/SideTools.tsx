@@ -19,7 +19,7 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
   const dispatch=useDispatch()
   console.log(id)
   const {data:clients,isLoading}=useGetClientsQuery('Clients')
- const {data,isLoading:load}=useGetClientQuery(id)
+ const {data,isLoading:load,isError}=useGetClientQuery(id)
 
   console.log(data)
   
@@ -28,10 +28,10 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
     //dispatch(setClientId({id:value}))
     setIdClient(value)
     const clientObjet={
-      client_name:data.client_name,
-      email:data.client_email,
-      town:data.country,
-      phone:data.phone_number
+      client_name:data?.client_name,
+      email:data?.client_email,
+      town:data?.country,
+      phone:data?.phone_number
     }
     dispatch(setClient(clientObjet))
   }
@@ -79,9 +79,9 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
               </SelectContent>
             </Select>}
          <div>
-          {id!==0 && <div className='mt-5'>
+          {id!==null && <div className='mt-5'>
             
-            <h2 className='text-muted-foreground text-sm'>Client selected: {data.client_name}</h2>
+            <h2 className='text-muted-foreground text-sm'>Client selected: {  data?.client_name || "c" }</h2>
             </div>}
          </div>
           </div>
