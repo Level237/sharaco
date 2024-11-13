@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 import { useGetClientQuery, useGetClientsQuery } from '@/services/client'
 import { setClient, setClientId } from '@/store/quoteSlice'
 import { parseAsInteger, useQueryState } from 'nuqs'
+import { Button } from '../ui/button'
 
 
 export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}) {
@@ -84,6 +85,23 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
             </div>}
          </div>
           </div>}
+          {tabQuote==="body" && <div className='mb-6 mx-5'>
+            <div>
+            <Label className='text-white'>Designation</Label>
+            <Input placeholder='Enter a designation' className='mt-3 h-11 text-slate-50'/>
+            </div>
+            <div className='mt-3'>
+            <Label className='text-white'>Quantity</Label>
+            <Input type='number' defaultValue={2} placeholder='Enter a Quantity' className='mt-3 h-11 text-slate-50'/>
+            </div>
+            <div className='mt-3'>
+            <Label className='text-white'>Price</Label>
+            <Input type='text'  placeholder='Enter a Price' className='mt-3 h-11 text-slate-50'/>
+            </div>
+            <div className='mt-6'>
+                  <Button>Save</Button>
+            </div>
+            </div>}
          </ScrollArea>
          </div>
          
