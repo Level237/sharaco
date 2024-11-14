@@ -13,6 +13,8 @@ import { setClient, setClientId } from '@/store/quoteSlice'
 import { parseAsInteger, useQueryState } from 'nuqs'
 import { Button } from '../ui/button'
 import { DesignationType } from '@/types/Designation'
+import { generateRandomId } from '@/lib/generateId'
+import { addDesignation } from '@/store/DesignationSlice'
 
 
 export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}) {
@@ -28,7 +30,6 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
     quantity:0,
     price:""
   })
-  
 
   const onChangeClient=(value:any)=>{
     //dispatch(setClientId({id:value}))
@@ -44,19 +45,33 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
 
   const onChangeDesignation=(e:any,identifier:string)=>{
     
+    
     setDesignation((currInputs)=>{
-
+      
 return{
 ...currInputs,
 [identifier]:e.target.value
 }
 
 })
-console.log(designation)
   }
-  const addDesignation=(e:any)=>{
+  const addDesignationHandler=(e:any)=>{
+    e.preventDefault();
+    setDesignation((currInputs)=>{
 
+      return{
+      ...currInputs,
+      id:generateRandomId()
+      }
+      
+      })
+      const designationObject={
+        designationObject:designation
+      }
+      dispatch(addDesignation(designationObject))
+    
   }
+  console.log(designation)
     return (
       <>
          <aside
@@ -108,6 +123,7 @@ console.log(designation)
          </div>
           </div>}
           {tabQuote==="body" && <div className='mb-6 mx-5'>
+            <form onSubmit={addDesignationHandler}>
             <div>
             <Label className='text-white'>Designation</Label>
             <Input name='title' onChange={(e:any)=>onChangeDesignation(e,'title')} 
@@ -125,6 +141,7 @@ console.log(designation)
             <div className='mt-6'>
                   <Button type='submit'>Save</Button>
             </div>
+            </form>
             </div>}
          </ScrollArea>
          </div>

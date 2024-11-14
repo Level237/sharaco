@@ -8,7 +8,10 @@ export const designationSlice=createSlice({
     },
     reducers:{
         addDesignation:(state:any,action)=>{
+            
             state.data=[...state.data,action.payload.designationObject];
+            console.log(state.data)
         }
     }
 })
+export const {addDesignation}=designationSlice.actions
