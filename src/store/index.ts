@@ -7,6 +7,7 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { quoteService } from "@/services/quotes";
 import quoteSlice from "./quoteSlice";
 import { clientService } from "@/services/client";
+import { designationSlice } from "./DesignationSlice";
 
 
 
@@ -21,7 +22,8 @@ export const store=
         [userService.reducerPath]:userService.reducer,
         [quoteService.reducerPath]:quoteService.reducer,
         [clientService.reducerPath]:clientService.reducer,
-        [quoteSlice.reducerPath]:quoteSlice.reducer
+        [quoteSlice.reducerPath]:quoteSlice.reducer,
+        [designationSlice.reducerPath]:designationSlice.reducer
         
     },
     middleware: (getDefaultMiddleware) =>
