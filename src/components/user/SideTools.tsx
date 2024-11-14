@@ -12,6 +12,7 @@ import { useGetClientQuery, useGetClientsQuery } from '@/services/client'
 import { setClient, setClientId } from '@/store/quoteSlice'
 import { parseAsInteger, useQueryState } from 'nuqs'
 import { Button } from '../ui/button'
+import { DesignationType } from '@/types/Designation'
 
 
 export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}) {
@@ -21,7 +22,12 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
   const dispatch=useDispatch()
   const {data:clients,isLoading}=useGetClientsQuery('Clients')
  const {data,isLoading:load,isError}=useGetClientQuery(id)
-
+  const [designation,setDesignation]=useState<DesignationType>({
+    id:"",
+    title:"",
+    quantity:0,
+    price:""
+  })
   
 
   const onChangeClient=(value:any)=>{
@@ -34,6 +40,22 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
       phone:data?.phone_number
     }
     dispatch(setClient(clientObjet))
+  }
+
+  const onChangeDesignation=(e:any,identifier:string)=>{
+    
+    setDesignation((currInputs)=>{
+
+return{
+...currInputs,
+[identifier]:e.target.value
+}
+
+})
+console.log(designation)
+  }
+  const addDesignation=(e:any)=>{
+
   }
     return (
       <>
@@ -88,18 +110,20 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
           {tabQuote==="body" && <div className='mb-6 mx-5'>
             <div>
             <Label className='text-white'>Designation</Label>
-            <Input placeholder='Enter a designation' className='mt-3 h-11 text-slate-50'/>
+            <Input name='title' onChange={(e:any)=>onChangeDesignation(e,'title')} 
+            
+            placeholder='Enter a designation' className='mt-3 h-11 text-slate-50'/>
             </div>
             <div className='mt-3'>
             <Label className='text-white'>Quantity</Label>
-            <Input type='number' defaultValue={2} placeholder='Enter a Quantity' className='mt-3 h-11 text-slate-50'/>
+            <Input name='quantity' onChange={(e:any)=>onChangeDesignation(e,'quantity')} type='number' defaultValue={2} placeholder='Enter a Quantity' className='mt-3 h-11 text-slate-50'/>
             </div>
             <div className='mt-3'>
             <Label className='text-white'>Price</Label>
-            <Input type='text'  placeholder='Enter a Price' className='mt-3 h-11 text-slate-50'/>
+            <Input name='price' onChange={(e:any)=>onChangeDesignation(e,'price')} type='text'  placeholder='Enter a Price' className='mt-3 h-11 text-slate-50'/>
             </div>
             <div className='mt-6'>
-                  <Button>Save</Button>
+                  <Button type='submit'>Save</Button>
             </div>
             </div>}
          </ScrollArea>
