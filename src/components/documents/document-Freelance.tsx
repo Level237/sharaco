@@ -3,12 +3,14 @@ import { PenBoxIcon, PlusCircle } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+import { DesignationType } from '../../types/Designation';
 
 export default function DocumentFreelance() {
 
   const [searchParams] = useSearchParams();
 
   const clientId = searchParams.get("client"); 
+  const {dataDesignation}=useSelector((state:any)=>state.designation)
   const {data,isLoading:load,error}=useGetClientQuery(clientId)
   console.log(error)
   
@@ -103,20 +105,25 @@ export default function DocumentFreelance() {
                        
                     </thead>
                     <tbody>
-                        <tr className="bg-white border-b  ">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                Apple MacBook Pro 17
-                            </th>
-                            <td className="px-6 py-4">
-                                Silver
-                            </td>
-                            <td className="px-6 py-4">
-                                Laptop
-                            </td>
-                            <td className="px-6 py-4">
-                                $2999
-                            </td>
-                        </tr>
+                      {dataDesignation?.map((designation:DesignationType)=>{
+                        return(
+                          <tr key={designation.id} className="bg-white border-b  ">
+                          <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                              {designation.title}
+                          </th>
+                          <td className="px-6 py-4">
+                              {designation.quantity}
+                          </td>
+                          <td className="px-6 py-4">
+                              {designation.price}
+                          </td>
+                          <td className="px-6 py-4">
+                              $2999
+                          </td>
+                      </tr>
+                        )
+                      })}
+                       
                     </tbody>
                     
                 </table>

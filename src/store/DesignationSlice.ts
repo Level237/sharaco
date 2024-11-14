@@ -4,13 +4,12 @@ import { DesignationType } from '../types/Designation';
 export const designationSlice=createSlice({
     name:'designation',
     initialState:{
-        data:[],
+        dataDesignation:[],
     },
     reducers:{
         addDesignation:(state:any,action)=>{
             
-            state.data=[...state.data,action.payload.designationObject];
-            console.log(state.data)
+            state.dataDesignation=[...state.dataDesignation,action.payload.designationObject];
         }
     }
 })
