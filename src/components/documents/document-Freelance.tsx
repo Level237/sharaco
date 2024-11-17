@@ -118,7 +118,7 @@ export default function DocumentFreelance() {
                               {designation.price}
                           </td>
                           <td className="px-6 py-4">
-                              $2999
+                              {designation.total}
                           </td>
                       </tr>
                         )
@@ -127,8 +127,8 @@ export default function DocumentFreelance() {
                     </tbody>
                     
                 </table>
-                <div className='absolute bottom-[-7px] cursor-pointer right-[-7px]'>
-                          <PlusCircle className='text-primary w-5'/>
+                <div className='absolute bottom-[-7px] z-[100] cursor-pointer right-[-7px]'>
+                          <PlusCircle className='text-white rounded-3xl bg-black w-5'/>
                         </div>
             </div>
 

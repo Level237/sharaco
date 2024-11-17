@@ -1,6 +1,7 @@
 export type DesignationType={
     id:string,
 title:string,
-quantity:number,
+quantity:string,
 price:string,
+total:number
 }

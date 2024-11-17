@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
 import { Label } from '../ui/label'
@@ -27,10 +27,20 @@ export default function SideTools({setIsSidebarOpen,isSidebarOpen}:{setIsSidebar
   const [designation,setDesignation]=useState<DesignationType>({
     id:"",
     title:"",
-    quantity:0,
-    price:""
+    quantity:"",
+    price:"",
+    total:0
   })
 
+const clear=()=>{
+  setDesignation({
+    id:"",
+    title:"",
+    quantity:"",
+    price:"",
+    total:0
+  })
+}
   const onChangeClient=(value:any)=>{
     //dispatch(setClientId({id:value}))
     setIdClient(value)
@@ -55,23 +65,24 @@ return{
 
 })
   }
+
   const addDesignationHandler=(e:any)=>{
     e.preventDefault();
-    setDesignation((currInputs)=>{
 
-      return{
-      ...currInputs,
-      id:generateRandomId()
-      }
-      
-      })
       const designationObject={
-        designationObject:designation
+        designationObject:{
+          id:generateRandomId(),
+        title:designation.title,
+        quantity:designation.quantity,
+        price:designation.price,
+        total:designation.price * designation.quantity
+        }
       }
       dispatch(addDesignation(designationObject))
-    
+    clear()
   }
-  console.log(designation)
+ 
+
     return (
       <>
          <aside
@@ -126,17 +137,17 @@ return{
             <form onSubmit={addDesignationHandler}>
             <div>
             <Label className='text-white'>Designation</Label>
-            <Input name='title' onChange={(e:any)=>onChangeDesignation(e,'title')} 
+            <Input name='title' value={designation.title} onChange={(e:any)=>onChangeDesignation(e,'title')} 
             
             placeholder='Enter a designation' className='mt-3 h-11 text-slate-50'/>
             </div>
             <div className='mt-3'>
             <Label className='text-white'>Quantity</Label>
-            <Input name='quantity' onChange={(e:any)=>onChangeDesignation(e,'quantity')} type='number' defaultValue={2} placeholder='Enter a Quantity' className='mt-3 h-11 text-slate-50'/>
+            <Input name='quantity' value={designation.quantity} onChange={(e:any)=>onChangeDesignation(e,'quantity')} type='number'  placeholder='Enter a Quantity' className='mt-3 h-11 text-slate-50'/>
             </div>
             <div className='mt-3'>
             <Label className='text-white'>Price</Label>
-            <Input name='price' onChange={(e:any)=>onChangeDesignation(e,'price')} type='text'  placeholder='Enter a Price' className='mt-3 h-11 text-slate-50'/>
+            <Input name='price' value={designation.price} onChange={(e:any)=>onChangeDesignation(e,'price')} type='text'  placeholder='Enter a Price' className='mt-3 h-11 text-slate-50'/>
             </div>
             <div className='mt-6'>
                   <Button type='submit'>Save</Button>
