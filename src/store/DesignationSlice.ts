@@ -5,10 +5,10 @@ export const designationSlice=createSlice({
     name:'designation',
     initialState:{
         dataDesignation:[],
+        total:0
     },
     reducers:{
         addDesignation:(state:any,action)=>{
-            console.log(action.payload.designationObject)
             state.dataDesignation=[...state.dataDesignation,action.payload.designationObject];
         }
     }

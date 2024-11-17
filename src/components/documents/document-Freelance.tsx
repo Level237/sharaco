@@ -12,7 +12,13 @@ export default function DocumentFreelance() {
   const clientId = searchParams.get("client"); 
   const {dataDesignation}=useSelector((state:any)=>state.designation)
   const {data,isLoading:load,error}=useGetClientQuery(clientId)
-  console.log(error)
+  
+  const [total,setTotal]=useState(0)
+  let totalDesignation=0;
+  useEffect(()=>{
+    totalDesignation=dataDesignation.reduce((accumulateur:any, objet:any) => accumulateur + objet.total, 0); 
+  setTotal(totalDesignation)
+  },[dataDesignation])
   
   return (
   
@@ -138,7 +144,7 @@ export default function DocumentFreelance() {
 
               </div>
               <div>
-              <h2 className='text-sm'>Total: <span className='font-bold'>34 898 Fcfa</span></h2>
+              <h2 className='text-sm'>Total: <span className='font-bold'>{total} Fcfa</span></h2>
               </div>
             </div>
       </section>
