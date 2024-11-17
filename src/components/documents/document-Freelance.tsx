@@ -1,9 +1,10 @@
 import { useGetClientQuery } from '@/services/client';
-import { PenBoxIcon, PlusCircle } from 'lucide-react'
+import { PenBoxIcon, PlusCircle, Trash2, X } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { DesignationType } from '../../types/Designation';
+import { removeItem } from '@/store/DesignationSlice';
 
 export default function DocumentFreelance() {
 
@@ -12,7 +13,7 @@ export default function DocumentFreelance() {
   const clientId = searchParams.get("client"); 
   const {dataDesignation}=useSelector((state:any)=>state.designation)
   const {data,isLoading:load,error}=useGetClientQuery(clientId)
-  
+  const dispatch=useDispatch()
   const [total,setTotal]=useState(0)
   let totalDesignation=0;
   useEffect(()=>{
@@ -20,6 +21,10 @@ export default function DocumentFreelance() {
   setTotal(totalDesignation)
   },[dataDesignation])
   
+  const removeHandler=(id:any)=>{
+    dispatch(removeItem({id:id}))
+    console.log('dd')
+  }
   return (
   
       <section className='flex flex-col gap-4'>
@@ -113,7 +118,7 @@ export default function DocumentFreelance() {
                     <tbody>
                       {dataDesignation?.map((designation:DesignationType)=>{
                         return(
-                          <tr key={designation.id} className="bg-white border-b  ">
+                          <tr key={designation.id} className="bg-white border-b relative ">
                           <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                               {designation.title}
                           </th>
@@ -126,6 +131,9 @@ export default function DocumentFreelance() {
                           <td className="px-6 py-4">
                               {designation.total}
                           </td>
+                          <div onClick={()=>removeHandler(designation.id)} className='absolute top-[35%] z-[100] cursor-pointer left-[-25px]'>
+                          <Trash2 className='text-red-600  w-5'/>
+                        </div>
                       </tr>
                         )
                       })}
@@ -136,6 +144,7 @@ export default function DocumentFreelance() {
                 <div className='absolute bottom-[-7px] z-[100] cursor-pointer right-[-7px]'>
                           <PlusCircle className='text-white rounded-3xl bg-black w-5'/>
                         </div>
+                       
             </div>
 
             </div>

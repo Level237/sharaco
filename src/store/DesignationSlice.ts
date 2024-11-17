@@ -10,7 +10,13 @@ export const designationSlice=createSlice({
     reducers:{
         addDesignation:(state:any,action)=>{
             state.dataDesignation=[...state.dataDesignation,action.payload.designationObject];
+        },
+        removeItem:(state:any,action)=>{
+            console.log(action.payload.id)
+            state.dataDesignation=state.dataDesignation.filter((el:any)=>{
+                return el.id!==action.payload.id;
+            })
         }
     }
 })
-export const {addDesignation}=designationSlice.actions
+export const {addDesignation,removeItem}=designationSlice.actions
