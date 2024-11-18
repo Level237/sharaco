@@ -103,10 +103,10 @@ export default function DocumentFreelance() {
                               Designation
                             </th>
                             <th scope="col" className="px-6 py-3">
-                               Quantity
+                               Price
                             </th>
                             <th scope="col" className="px-6 py-3">
-                               Price
+                               Quantity
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Total
@@ -123,10 +123,10 @@ export default function DocumentFreelance() {
                               {designation.title}
                           </th>
                           <td className="px-6 py-4">
-                              {designation.quantity}
+                              {designation.price}
                           </td>
                           <td className="px-6 py-4">
-                              {designation.price}
+                              {designation.quantity}
                           </td>
                           <td className="px-6 py-4">
                               {designation.total}
