@@ -37,9 +37,6 @@ import { timeout } from "@/lib/delay"
             navigate(`/new/quote/?id=${quoteId}?client=null`)
         })
         //console.log(isLoading)
-        
-           
-        
     }
     return (
       <AlertDialog>
