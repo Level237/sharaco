@@ -10,6 +10,7 @@ import {
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
 
+  import {v4 as uuidv4} from 'uuid'
 import React, { useState } from "react"
 import { Separator } from "../ui/separator"
 import { useNavigate } from "react-router-dom"
@@ -19,6 +20,7 @@ import { timeout } from "@/lib/delay"
 
     const [selected,setSelected]=useState(null)
     const [isLoading,setIsLoading]=useState(false)
+    const quoteId = uuidv4();
     const navigate=useNavigate()
     const handleSelectTemplate=(id:any)=>{
         setSelected(id)
@@ -32,7 +34,7 @@ import { timeout } from "@/lib/delay"
         e.preventDefault()
         setIsLoading(true)
         await timeout(3000).then(()=>{
-            navigate('/new/quote/?client=null')
+            navigate(`/new/quote/?id=${quoteId}?client=null`)
         })
         //console.log(isLoading)
         
