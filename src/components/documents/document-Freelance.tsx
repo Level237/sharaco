@@ -1,6 +1,6 @@
 import { useGetClientQuery } from '@/services/client';
 import { PenBoxIcon, PlusCircle, Trash2, X } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { DesignationType } from '../../types/Designation';
@@ -16,6 +16,7 @@ export default function DocumentFreelance() {
   const dispatch=useDispatch()
   const [total,setTotal]=useState(0)
   let totalDesignation=0;
+
   useEffect(()=>{
     totalDesignation=dataDesignation.reduce((accumulateur:any, objet:any) => accumulateur + objet.total, 0); 
   setTotal(totalDesignation)
@@ -27,7 +28,7 @@ export default function DocumentFreelance() {
   }
   return (
   
-      <section className='flex flex-col gap-4'>
+      <section   className='flex flex-col gap-4'>
             <div className='flex flex-row justify-between items-center'>
               <div className='flex flex-col gap-3'>
                 <div>
@@ -142,7 +143,7 @@ export default function DocumentFreelance() {
                     
                 </table>
                 <div className='absolute bottom-[-7px] z-[100] cursor-pointer right-[-7px]'>
-                          <PlusCircle className='text-white rounded-3xl bg-black w-5'/>
+                          <PlusCircle  className='text-white rounded-3xl bg-black w-5'/>
                         </div>
                        
             </div>
