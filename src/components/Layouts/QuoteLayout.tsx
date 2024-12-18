@@ -8,7 +8,7 @@ export default function QuoteLayout({ children }: { children: React.ReactNode })
     const [clientName,setClientName]=useState("")
 
     return (
-      <div className="flex  bg-background h-[100%]">
+      <div className="flex   bg-background h-[100%]">
 
 <SideTools setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen}/>
         {/* Main Content */}
@@ -18,7 +18,7 @@ export default function QuoteLayout({ children }: { children: React.ReactNode })
           
   
           {/* Page Content */}
-          <main className="flex-1 overflow-y-auto p-6">{children}</main>
+          <main className="flex-1  p-6">{children}</main>
         </div>
       </div>
     )

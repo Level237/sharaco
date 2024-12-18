@@ -22,7 +22,7 @@ export default function NewQuotePage() {
     });
 };
   return (
-    <PDFViewer className='w-[100%] h-[100vh]'>
+    <PDFViewer className='w-[100%]  h-[100vh]'>
     <TestPdf />
   </PDFViewer>
   )
