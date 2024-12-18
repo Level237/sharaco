@@ -9,6 +9,7 @@ import TestPdf from '@/components/documents/test-pdf';
 import { useSearchParams } from 'react-router-dom';
 import { useGetClientQuery } from '@/services/client';
 import { useDispatch, useSelector } from 'react-redux';
+import FreelanceModal from '@/components/documents/freelance-modal';
 export default function NewQuotePage() {
 
   const pdfRef = useRef();
@@ -39,7 +40,7 @@ export default function NewQuotePage() {
 };
   return (
     <PDFViewer className='w-[100%] h-[100vh]'>
-    <TestPdf fileName={fileName} client={data} dataDesignation={dataDesignation} total={total} />
+    <FreelanceModal fileName={fileName} client={data} dataDesignation={dataDesignation} total={total} />
   </PDFViewer>
   )
 }

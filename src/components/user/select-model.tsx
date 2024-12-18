@@ -35,7 +35,7 @@ import { generateQuoteFileName } from "@/lib/generateQuoteFIleName"
         e.preventDefault()
         setIsLoading(true)
         await timeout(3000).then(()=>{
-            navigate(`/new/quote/?id=${quoteId}&client=null&filename=${generateQuoteFileName()}`)
+            navigate(`/new/quote/?id=${quoteId}&client=null&filename=${generateQuoteFileName()}&modal=0`)
         })
         //console.log(isLoading)
     }
