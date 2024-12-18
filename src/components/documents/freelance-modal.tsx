@@ -88,7 +88,7 @@ export default function FreelanceModal({client,dataDesignation,total,fileName}:{
 
 
   return (
-    <Document title={fileName}>
+    <Document title={fileName} creator='sharaco'>
     <Page  size="A4" style={styles.page}>
       <View  style={styles.header}>
         <View style={{flexDirection:"column"}}>

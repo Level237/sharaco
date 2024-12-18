@@ -16,6 +16,7 @@ import { useTheme } from "../theme-provider"
 import { useGetUserQuery, useLogoutMutation } from "@/services/auth"
 import { logoutUser } from "@/store/authSlice"
 import { useDispatch } from "react-redux"
+import ButtonDownloadPdf from "../documents/button-download-pdf"
 
 export default function Header({setIsSidebarOpen,isQuoteLayout,isSidebarOpen,isShowLogo}:{setIsSidebarOpen:any,isSidebarOpen:boolean,isShowLogo:boolean,isQuoteLayout:boolean}){
   const {data,isLoading}=useGetUserQuery('Auth')
@@ -89,7 +90,7 @@ export default function Header({setIsSidebarOpen,isQuoteLayout,isSidebarOpen,isS
           </DropdownMenuContent>
         </DropdownMenu>
         {isQuoteLayout  && isSidebarOpen && <div>
-          <Button className="text-white"><Download/> Exporter</Button>
+          <ButtonDownloadPdf/>
         </div>}
         
           </div>
