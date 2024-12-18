@@ -88,7 +88,7 @@ export default function TestPdf({client,dataDesignation,total}:{client:any,dataD
 
 
   return (
-    <Document>
+    <Document title='quotes'>
     <Page  size="A4" style={styles.page}>
       <View  style={styles.header}>
         <View style={{flexDirection:"column"}}>
@@ -132,7 +132,7 @@ export default function TestPdf({client,dataDesignation,total}:{client:any,dataD
               <Text style={styles.tableCell}>{designation.title}</Text>
               <Text style={styles.tableCell}>{designation.quantity}</Text>
               <Text style={styles.tableCell}>{designation.price}</Text>
-              <Text style={styles.tableCell}>Total</Text>
+              <Text style={styles.tableCell}>{designation.price * designation.quantity}</Text>
             </View>
             )
           })}
