@@ -14,13 +14,14 @@ export default function NewQuotePage() {
   const pdfRef = useRef();
   const [searchParams] = useSearchParams();
   const clientId = searchParams.get("client");
+  const fileName=searchParams.get('filename')
   const {data,isLoading:load,error}=useGetClientQuery(clientId)
   const {dataDesignation}=useSelector((state:any)=>state.designation)
 
   const dispatch=useDispatch()
   const [total,setTotal]=useState(0)
   let totalDesignation=0;
-
+  console.log(fileName)
   useEffect(()=>{
     totalDesignation=dataDesignation.reduce((accumulateur:any, objet:any) => accumulateur + objet.total, 0); 
   setTotal(totalDesignation)
@@ -38,7 +39,7 @@ export default function NewQuotePage() {
 };
   return (
     <PDFViewer className='w-[100%] h-[100vh]'>
-    <TestPdf client={data} dataDesignation={dataDesignation} total={total} />
+    <TestPdf fileName={fileName} client={data} dataDesignation={dataDesignation} total={total} />
   </PDFViewer>
   )
 }

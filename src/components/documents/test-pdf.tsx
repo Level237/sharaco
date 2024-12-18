@@ -84,11 +84,11 @@ const styles = StyleSheet.create({
     }, 
   });
   
-export default function TestPdf({client,dataDesignation,total}:{client:any,dataDesignation:any,total:any}) {
+export default function TestPdf({client,dataDesignation,total,fileName}:{client:any,dataDesignation:any,total:any,fileName:any}) {
 
 
   return (
-    <Document title='quotes'>
+    <Document title={fileName}>
     <Page  size="A4" style={styles.page}>
       <View  style={styles.header}>
         <View style={{flexDirection:"column"}}>
