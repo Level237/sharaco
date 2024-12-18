@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
+import { useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useGetClientQuery } from '@/services/client';
+import { DesignationType } from '@/types/Designation';
 
 Font.register({
   family: 'Helvetica-Bold',
@@ -80,7 +84,9 @@ const styles = StyleSheet.create({
     }, 
   });
   
-export default function TestPdf() {
+export default function TestPdf({client,dataDesignation,total}:{client:any,dataDesignation:any,total:any}) {
+
+
   return (
     <Document>
     <Page  size="A4" style={styles.page}>
@@ -93,11 +99,11 @@ export default function TestPdf() {
             <Text style={{ fontSize: 12 }}>690394365</Text>
         </View>
         <View style={{flexDirection:"column"}}>
-            <Text style={{ fontSize: 14,fontWeight:"ultrabold",marginBottom:"16",fontFamily:"Helvetica-Bold" }}>Nom du client</Text>
-            <Text style={{ fontSize: 12 }}>2e rue Douala</Text>
-            <Text style={{ fontSize: 12 }}>Beedi Cité Douala</Text>
-            <Text style={{ fontSize: 12 }}>Cameroun</Text>
-            <Text style={{ fontSize: 12 }}>690394365</Text>
+            <Text style={{ fontSize: 14,fontWeight:"ultrabold",marginBottom:"16",fontFamily:"Helvetica-Bold" }}>{  client?.client_name || "Nom du Client" } </Text>
+            <Text style={{ fontSize: 12 }}>{ client?.phone_number || "Numéro de Téléphone"}</Text>
+            <Text style={{ fontSize: 12 }}>{ client?.town || "Ville"}</Text>
+            <Text style={{ fontSize: 12 }}>{ client?.country || "Pays"}</Text>
+            <Text style={{ fontSize: 12 }}>{client?.client_email || "Email"}</Text>
         </View>
       </View>
       
@@ -119,23 +125,22 @@ export default function TestPdf() {
             <Text style={styles.tableCellHeader}>Prix Unitaire</Text>
             <Text style={styles.tableCellHeader}>Total</Text>
           </View>
-          <View style={styles.tableRow}>
-            <Text style={styles.tableCell}>Service 1</Text>
-            <Text style={styles.tableCell}>1</Text>
-            <Text style={styles.tableCell}>100€</Text>
-            <Text style={styles.tableCell}>100€</Text>
-          </View>
-          <View style={styles.tableRow}>
-            <Text style={styles.tableCell}>Service 2</Text>
-            <Text style={styles.tableCell}>2</Text>
-            <Text style={styles.tableCell}>50€</Text>
-            <Text style={styles.tableCell}>100€</Text>
-          </View>
+
+          {dataDesignation?.map((designation:DesignationType)=>{
+            return (
+              <View key={designation.id} style={styles.tableRow}>
+              <Text style={styles.tableCell}>{designation.title}</Text>
+              <Text style={styles.tableCell}>{designation.quantity}</Text>
+              <Text style={styles.tableCell}>{designation.price}</Text>
+              <Text style={styles.tableCell}>Total</Text>
+            </View>
+            )
+          })}
           <View style={styles.tableRow}>
             <Text style={[styles.tableCell,styles.textBold]}>Total</Text>
             <Text style={styles.tableCell}></Text>
             <Text style={styles.tableCell}></Text>
-            <Text style={[styles.tableCell,styles.textBold]}>200€</Text>
+            <Text style={[styles.tableCell,styles.textBold]}>{total} Fcfa</Text>
           </View>
         </View>
       </View>
