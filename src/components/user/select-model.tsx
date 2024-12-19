@@ -15,7 +15,7 @@ import React, { useState } from "react"
 import { Separator } from "../ui/separator"
 import { useNavigate } from "react-router-dom"
 import { timeout } from "@/lib/delay"
-import { generateQuoteFileName } from "@/lib/generateQuoteFIleName"
+import { generateUniqueQuoteFileName } from "@/lib/generateQuoteFIleName"
   
   export function SelectModel({children}:{children:React.ReactNode}) {
 
@@ -35,7 +35,7 @@ import { generateQuoteFileName } from "@/lib/generateQuoteFIleName"
         e.preventDefault()
         setIsLoading(true)
         await timeout(3000).then(()=>{
-            navigate(`/new/quote/?id=${quoteId}&client=null&filename=${generateQuoteFileName()}&modal=0`)
+            navigate(`/new/quote/?id=${quoteId}&client=null&filename=${generateUniqueQuoteFileName()}&modal=0`)
         })
         //console.log(isLoading)
     }
