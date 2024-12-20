@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     }, 
   });
   
-export default function FreelanceModal({client,dataDesignation,total,fileName}:{client:any,dataDesignation:any,total:any,fileName:any}) {
+export default function FreelanceModal({client,dataDesignation,total,fileName}:{client?:any | null,dataDesignation?:any | null,total?:any | null,fileName?:any |null}) {
 
 
   return (
@@ -108,7 +108,7 @@ export default function FreelanceModal({client,dataDesignation,total,fileName}:{
       </View>
       
       <View style={{ marginTop:30 }} >
-      <Text style={[styles.textBold,{fontSize:12}]}>Devis DZJZTRA</Text>
+      <Text style={[styles.textBold,{fontSize:12}]}>Objet du Devis</Text>
       </View>
       <View style={{ display:"flex",alignItems:'flex-end' }}>
         <View style={{ display:"flex",flexDirection:'column',gap:2 }}>
@@ -143,8 +143,13 @@ export default function FreelanceModal({client,dataDesignation,total,fileName}:{
             <Text style={[styles.tableCell,styles.textBold]}>{total} Fcfa</Text>
           </View>
         </View>
+
+        <View style={{ backgroundColor:"#000000",marginTop:20,color:"#fff",padding:10,fontSize:12,fontFamily:"Helvetica-Bold",display:"flex",flexDirection:"row",justifyContent:"flex-end",gap:12,paddingRight:24 }}>
+          <Text>TOTAL : </Text>
+          <Text>{total} Fcfa</Text>
+        </View>
       </View>
-      <View style={[styles.footer,styles.textBold,{display:"flex",flexDirection:"row",justifyContent:'center',fontSize:14}]}><Text >Made in</Text> <Text style={{ color:"#02abee" }}> Sharaco</Text> </View>
+      <View style={[styles.footer,styles.textBold,{display:"flex",flexDirection:"row",justifyContent:'center',fontSize:14}]}><Text >Made with</Text> <Text style={{ color:"#02abee" }}> Sharaco</Text> </View>
       
     </Page>
   </Document>

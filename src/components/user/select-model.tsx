@@ -54,15 +54,15 @@ import { generateUniqueQuoteFileName } from "@/lib/generateQuoteFIleName"
              
               <div className="flex mt-16 justify-between gap-2 mx-6">
                     <div  className="flex cursor-pointer  flex-col justify-center gap-3">
-                        <img onClick={()=>handleSelectTemplate("1")} className={`w-44 ${selected==="1" && "border-primary border-[0.4rem] rounded-md"} ${selected!=="1" && "hover:border hover:border-primary"} `} src="/devis.webp" alt="" />
-                        <h2 className="text-md">Devis Freelance</h2>
+                    <img onClick={()=>handleSelectTemplate("1")} className={`w-44 ${selected==="1" && "border-primary border-[0.4rem] rounded-md"} ${selected!=="1" && "hover:border hover:border-primary"} `} src="/devis.webp" alt="" />
+                        <h2 className="text-md">Simple Model</h2>
                        
                         
                     </div>
                     
                     <div  className="flex cursor-pointer  flex-col justify-center gap-3">
                         <img onClick={()=>handleSelectTemplate("2")} className={`w-44 ${selected==="2" && "border-primary border-[0.4rem] rounded-md"} ${selected!=="2" && "hover:border hover:border-primary"} `} src="/devis.webp" alt="" />
-                        <h2 className="text-md">Devis Entreprise</h2>
+                        <h2 className="text-md">Model with Brand</h2>
                     </div>
               </div>
             </AlertDialogDescription>
