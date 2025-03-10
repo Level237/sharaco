@@ -1,6 +1,13 @@
 export enum QuoteTemplateType {
     SIMPLE = "simple",
-    BRANDED = "branded"
+    BRANDED = "branded",
+    DEVELOPER = "developer"
+}
+
+export enum QuoteTemplateCategory {
+    BUSINESS = "business",
+    CREATIVE = "creative",
+    TECHNICAL = "technical"
 }
 
 export interface QuoteTemplate {
@@ -9,6 +16,7 @@ export interface QuoteTemplate {
     description: string;
     thumbnail: string;
     component: string;
+    category: QuoteTemplateCategory;
 }
 
 export const QUOTE_TEMPLATES: QuoteTemplate[] = [
@@ -17,13 +25,23 @@ export const QUOTE_TEMPLATES: QuoteTemplate[] = [
         name: "Simple Model",
         description: "Basic quote template",
         thumbnail: "/devis.webp",
-        component: "SimpleQuoteTemplate"
+        component: "SimpleQuoteTemplate",
+        category: QuoteTemplateCategory.BUSINESS
     },
     {
         id: QuoteTemplateType.BRANDED,
         name: "Model with Brand",
         description: "Quote template with company branding",
         thumbnail: "/devis.webp",
-        component: "BrandedQuoteTemplate"
+        component: "BrandedQuoteTemplate",
+        category: QuoteTemplateCategory.CREATIVE
+    },
+    {
+        id: QuoteTemplateType.DEVELOPER,
+        name: "Developer Model",
+        description: "Code-themed quote template",
+        thumbnail: "/devis-dev.webp",
+        component: "DeveloperQuoteTemplate",
+        category: QuoteTemplateCategory.TECHNICAL
     }
 ]; 
