@@ -6,11 +6,12 @@ import { NavItem } from './NavItem'
 import { Button } from '@/components/ui/button'
 import { Menu } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import Logo from "@/components/ui/logo"
 
-export default function Sidebar({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOpen:any,isSidebarOpen:boolean}) {
+export default function Sidebar({ setIsSidebarOpen, isSidebarOpen }: { setIsSidebarOpen: any, isSidebarOpen: boolean }) {
   return (
     <>
-       <aside
+      <aside
         className={cn(
           "fixed left-0 top-0 z-40 h-screen w-64  transform transition-transform duration-300 ease-in-out",
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -20,9 +21,9 @@ export default function Sidebar({setIsSidebarOpen,isSidebarOpen}:{setIsSidebarOp
           {/* Logo */}
           <div className="flex h-16 items-center border-b dark:border-[#ffffff17] px-6">
             <Link to={"/dashboard"}>
-            <span className="text-2xl dark:text-primary   font-bold">Sharaco</span>
+              <Logo width={24} height={12} />
             </Link>
-           
+
           </div>
 
           {/* Navigation */}
