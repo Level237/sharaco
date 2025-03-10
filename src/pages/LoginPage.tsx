@@ -1,4 +1,4 @@
-import { Unlock } from "lucide-react";
+
 import LoginForm from "../components/forms/LoginForm";
 
 
@@ -9,9 +9,9 @@ export default function LoginPage() {
         <div className="flex justify-center items-center">
           <img src="https://blush.design/api/download?shareUri=OlpJwFBpVrt0lKgm&c=Hair_0%7Ec5767a-0.1%7Ef5bbee_Skin_0%7E4b3425-0.1%7E4b3425&w=800&h=800&fm=png" className="w-full h-full" alt="" />
         </div>
-     </div>
-      <div className="flex flex-1 flex-col pl-40 gap-6 py-24"> 
-          <div>
+      </div>
+      <div className="flex flex-1 flex-col pl-40 gap-6 py-24">
+        <div>
           <a href="/" className="flex items-center">
             <svg
               width="164"
@@ -88,22 +88,22 @@ export default function LoginPage() {
               </defs>
             </svg>
           </a>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h2 className="text-3xl font-bold">
-              Log In to your Account
-            </h2>
-            <div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <h2 className="text-3xl font-bold">
+            Log In to your Account
+          </h2>
+          <div>
             <h2 className="text-sm text-gray-700">
               Welcome back! Select method to log in:
             </h2>
           </div>
-          </div>
-          <div>
-        <LoginForm/>
+        </div>
+        <div>
+          <LoginForm />
+        </div>
       </div>
-      </div>
-     
+
     </section>
   )
 }
