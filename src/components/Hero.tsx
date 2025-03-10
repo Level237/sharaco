@@ -71,7 +71,7 @@ export default function Hero() {
             <div className="flex h-16 items-center justify-between">
               {/* Logo */}
               <Link to="/" className="flex items-center">
-                <Logo width={52} height={52} />
+                <Logo width={24} height={12} />
               </Link>
 
               {/* Desktop Navigation */}
