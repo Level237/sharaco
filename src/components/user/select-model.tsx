@@ -3,15 +3,12 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { v4 as uuidv4 } from 'uuid'
 import React, { useState } from "react"
-import { Separator } from "../ui/separator"
 import { useNavigate } from "react-router-dom"
 import { timeout } from "@/lib/delay"
 import { generateUniqueQuoteFileName } from "@/lib/generateQuoteFIleName"
@@ -63,8 +60,8 @@ export function SelectModel({ children }: { children: React.ReactNode }) {
               <button
                 onClick={() => setViewMode('grid')}
                 className={`p-2 rounded-md transition-colors ${viewMode === 'grid'
-                    ? 'bg-primary text-white'
-                    : 'bg-gray-100 dark:bg-gray-800'
+                  ? 'bg-primary text-white'
+                  : 'bg-gray-100 dark:bg-gray-800'
                   }`}
               >
                 <Grid size={20} />
@@ -72,8 +69,8 @@ export function SelectModel({ children }: { children: React.ReactNode }) {
               <button
                 onClick={() => setViewMode('list')}
                 className={`p-2 rounded-md transition-colors ${viewMode === 'list'
-                    ? 'bg-primary text-white'
-                    : 'bg-gray-100 dark:bg-gray-800'
+                  ? 'bg-primary text-white'
+                  : 'bg-gray-100 dark:bg-gray-800'
                   }`}
               >
                 <Layout size={20} />

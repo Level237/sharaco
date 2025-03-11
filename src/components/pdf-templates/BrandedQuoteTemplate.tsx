@@ -118,13 +118,13 @@ const styles = StyleSheet.create({
     },
 });
 
-export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total }: { fileName: string, client: any, dataDesignation: any, total: number }) {
+export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total, backgroundColor }: { fileName: string, client: any, dataDesignation: any, total: number, backgroundColor: string | null }) {
     const date = new Date().toLocaleDateString();
 
     return (
         <Document>
             <Page size="A4" style={styles.page}>
-                <View style={styles.headerBand}>
+                <View style={[styles.headerBand, { backgroundColor: backgroundColor || '' }]} >
                     <View style={styles.headerContent}>
                         <View style={styles.companyInfo}>
                             <Text style={{ fontWeight: 'bold', marginBottom: 8 }}>VOTRE ENTREPRISE</Text>
@@ -154,7 +154,7 @@ export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total 
                 </View>
 
                 <View style={styles.table}>
-                    <View style={[styles.tableRow, styles.tableHeader]}>
+                    <View style={[styles.tableRow, styles.tableHeader, { backgroundColor: backgroundColor || '#1e40af' }]}>
                         <Text style={[styles.tableCell, { flex: 2, color: 'white' }]}>Description</Text>
                         <Text style={[styles.tableCell, { flex: 1, color: 'white' }]}>Quantité</Text>
                         <Text style={[styles.tableCell, { flex: 1, color: 'white' }]}>Prix unitaire</Text>
@@ -163,9 +163,9 @@ export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total 
 
                     {dataDesignation.map((item: any, index: number) => (
                         <View key={index} style={[styles.tableRow, { backgroundColor: index % 2 === 0 ? '#f8fafc' : 'white' }]}>
-                            <Text style={[styles.tableCell, { flex: 2 }]}>{item.description}</Text>
+                            <Text style={[styles.tableCell, { flex: 2 }]}>{item.title}</Text>
                             <Text style={[styles.tableCell, { flex: 1 }]}>{item.quantity}</Text>
-                            <Text style={[styles.tableCell, { flex: 1 }]}>{item.unitPrice}€</Text>
+                            <Text style={[styles.tableCell, { flex: 1 }]}>{item.price}€</Text>
                             <Text style={[styles.tableCell, { flex: 1 }]}>{item.total}€</Text>
                         </View>
                     ))}

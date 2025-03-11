@@ -1,15 +1,15 @@
 import { cn } from '@/lib/utils'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
+
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Separator } from '../ui/separator'
 import { ScrollArea } from '../ui/scroll-area'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '../ui/select'
 import { useGetClientQuery, useGetClientsQuery } from '@/services/client'
-import { setClient, setClientId } from '@/store/quoteSlice'
+import { setClient, setQuoteSettings } from '@/store/quoteSlice'
 import { parseAsInteger, useQueryState } from 'nuqs'
 import { Button } from '../ui/button'
 import { DesignationType } from '@/types/Designation'
@@ -17,6 +17,12 @@ import { generateRandomId } from '@/lib/generateId'
 import { addDesignation } from '@/store/DesignationSlice'
 import Logo from '../ui/logo'
 
+// Ajout du type pour les paramètres du document
+interface DocumentSettings {
+  includeVAT: boolean;
+  vatRate: string;
+  backgroundColor: string;
+}
 
 export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSidebarOpen: any, isSidebarOpen: boolean }) {
 
@@ -32,6 +38,13 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
     price: "",
     total: 0
   })
+
+  // Ajout du state pour les paramètres du document
+  const [documentSettings, setDocumentSettings] = useState<DocumentSettings>({
+    includeVAT: false,
+    vatRate: "20",
+    backgroundColor: "#0285c736",
+  });
 
   const clear = () => {
     setDesignation({
@@ -83,6 +96,23 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
     clear()
   }
 
+  // Gestionnaire pour les changements de paramètres du document
+  const handleDocumentSettingChange = (key: keyof DocumentSettings, value: any) => {
+    setDocumentSettings(prev => ({
+      ...prev,
+      [key]: value
+    }));
+  };
+
+  const handleApplySettings = () => {
+
+    const documentSettingsObject = {
+      backgroundColor: documentSettings.backgroundColor,
+      includeVAT: documentSettings.includeVAT,
+      vatRate: documentSettings.vatRate
+    }
+    dispatch(setQuoteSettings(documentSettingsObject))
+  }
 
   return (
     <>
@@ -99,15 +129,16 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
             </Link>
 
           </div>
-          <div className='grid mt-5 mx-5 gap-5 grid-cols-3'>
+          <div className='grid mt-5 mx-5 gap-4 grid-cols-4'>
             <div onClick={() => setTabQuote('header')} className={`rounded-2xl py-2 ${tabQuote === "header" && "bg-[#0285c736]"}  cursor-pointer text-muted-foreground`}>
-              <h2 className={`text-sm text-center ${tabQuote === "header" && "text-primary"} `}>Entete</h2>
+              <h2 className={`text-sm text-center ${tabQuote === "header" && "text-primary"} `}>Header</h2>
             </div>
             <div onClick={() => setTabQuote('body')} className={`rounded-2xl py-2 ${tabQuote === "body" && "bg-[#0285c736]"}  cursor-pointer text-muted-foreground`}>
               <h2 className={`text-sm text-center ${tabQuote === "body" && "text-primary"} `}>Body</h2>
             </div>
-            <div onClick={() => setTabQuote('footer')} className={`rounded-2xl py-2 ${tabQuote === "footer" && "bg-[#0285c736]"}  cursor-pointer text-muted-foreground`}>
-              <h2 className={`text-sm text-center ${tabQuote === "footer" && "text-primary"} `}>Footer</h2>
+
+            <div onClick={() => setTabQuote('document')} className={`rounded-2xl py-2  w-full ${tabQuote === "document" && "bg-[#0285c736]"}  cursor-pointer w-20 text-muted-foreground`}>
+              <h2 className={`text-sm text-center ${tabQuote === "document" && "text-primary "} `}>Document</h2>
             </div>
           </div>
           <Separator className='mt-4' />
@@ -155,6 +186,54 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
                 </div>
               </form>
             </div>}
+            {tabQuote === "document" && (
+              <div className='mb-6 mx-5'>
+                <div className='mb-4'>
+                  <Label className='text-white'>TVA</Label>
+                  <div className='flex items-center mt-2 space-x-2'>
+                    <Input
+                      type="checkbox"
+                      checked={documentSettings.includeVAT}
+                      onChange={(e) => handleDocumentSettingChange('includeVAT', e.target.checked)}
+                      className="w-4 h-4"
+                    />
+                    <span className="text-white text-sm">Inclure la TVA</span>
+                  </div>
+                  {documentSettings.includeVAT && (
+                    <div className='mt-2'>
+                      <Input
+                        type="text"
+                        value={documentSettings.vatRate}
+                        onChange={(e) => handleDocumentSettingChange('vatRate', e.target.value)}
+                        placeholder="Taux de TVA (%)"
+                        className='h-11 text-slate-50'
+                      />
+                    </div>
+                  )}
+                </div>
+
+                <div className='mb-4'>
+                  <Label className='text-white'>Couleur principale</Label>
+                  <div className='flex items-center mt-2 space-x-2'>
+                    <Input
+                      type="color"
+                      value={documentSettings.backgroundColor}
+                      onChange={(e) => handleDocumentSettingChange('backgroundColor', e.target.value)}
+                      className='h-11 w-full'
+                    />
+                  </div>
+                </div>
+
+
+
+                <Button
+                  className='w-full mt-4'
+                  onClick={handleApplySettings}
+                >
+                  Appliquer les changements
+                </Button>
+              </div>
+            )}
           </ScrollArea>
         </div>
 
