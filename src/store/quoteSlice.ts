@@ -9,9 +9,11 @@ const quoteSlice = createSlice({
         town: "Ville",
         country: "",
         phone: "",
-        backgroundColor: "#1e40af",
-        includeVAT: false,
-        vatRate: "20",
+        documentSettings: {
+            backgroundColor: "#1e40af",
+            includeVAT: false,
+            vatRate: "20",
+        },
     },
 
     reducers: {
@@ -24,9 +26,9 @@ const quoteSlice = createSlice({
             state.phone = action.payload.phone;
         },
         setQuoteSettings: (state, action) => {
-            state.backgroundColor = action.payload.backgroundColor;
-            state.includeVAT = action.payload.includeVAT;
-            state.vatRate = action.payload.vatRate;
+            state.documentSettings.backgroundColor = action.payload.backgroundColor;
+            state.documentSettings.includeVAT = action.payload.includeVAT;
+            state.documentSettings.vatRate = action.payload.vatRate;
         },
         setClientId: (state, action) => {
             state.id = action.payload.id

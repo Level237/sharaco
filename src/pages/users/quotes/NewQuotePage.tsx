@@ -28,7 +28,7 @@ export default function NewQuotePage() {
   const [isClient, setIsClient] = useState(false);
   const [zoom, setZoom] = useState(100);
   const [quoteNumber, setQuoteNumber] = useState<string>('');
-  const { backgroundColor } = useSelector((state: any) => state.quote);
+  const { documentSettings } = useSelector((state: any) => state.quote);
   useEffect(() => {
     setIsClient(true);
     // Générer un numéro de devis unique au chargement
@@ -104,7 +104,7 @@ export default function NewQuotePage() {
               client={client}
               dataDesignation={dataDesignation}
               total={total}
-              backgroundColor={backgroundColor}
+              documentSettings={documentSettings}
             />
           </PDFViewer>
         )}

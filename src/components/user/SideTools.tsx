@@ -111,7 +111,9 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
       includeVAT: documentSettings.includeVAT,
       vatRate: documentSettings.vatRate
     }
-    dispatch(setQuoteSettings(documentSettingsObject))
+    dispatch(setQuoteSettings(
+      documentSettingsObject
+    ))
   }
 
   return (

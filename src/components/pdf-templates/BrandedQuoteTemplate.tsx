@@ -118,13 +118,13 @@ const styles = StyleSheet.create({
     },
 });
 
-export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total, backgroundColor }: { fileName: string, client: any, dataDesignation: any, total: number, backgroundColor: string | null }) {
+export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total, documentSettings }: { fileName: string, client: any, dataDesignation: any, total: number, documentSettings: any }) {
     const date = new Date().toLocaleDateString();
-
+    console.log(documentSettings?.backgroundColor)
     return (
         <Document>
             <Page size="A4" style={styles.page}>
-                <View style={[styles.headerBand, { backgroundColor: backgroundColor || '' }]} >
+                <View style={[styles.headerBand, { backgroundColor: documentSettings?.backgroundColor || '' }]} >
                     <View style={styles.headerContent}>
                         <View style={styles.companyInfo}>
                             <Text style={{ fontWeight: 'bold', marginBottom: 8 }}>VOTRE ENTREPRISE</Text>
@@ -154,7 +154,7 @@ export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total,
                 </View>
 
                 <View style={styles.table}>
-                    <View style={[styles.tableRow, styles.tableHeader, { backgroundColor: backgroundColor || '#1e40af' }]}>
+                    <View style={[styles.tableRow, styles.tableHeader, { backgroundColor: documentSettings?.backgroundColor || '#1e40af' }]}>
                         <Text style={[styles.tableCell, { flex: 2, color: 'white' }]}>Description</Text>
                         <Text style={[styles.tableCell, { flex: 1, color: 'white' }]}>Quantité</Text>
                         <Text style={[styles.tableCell, { flex: 1, color: 'white' }]}>Prix unitaire</Text>
@@ -177,12 +177,12 @@ export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total,
                         <Text>{total}€</Text>
                     </View>
                     <View style={styles.totalRow}>
-                        <Text>TVA (20%)</Text>
-                        <Text>{(total * 0.2).toFixed(2)}€</Text>
+                        {documentSettings?.includeVAT && <Text>TVA ({documentSettings?.vatRate}%)</Text>}
+                        {documentSettings?.includeVAT && <Text>{(total * documentSettings?.vatRate / 100).toFixed(2)}€</Text>}
                     </View>
                     <View style={[styles.totalRow, { marginTop: 15, paddingTop: 15, borderTopWidth: 1, borderTopColor: '#e2e8f0' }]}>
-                        <Text style={{ fontSize: 13, fontWeight: 'bold' }}>Total TTC</Text>
-                        <Text style={{ fontSize: 13, fontWeight: 'bold' }}>{(total * 1.2).toFixed(2)}€</Text>
+                        <Text style={{ fontSize: 13, fontWeight: 'bold' }}>Total {documentSettings?.includeVAT ? 'TTC' : 'HT'}</Text>
+                        <Text style={{ fontSize: 13, fontWeight: 'bold' }}>{documentSettings?.includeVAT ? (total * (1 + documentSettings?.vatRate / 100)).toFixed(2) : total.toFixed(2)}€</Text>
                     </View>
                 </View>
 
