@@ -75,11 +75,13 @@ const styles = StyleSheet.create({
     },
     table: {
         marginTop: 30,
+        color: "white"
     },
     tableHeader: {
         flexDirection: 'row',
         backgroundColor: '#f3f4f6',
         padding: 8,
+        color: "white",
         borderBottomWidth: 1,
         borderBottomColor: '#e5e7eb',
     },
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export function SimpleQuoteTemplate({ fileName, client, dataDesignation, total }: { fileName: string, client: any, dataDesignation: any, total: number }) {
+export function SimpleQuoteTemplate({ fileName, client, dataDesignation, total, documentSettings }: { fileName: string, client: any, dataDesignation: any, total: number, documentSettings: any }) {
     const date = new Date().toLocaleDateString('fr-FR');
     const dueDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR');
 
@@ -194,7 +196,7 @@ export function SimpleQuoteTemplate({ fileName, client, dataDesignation, total }
                 </View>
 
                 <View style={styles.table}>
-                    <View style={styles.tableHeader}>
+                    <View style={[styles.tableHeader, { backgroundColor: documentSettings?.backgroundColor || '#1e40af', color: "white" }]}>
                         <Text style={[styles.tableCell, { flex: 2 }]}>Description</Text>
                         <Text style={[styles.tableCell, { flex: 1 }]}>Quantité</Text>
                         <Text style={[styles.tableCell, { flex: 1 }]}>Prix unitaire</Text>

@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { ZoomIn, ZoomOut, Download, Share2 } from 'lucide-react';
 import { getUniqueQuoteNumber } from '@/utils/quoteNumberGenerator';
+import { DeveloperQuoteTemplate } from '@/components/pdf-templates/DeveloperQuoteTemplate';
 // Importez les icônes si vous utilisez heroicons
 
 
@@ -15,6 +16,7 @@ import { getUniqueQuoteNumber } from '@/utils/quoteNumberGenerator';
 export const TEMPLATE_COMPONENTS = {
   [QuoteTemplateType.SIMPLE]: SimpleQuoteTemplate,
   [QuoteTemplateType.BRANDED]: BrandedQuoteTemplate,
+  [QuoteTemplateType.DEVELOPER]: DeveloperQuoteTemplate
 };
 
 export default function NewQuotePage() {

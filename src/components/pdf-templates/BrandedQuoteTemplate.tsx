@@ -142,8 +142,7 @@ export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total,
 
                 <View style={styles.infoSection}>
                     <View style={styles.clientInfo}>
-                        <Text style={{ fontSize: 12, color: '#1e40af', fontWeight: 'bold', marginBottom: 8 }}>INFORMATIONS CLIENT</Text>
-                        <Text style={{ fontSize: 11, marginBottom: 4 }}>{client?.client_name || 'Client'}</Text>
+                        <Text style={{ fontSize: 12, color: documentSettings?.backgroundColor || '#1e40af', fontWeight: 'bold', marginBottom: 8 }}>{client?.client_name || 'Client'}</Text>
                         <Text style={{ fontSize: 11, marginBottom: 4 }}>{client?.phone_number || ''}</Text>
                         <Text style={{ fontSize: 11, color: '#64748b' }}>{client?.client_email || ''}</Text>
                     </View>
