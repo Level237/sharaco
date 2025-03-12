@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StepAccount from '../../components/StepAccount';
 import { CheckCircle, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUserType, setPersonalInformation, setProfession, setPassword, clearRegister } from '@/store/registerSlice';
+import { clearRegister } from '@/store/registerSlice';
 import { RootState } from '@/store';
 import { useLoginMutation, useRegisterMutation } from '@/services/auth';
 import { authTokenChange } from '@/store/authSlice';
@@ -16,14 +16,16 @@ export default function AccountGeneratingPage() {
     const dispatch = useDispatch();
     const { userType, personalInformation, profession, password } = useSelector((state: RootState) => state.register);
     const [register] = useRegisterMutation();
+    const data = JSON.parse(localStorage.getItem('personalInformation') || '{}');
     const [login] = useLoginMutation();
     useEffect(() => {
         const formData = {
             isCompany: userType === 'entreprise' ? 1 : 0,
-            lastName: personalInformation.lastname,
-            firstName: personalInformation.firstname,
-            email: personalInformation.email,
-            phone_number: personalInformation.phone,
+            lastName: data.lastname,
+            firstName: data.firstname,
+            email: data.email,
+            source: data.source,
+            phone_number: data.phone,
             password: password,
             profession_id: profession,
         }
@@ -32,13 +34,14 @@ export default function AccountGeneratingPage() {
             try {
                 const response = await register(formData);
                 console.log(response);
-                const userData = await login({ email: personalInformation.email, password: password });
+                const userData = await login({ email: data.email, password: password });
 
                 const userState = {
                     'refreshToken': userData.data.refresh_token,
                     'accessToken': userData.data.access_token
                 }
                 dispatch(authTokenChange(userState))
+                dispatch(clearRegister());
             } catch (error) {
                 console.log(error);
             }
@@ -53,11 +56,12 @@ export default function AccountGeneratingPage() {
 
         // Rediriger vers la page d'accueil après la création du compte
         const timer2 = setTimeout(() => {
-            dispatch(clearRegister());
+
             navigate('/dashboard');
         }, 5000);
 
         return () => {
+
             clearTimeout(timer1);
             clearTimeout(timer2);
         };
