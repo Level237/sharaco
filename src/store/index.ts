@@ -9,6 +9,8 @@ import quoteSlice from "./quoteSlice";
 import { clientService } from "@/services/client";
 import { designationSlice } from "./DesignationSlice";
 import registerSlice from "./registerSlice";
+import { guardService } from "@/services/guardService";
+
 
 
 
@@ -25,6 +27,7 @@ export const store =
       [quoteSlice.reducerPath]: quoteSlice.reducer,
       [designationSlice.reducerPath]: designationSlice.reducer,
       [registerSlice.reducerPath]: registerSlice.reducer,
+      [guardService.reducerPath]: guardService.reducer,
 
     },
     middleware: (getDefaultMiddleware) =>
@@ -33,8 +36,10 @@ export const store =
         .concat(userService.middleware)
         .concat(quoteService.middleware)
         .concat(clientService.middleware)
+        .concat(guardService.middleware)
     ,
     devTools: true,
 
   })
-setupListeners(store.dispatch);
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

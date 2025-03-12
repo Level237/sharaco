@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import StepAccount from '../../components/StepAccount';
 import { CheckCircle, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useDispatch } from 'react-redux';
-import { setUserType, setPersonalInformation, setProfession, setPassword } from '@/store/registerSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserType, setPersonalInformation, setProfession, setPassword, clearRegister } from '@/store/registerSlice';
+import { RootState } from '@/store';
+import { useLoginMutation, useRegisterMutation } from '@/services/auth';
+import { authTokenChange } from '@/store/authSlice';
 
 export default function AccountGeneratingPage() {
     const [isLoading, setIsLoading] = useState(true);
@@ -12,8 +15,37 @@ export default function AccountGeneratingPage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { userType, personalInformation, profession, password } = useSelector((state: RootState) => state.register);
+    const [register] = useRegisterMutation();
+    const [login] = useLoginMutation();
     useEffect(() => {
-        // Simuler le processus de création de compte
+        const formData = {
+            isCompany: userType === 'entreprise' ? 1 : 0,
+            lastName: personalInformation.lastname,
+            firstName: personalInformation.firstname,
+            email: personalInformation.email,
+            phone_number: personalInformation.phone,
+            password: password,
+            profession_id: profession,
+        }
+        console.log(formData);
+        const handleRegisterAndLogin = async () => {
+            try {
+                const response = await register(formData);
+                console.log(response);
+                const userData = await login({ email: personalInformation.email, password: password });
+
+                const userState = {
+                    'refreshToken': userData.data.refresh_token,
+                    'accessToken': userData.data.access_token
+                }
+                dispatch(authTokenChange(userState))
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        handleRegisterAndLogin();
+
+
         const timer1 = setTimeout(() => {
             setIsLoading(false);
             setIsComplete(true);
@@ -21,6 +53,7 @@ export default function AccountGeneratingPage() {
 
         // Rediriger vers la page d'accueil après la création du compte
         const timer2 = setTimeout(() => {
+            dispatch(clearRegister());
             navigate('/dashboard');
         }, 5000);
 
@@ -31,7 +64,7 @@ export default function AccountGeneratingPage() {
     }, [navigate]);
 
     return (
-        <section className="flex flex-col md:flex-row overflow-hidden bg-gradient-to-br from-sky-50 via-white to-purple-50 items-center min-h-screen w-full">
+        <section className="flex flex-col md:flex-row overflow-hidden bg-gradient-to-br from-sky-50 via-white to-purple-50 items-center min-h-screen h-screen max-sm:h-full w-full">
             <div className="w-full md:w-96 flex justify-center md:justify-start items-center h-32 md:h-screen bg-gradient-to-br from-sky-700 via-purple-800 to-sky-900 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
                 <div className="flex px-4 md:pl-12 justify-start items-start relative z-10">

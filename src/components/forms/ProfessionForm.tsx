@@ -4,14 +4,17 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
+import { useGetProfessionsQuery } from "@/services/guardService";
 
 export default function ProfessionForm() {
   const [data, setData] = useState({
-    profession: '',
+    profession: 0,
   });
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { data: professions, isLoading: isProfessionsLoading } = useGetProfessionsQuery("guard");
+  console.log(professions);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
@@ -30,21 +33,19 @@ export default function ProfessionForm() {
             focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500
             transition-all duration-200 appearance-none' name="profession"
               value={data.profession}
-              onChange={(e) => setData({ ...data, profession: e.target.value })}
+              onChange={(e) => setData({ ...data, profession: parseInt(e.target.value) })}
               id="profession">
+              {!isProfessionsLoading && professions?.map((profession: any) => (
+                <option value={profession.id}>{profession.name}</option>
+              ))}
 
-              <option value="medecin">Medecin</option>
-              <option value="developpeur">Developpeur</option>
-              <option value="consultant">Consultant</option>
-              <option value="comptable">Comptable</option>
-              <option value="autre">Autre</option>
             </select>
           </div>
         </div>
         <div className='flex items-end justify-end'>
           <motion.button
             type="submit"
-            disabled={data.profession === ''}
+            disabled={data.profession === 0}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className='bg-sky-600 disabled:bg-gray-400 disabled:cursor-not-allowed hover:bg-sky-700 text-white rounded-full px-8 py-3

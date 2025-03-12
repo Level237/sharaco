@@ -25,8 +25,18 @@ const registerSlice = createSlice({
             state.password = action.payload;
             localStorage.setItem('password', action.payload);
         },
+        clearRegister: (state) => {
+            state.userType = null;
+            state.personalInformation = null;
+            state.profession = null;
+            state.password = null;
+            localStorage.removeItem('userType');
+            localStorage.removeItem('personalInformation');
+            localStorage.removeItem('profession');
+            localStorage.removeItem('password');
+        },
     },
 })
 
-export const { setUserType, setPersonalInformation, setProfession, setPassword } = registerSlice.actions;
+export const { setUserType, setPersonalInformation, setProfession, setPassword, clearRegister } = registerSlice.actions;
 export default registerSlice;
