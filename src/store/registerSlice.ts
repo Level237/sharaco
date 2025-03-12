@@ -5,6 +5,7 @@ const registerSlice = createSlice({
     initialState: {
         userType: localStorage.getItem('userType') || null,
         personalInformation: JSON.parse(localStorage.getItem('personalInformation') || '{}'),
+        profession: localStorage.getItem('profession') || null,
     },
     reducers: {
         setUserType: (state, action) => {
@@ -15,8 +16,12 @@ const registerSlice = createSlice({
             state.personalInformation = action.payload;
             localStorage.setItem('personalInformation', action.payload);
         },
+        setProfession: (state, action) => {
+            state.profession = action.payload;
+            localStorage.setItem('profession', action.payload);
+        },
     },
 })
 
-export const { setUserType, setPersonalInformation } = registerSlice.actions;
+export const { setUserType, setPersonalInformation, setProfession } = registerSlice.actions;
 export default registerSlice;

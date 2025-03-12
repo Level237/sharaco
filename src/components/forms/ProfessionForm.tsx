@@ -1,31 +1,59 @@
-import React from 'react'
+import { setProfession } from "@/store/registerSlice";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Loader2 } from "lucide-react";
 
 export default function ProfessionForm() {
+  const [data, setData] = useState({
+    profession: '',
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    dispatch(setProfession(data.profession));
+    setIsLoading(false);
+    navigate('/step-two/activities');
+  }
   return (
     <div className='flex flex-col gap-8'>
-   
-   <div className=' flex flex-col gap-2 flex-1'>
-          <label htmlFor="prenom" className='text-gray-500'>Quelle est votre profession ?</label>
-   <select className='w-[100%]
-      border 
-      rounded-md
-      bg-slate-50
-      py-3
-      
-      px-4' name="" 
-     
-      id="">
-        
-        <option value="freelancer">Medecin</option>
-        <option value="Entreprise">Developpeur</option>
-        <option value="Entreprise">Consultant</option>
-        <option value="Entreprise">Developpeur</option>
-        <option value="Entreprise">Comptable</option>
-      </select>
-   </div>
-   <div className='flex items-end justify-end'>
-    <button className='bg-sky-600 text-sm hover:bg-sky-700 text-white rounded-full px-6 py-3'>Continuer</button>
-   </div>
-  </div>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-6 md:gap-8 w-full'>
+        <div className=' flex flex-col gap-2 flex-1'>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="profession" className='text-gray-500'>Quelle est votre profession ?</label>
+            <select className='w-full border border-gray-200 rounded-lg bg-white/50 py-3 px-4
+            focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500
+            transition-all duration-200 appearance-none' name="profession"
+              value={data.profession}
+              onChange={(e) => setData({ ...data, profession: e.target.value })}
+              id="profession">
+
+              <option value="medecin">Medecin</option>
+              <option value="developpeur">Developpeur</option>
+              <option value="consultant">Consultant</option>
+              <option value="comptable">Comptable</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+        </div>
+        <div className='flex items-end justify-end'>
+          <motion.button
+            type="submit"
+            disabled={data.profession === ''}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className='bg-sky-600 disabled:bg-gray-400 disabled:cursor-not-allowed hover:bg-sky-700 text-white rounded-full px-8 py-3
+            font-medium transition-all duration-200 w-full sm:w-auto'
+          >
+            {!isLoading ? 'Continuer' : <div className='flex items-center justify-center gap-2'><Loader2 className='w-4 h-4 animate-spin' /> Chargement...</div>}
+          </motion.button>
+        </div>
+      </form>
+    </div>
   )
 }
