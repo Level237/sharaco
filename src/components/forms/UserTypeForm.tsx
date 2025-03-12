@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useToast } from '@/hooks/use-toast'
+
 type UserType = 'freelancer' | 'enterprise' | ''
 
 export default function UserTypeForm() {
   const [selectedType, setSelectedType] = useState<UserType>('')
-  const { toast } = useToast()
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (selectedType === '') {
-      toast({
-        title: 'Erreur',
-        description: 'Veuillez sélectionner un type de compte',
-        variant: 'destructive'
-      })
-      return
+
+      return;
     }
     if (selectedType) {
       // Handle form submission
