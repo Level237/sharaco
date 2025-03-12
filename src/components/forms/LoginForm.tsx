@@ -33,7 +33,7 @@ export default function LoginForm() {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
             <div className='mb-12'>
-                <Logo width={24} height={12} />
+                <Logo width={28} height={12} />
             </div>
 
             <div className="w-full max-w-md max-sm:px-8 px-4">

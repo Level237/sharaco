@@ -6,6 +6,7 @@ const registerSlice = createSlice({
         userType: localStorage.getItem('userType') || null,
         personalInformation: JSON.parse(localStorage.getItem('personalInformation') || '{}'),
         profession: localStorage.getItem('profession') || null,
+        password: localStorage.getItem('password') || null,
     },
     reducers: {
         setUserType: (state, action) => {
@@ -20,8 +21,12 @@ const registerSlice = createSlice({
             state.profession = action.payload;
             localStorage.setItem('profession', action.payload);
         },
+        setPassword: (state, action) => {
+            state.password = action.payload;
+            localStorage.setItem('password', action.payload);
+        },
     },
 })
 
-export const { setUserType, setPersonalInformation, setProfession } = registerSlice.actions;
+export const { setUserType, setPersonalInformation, setProfession, setPassword } = registerSlice.actions;
 export default registerSlice;

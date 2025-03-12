@@ -5,7 +5,6 @@ import RegisterPage from '../pages/RegisterPage';
 import PersonalInformationalPage from "../pages/Account/PersonalInformationalPage";
 import UserTypePage from "../pages/Account/UserTypePage";
 import ProfessionPage from '../pages/Account/ProfessionPage';
-import ActivityPage from '../pages/Account/ActivityPage';
 import CompanyPage from '../pages/Account/CompagnyPage';
 import AccountStepPage from '../pages/Account/AccountStepPage';
 import { DashboardPage } from '../pages/users/DashboardPage';
@@ -18,6 +17,7 @@ import NewQuotePage from "@/pages/users/quotes/NewQuotePage";
 import QuoteLayout from "@/components/Layouts/QuoteLayout";
 import ClientListPage from "@/pages/users/clients/ClientListPage";
 import AddClientPage from "@/pages/users/clients/AddClientPage";
+import AccountGeneratingPage from "@/pages/Account/AccountGeneratingPage";
 
 
 
@@ -45,15 +45,17 @@ export const routes = createBrowserRouter([{
     element: <ProfessionPage />
 },
 {
-    path: '/step-two/activities',
-    element: <ActivityPage />
-}, {
     path: '/step-three/company',
     element: <CompanyPage />
 }, {
     path: '/step-final/account',
     element: <AccountStepPage />
-}, {
+},
+{
+    path: '/account-generating',
+    element: <AccountGeneratingPage />
+},
+{
     path: '/',
     element: <DashboardLayout><PrivateRoute /></DashboardLayout>,
     children: [

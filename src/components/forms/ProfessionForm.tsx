@@ -18,7 +18,7 @@ export default function ProfessionForm() {
     await new Promise(resolve => setTimeout(resolve, 2000));
     dispatch(setProfession(data.profession));
     setIsLoading(false);
-    navigate('/step-two/activities');
+    navigate('/step-final/account');
   }
   return (
     <div className='flex flex-col gap-8'>
