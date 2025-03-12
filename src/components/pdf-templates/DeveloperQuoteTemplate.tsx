@@ -26,8 +26,8 @@ const createStyles = (documentSettings: any) => StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 60,
-        paddingBottom: 20,
+        marginBottom: 30,
+        paddingBottom: 10,
         borderBottom: 2,
         borderBottomColor: documentSettings?.primaryColor || '#3b82f6',
     },
@@ -49,7 +49,7 @@ const createStyles = (documentSettings: any) => StyleSheet.create({
         alignItems: 'flex-end',
     },
     quoteTitle: {
-        fontSize: 32,
+        fontSize: 12,
         fontWeight: 'bold',
         marginBottom: 8,
         color: '#3b82f6',
@@ -59,13 +59,13 @@ const createStyles = (documentSettings: any) => StyleSheet.create({
         color: '#6b7280',
     },
     clientSection: {
-        marginBottom: 40,
+        marginBottom: 12,
         padding: 24,
         backgroundColor: '#f8fafc',
         borderRadius: 12,
     },
     sectionTitle: {
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: 'bold',
         marginBottom: 12,
         color: '#3b82f6',
@@ -207,9 +207,7 @@ export function DeveloperQuoteTemplate({ fileName, client, dataDesignation, tota
                     </View>
                 </View>
 
-                <View style={styles.footer}>
-                    <Text>Merci de votre confiance</Text>
-                </View>
+                <FooterRoot />
             </Page>
         </Document>
     );

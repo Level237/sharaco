@@ -33,7 +33,7 @@ export const QUOTE_TEMPLATES: QuoteTemplate[] = [
         id: QuoteTemplateType.BRANDED,
         name: "Model with Brand",
         description: "Quote template with company branding",
-        thumbnail: "/devis.webp",
+        thumbnail: "/brand.png",
         component: "BrandedQuoteTemplate",
         category: QuoteTemplateCategory.CREATIVE
     },
@@ -41,7 +41,7 @@ export const QUOTE_TEMPLATES: QuoteTemplate[] = [
         id: QuoteTemplateType.DEVELOPER,
         name: "Developer Model",
         description: "Code-themed quote template",
-        thumbnail: "/devis-dev.webp",
+        thumbnail: "/dev.png",
         component: "DeveloperQuoteTemplate",
         category: QuoteTemplateCategory.TECHNICAL
     },
