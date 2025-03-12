@@ -1,21 +1,31 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-
+import { useDispatch } from 'react-redux'
+import { setUserType } from '@/store/registerSlice'
+import { useNavigate } from 'react-router-dom'
+import { Loader2 } from 'lucide-react'
 type UserType = 'freelancer' | 'enterprise' | ''
 
 export default function UserTypeForm() {
   const [selectedType, setSelectedType] = useState<UserType>('')
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true);
     if (selectedType === '') {
 
       return;
     }
     if (selectedType) {
       // Handle form submission
+      await new Promise(resolve => setTimeout(resolve, 2000));
       console.log('Selected type:', selectedType)
+      dispatch(setUserType(selectedType));
+      navigate('/step-two/personal-information');
     }
+    setIsLoading(false);
   }
 
   return (
@@ -73,7 +83,7 @@ export default function UserTypeForm() {
             ? 'bg-sky-600 hover:bg-sky-700 text-white'
             : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
       >
-        Continuer
+        {!isLoading ? 'Continuer' : <div className='flex items-center justify-center gap-2'><Loader2 className='w-4 h-4 animate-spin' /> Chargement...</div>}
       </motion.button>
     </form>
   )

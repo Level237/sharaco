@@ -1,11 +1,11 @@
-import { Building, Lock, User, UserPen } from 'lucide-react'
+import { Image, Lock, User, UserPen } from 'lucide-react'
 import React from 'react'
 
 export default function StepAccount({ typeStep }: any) {
     const steps = [
         { icon: <UserPen />, label: "User type" },
         { icon: <Lock />, label: "Your Personal Information" },
-        { icon: <Building />, label: "Entreprise" },
+        { icon: <Image />, label: "Brand" },
         { icon: <User />, label: "your account" },
     ]
 

@@ -22,63 +22,63 @@ import AddClientPage from "@/pages/users/clients/AddClientPage";
 
 
 
-export const routes=createBrowserRouter([{
-    path:'/',
-    element:<Homepage/>
+export const routes = createBrowserRouter([{
+    path: '/',
+    element: <Homepage />
 },
 {
-    path:'/login',
-    element:<LoginPage/>
-},{
-    path:'/register',
-    element:<GuardRoute> <RegisterPage/></GuardRoute>
+    path: '/login',
+    element: <LoginPage />
+}, {
+    path: '/register',
+    element: <GuardRoute> <RegisterPage /></GuardRoute>
 },
 {
-    path:'/step-two/personal-information',
-    element:<PersonalInformationalPage/>
-},{
-    path:'/step-one/user-type',
-    element:<UserTypePage/>
+    path: '/step-two/personal-information',
+    element: <PersonalInformationalPage />
+}, {
+    path: '/step-one/user-type',
+    element: <UserTypePage />
 },
 {
-    path:'/step-three/profession',
-    element:<ProfessionPage/>
+    path: '/step-two/profession',
+    element: <ProfessionPage />
 },
 {
-    path:'/step-three/activities',
-    element:<ActivityPage/>
-},{
-    path:'/step-three/company',
-    element:<CompanyPage/>
-},{
-    path:'/step-final/account',
-    element:<AccountStepPage/>
-},{
-    path:'/',
-    element:<DashboardLayout><PrivateRoute/></DashboardLayout>,
-    children:[
+    path: '/step-two/activities',
+    element: <ActivityPage />
+}, {
+    path: '/step-three/company',
+    element: <CompanyPage />
+}, {
+    path: '/step-final/account',
+    element: <AccountStepPage />
+}, {
+    path: '/',
+    element: <DashboardLayout><PrivateRoute /></DashboardLayout>,
+    children: [
         {
-            path:'dashboard',
-            element:<DashboardPage/>
-        },{
-            path:'quotes',
-            element:<QuoteListPage/>
+            path: 'dashboard',
+            element: <DashboardPage />
+        }, {
+            path: 'quotes',
+            element: <QuoteListPage />
         },
         {
-            path:'clients',
-            element:<ClientListPage/>
-        },{
-            path:"/add/client",
-            element:<AddClientPage/>
+            path: 'clients',
+            element: <ClientListPage />
+        }, {
+            path: "/add/client",
+            element: <AddClientPage />
         }
     ]
-},{
-    path:'/',
-    element:<QuoteLayout><PrivateRoute/></QuoteLayout>,
-    children:[
+}, {
+    path: '/',
+    element: <QuoteLayout><PrivateRoute /></QuoteLayout>,
+    children: [
         {
-            path:'/new/quote',
-            element:<NewQuotePage/>
+            path: '/new/quote',
+            element: <NewQuotePage />
         }
     ]
 }
