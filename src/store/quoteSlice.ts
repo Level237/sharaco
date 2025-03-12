@@ -9,7 +9,7 @@ const quoteSlice = createSlice({
         town: "Ville",
         country: "",
         phone: "",
-        documentSettings: {
+        documentSettings: localStorage.getItem('documentSettings') ? JSON.parse(localStorage.getItem('documentSettings') || '{}') : {
             backgroundColor: "#1e40af",
             includeVAT: false,
             vatRate: "20",
@@ -29,6 +29,7 @@ const quoteSlice = createSlice({
             state.documentSettings.backgroundColor = action.payload.backgroundColor;
             state.documentSettings.includeVAT = action.payload.includeVAT;
             state.documentSettings.vatRate = action.payload.vatRate;
+            localStorage.setItem('documentSettings', JSON.stringify(state.documentSettings));
         },
         setClientId: (state, action) => {
             state.id = action.payload.id

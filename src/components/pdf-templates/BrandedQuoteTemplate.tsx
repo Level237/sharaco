@@ -15,14 +15,14 @@ Font.register({
     ]
 });
 
-const styles = StyleSheet.create({
+const createStyles = (documentSettings: any) => StyleSheet.create({
     page: {
         padding: 40,
         fontFamily: 'Helvetica',
         backgroundColor: '#ffffff',
     },
     headerBand: {
-        backgroundColor: '#1e40af',
+        backgroundColor: documentSettings?.backgroundColor || '#1e40af',
         padding: 30,
         marginLeft: -40,
         marginRight: -40,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#e2e8f0',
     },
     tableHeader: {
-        backgroundColor: '#1e40af',
+        backgroundColor: documentSettings?.backgroundColor || '#1e40af',
         color: 'white',
     },
     tableCell: {
@@ -120,11 +120,12 @@ const styles = StyleSheet.create({
 
 export function BrandedQuoteTemplate({ fileName, client, dataDesignation, total, documentSettings }: { fileName: string, client: any, dataDesignation: any, total: number, documentSettings: any }) {
     const date = new Date().toLocaleDateString();
-    console.log(documentSettings?.backgroundColor)
+    const styles = createStyles(documentSettings);
+
     return (
         <Document>
             <Page size="A4" style={styles.page}>
-                <View style={[styles.headerBand, { backgroundColor: documentSettings?.backgroundColor || '' }]} >
+                <View style={styles.headerBand}>
                     <View style={styles.headerContent}>
                         <View style={styles.companyInfo}>
                             <Text style={{ fontWeight: 'bold', marginBottom: 8 }}>VOTRE ENTREPRISE</Text>

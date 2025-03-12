@@ -9,14 +9,15 @@ import { useState, useEffect } from 'react';
 import { ZoomIn, ZoomOut, Download, Share2 } from 'lucide-react';
 import { getUniqueQuoteNumber } from '@/utils/quoteNumberGenerator';
 import { DeveloperQuoteTemplate } from '@/components/pdf-templates/DeveloperQuoteTemplate';
-// Importez les icônes si vous utilisez heroicons
+import { CreativeQuoteTemplate } from '@/components/pdf-templates/CreativeQuoteTemplate';
 
 
 // Assurez-vous que ce mapping correspond exactement aux valeurs de QuoteTemplateType
 export const TEMPLATE_COMPONENTS = {
   [QuoteTemplateType.SIMPLE]: SimpleQuoteTemplate,
   [QuoteTemplateType.BRANDED]: BrandedQuoteTemplate,
-  [QuoteTemplateType.DEVELOPER]: DeveloperQuoteTemplate
+  [QuoteTemplateType.DEVELOPER]: DeveloperQuoteTemplate,
+  [QuoteTemplateType.CREATIVE]: CreativeQuoteTemplate
 };
 
 export default function NewQuotePage() {

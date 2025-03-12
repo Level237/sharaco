@@ -1,7 +1,8 @@
 export enum QuoteTemplateType {
     SIMPLE = "simple",
     BRANDED = "branded",
-    DEVELOPER = "developer"
+    DEVELOPER = "developer",
+    CREATIVE = "creative"
 }
 
 export enum QuoteTemplateCategory {
@@ -43,5 +44,13 @@ export const QUOTE_TEMPLATES: QuoteTemplate[] = [
         thumbnail: "/devis-dev.webp",
         component: "DeveloperQuoteTemplate",
         category: QuoteTemplateCategory.TECHNICAL
+    },
+    {
+        id: QuoteTemplateType.CREATIVE,
+        name: "Creative Model",
+        description: "Creative quote template",
+        thumbnail: "/devis-creative.webp",
+        component: "CreativeQuoteTemplate",
+        category: QuoteTemplateCategory.CREATIVE
     }
 ]; 

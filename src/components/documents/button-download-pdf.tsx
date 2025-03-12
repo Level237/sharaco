@@ -16,6 +16,7 @@ export default function ButtonDownloadPdf() {
   const fileName = searchParams.get('filename')
   const { data, isLoading: load, error } = useGetClientQuery(clientId)
   const { dataDesignation } = useSelector((state: any) => state.designation)
+  const documentSettings = useSelector((state: any) => state.quote.documentSettings)
 
   const template = searchParams.get("template") as QuoteTemplateType;
 
@@ -29,7 +30,7 @@ export default function ButtonDownloadPdf() {
   }, [dataDesignation])
   return (
     <div>
-      <PDFDownloadLink document={<TemplateComponent fileName={fileName} client={data} dataDesignation={dataDesignation} total={total} />} fileName={`${fileName}.pdf`}>
+      <PDFDownloadLink document={<TemplateComponent fileName={fileName} client={data} dataDesignation={dataDesignation} total={total} documentSettings={documentSettings} />} fileName={`${fileName}.pdf`}>
         <Button className="text-white"><Download />Telecharger</Button>
       </PDFDownloadLink>
     </div>
