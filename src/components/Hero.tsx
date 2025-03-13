@@ -116,9 +116,9 @@ export default function Hero() {
                 >
                   <span className="sr-only">Toggle menu</span>
                   {isMobileMenuOpen ? (
-                    <X className="h-6 w-6" aria-hidden="true" />
+                    <X className="h-6 w-6 dark:text-white" aria-hidden="true" />
                   ) : (
-                    <Menu className="h-6 w-6" aria-hidden="true" />
+                    <Menu className="h-6 w-6 dark:text-white" aria-hidden="true" />
                   )}
                 </button>
               </div>
@@ -128,7 +128,7 @@ export default function Hero() {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-x-0 top-16 bottom-0 bg-white transform transition-transform duration-300 ease-in-out lg:hidden ${isMobileMenuOpen ? 'translate-y-0' : 'translate-y-full'
+          className={`fixed inset-x-0 top-16 bottom-0 bg-white dark:bg-slate-900 transform transition-transform duration-300 ease-in-out lg:hidden ${isMobileMenuOpen ? 'translate-y-0' : 'translate-y-full'
             }`}
         >
           <div className="h-full overflow-y-auto">
@@ -137,7 +137,7 @@ export default function Hero() {
                 <Link
                   key={item.href}
                   to={item.href}
-                  className="block rounded-lg px-4 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
+                  className="block rounded-lg px-4 py-2 text-base dark:hover:bg-slate-800 font-medium text-gray-900 dark:text-white hover:bg-gray-50"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -149,7 +149,7 @@ export default function Hero() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full"
+                  className="w-full dark:text-white"
                   asChild
                 >
                   <Link
