@@ -124,15 +124,15 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="flex h-full flex-col border-r dark:border-[#ffffff17] bg-background bg-slate-900">
+        <div className="flex h-full flex-col border-r dark:border-[#ffffff17] bg-background bg-gray-100 dark:bg-slate-900">
           <div className="flex h-16 items-center border-b dark:border-[#ffffff17] px-6">
             <Link to={"/dashboard"}>
-              <Logo width={24} height={12} />
+              <Logo width={28} height={12} />
             </Link>
 
           </div>
           <div className='grid mt-5 mx-5 gap-4 grid-cols-4'>
-            <div onClick={() => setTabQuote('header')} className={`rounded-2xl py-2 ${tabQuote === "header" && "bg-[#0285c736]"}  cursor-pointer text-muted-foreground`}>
+            <div onClick={() => setTabQuote('header')} className={`rounded-2xl  py-2 ${tabQuote === "header" && "bg-[#0285c736]"}  cursor-pointer  text-muted-foreground`}>
               <h2 className={`text-sm text-center ${tabQuote === "header" && "text-primary"} `}>Header</h2>
             </div>
             <div onClick={() => setTabQuote('body')} className={`rounded-2xl py-2 ${tabQuote === "body" && "bg-[#0285c736]"}  cursor-pointer text-muted-foreground`}>
@@ -147,9 +147,9 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
 
           <ScrollArea className="flex-1  py-4">
             {tabQuote === "header" && <div className='mb-6 mx-5'>
-              <Label className='text-white'>Select client</Label>
+              <Label className='text-black dark:text-white'>Select client</Label>
               {!isLoading && <Select onValueChange={onChangeClient}>
-                <SelectTrigger className="flex-1 text-white mt-3 h-11">
+                <SelectTrigger className="flex-1 text-black dark:text-white mt-3 h-11">
                   <SelectValue placeholder="Select a client" />
                 </SelectTrigger>
                 <SelectContent >
@@ -163,24 +163,24 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
               <div>
                 {id !== null && <div className='mt-5'>
 
-                  <h2 className='text-muted-foreground text-sm'>Client selected: {data?.client_name || "c"}</h2>
+                  <h2 className='dark:text-white text-muted-foreground text-sm'>Client selected: {data?.client_name || "c"}</h2>
                 </div>}
               </div>
             </div>}
             {tabQuote === "body" && <div className='mb-6 mx-5'>
               <form onSubmit={addDesignationHandler}>
                 <div>
-                  <Label className='text-white'>Designation</Label>
+                  <Label className='text-black dark:text-white'>Designation</Label>
                   <Input name='title' value={designation.title} onChange={(e: any) => onChangeDesignation(e, 'title')}
 
-                    placeholder='Enter a designation' className='mt-3 h-11 text-slate-50' />
+                    placeholder='Enter a designation' className='mt-3  dark:text-white h-11 text-slate-50' />
                 </div>
                 <div className='mt-3'>
-                  <Label className='text-white'>Quantity</Label>
+                  <Label className='text-black dark:text-white'>Quantity</Label>
                   <Input name='quantity' value={designation.quantity} onChange={(e: any) => onChangeDesignation(e, 'quantity')} type='number' placeholder='Enter a Quantity' className='mt-3 h-11 text-slate-50' />
                 </div>
                 <div className='mt-3'>
-                  <Label className='text-white'>Price</Label>
+                  <Label className='text-black dark:text-white'>Price</Label>
                   <Input name='price' value={designation.price} onChange={(e: any) => onChangeDesignation(e, 'price')} type='text' placeholder='Enter a Price' className='mt-3 h-11 text-slate-50' />
                 </div>
                 <div className='mt-6'>
@@ -191,7 +191,7 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
             {tabQuote === "document" && (
               <div className='mb-6 mx-5'>
                 <div className='mb-4'>
-                  <Label className='text-white'>TVA</Label>
+                  <Label className='text-black dark:text-white'>TVA</Label>
                   <div className='flex items-center mt-2 space-x-2'>
                     <Input
                       type="checkbox"
@@ -199,7 +199,7 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
                       onChange={(e) => handleDocumentSettingChange('includeVAT', e.target.checked)}
                       className="w-4 h-4"
                     />
-                    <span className="text-white text-sm">Inclure la TVA</span>
+                    <span className="text-black dark:text-white text-sm ">Inclure la TVA</span>
                   </div>
                   {documentSettings.includeVAT && (
                     <div className='mt-2'>
@@ -208,20 +208,20 @@ export default function SideTools({ setIsSidebarOpen, isSidebarOpen }: { setIsSi
                         value={documentSettings.vatRate}
                         onChange={(e) => handleDocumentSettingChange('vatRate', e.target.value)}
                         placeholder="Taux de TVA (%)"
-                        className='h-11 text-slate-50'
+                        className='h-11   dark:text-white text-black'
                       />
                     </div>
                   )}
                 </div>
 
                 <div className='mb-4'>
-                  <Label className='text-white'>Couleur principale</Label>
+                  <Label className='text-black dark:text-white'>Couleur principale</Label>
                   <div className='flex items-center mt-2 space-x-2'>
                     <Input
                       type="color"
                       value={documentSettings.backgroundColor}
                       onChange={(e) => handleDocumentSettingChange('backgroundColor', e.target.value)}
-                      className='h-11 w-full'
+                      className='h-11 dark:text-white w-full'
                     />
                   </div>
                 </div>

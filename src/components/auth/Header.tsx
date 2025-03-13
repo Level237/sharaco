@@ -67,7 +67,7 @@ export default function Header({ setIsSidebarOpen, isQuoteLayout, isSidebarOpen,
                   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                {!isLoading && <span className="font-medium dark:text-white">{data?.name || data.firstName}</span>}
+                {!isLoading && <span className="font-medium dark:text-white">{data?.name || data?.firstName}</span>}
 
                 <ChevronDown className="h-4 w-4 dark:text-white text-muted-foreground" />
               </Button>
