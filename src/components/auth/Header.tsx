@@ -1,5 +1,4 @@
-
-import { Search, Bell, ChevronDown, Menu, Settings, LogOut, Sun, Download } from "lucide-react"
+import { Search, Bell, ChevronDown, Menu, Settings, LogOut, Sun, Moon } from "lucide-react"
 
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -22,7 +21,7 @@ export default function Header({ setIsSidebarOpen, isQuoteLayout, isSidebarOpen,
   const { data, isLoading, error } = useGetUserQuery('Auth')
   console.log(error)
   const [logout] = useLogoutMutation()
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
   const dispatch = useDispatch();
   const handleLogout = async () => {
     await logout("Auth");
@@ -62,10 +61,11 @@ export default function Header({ setIsSidebarOpen, isQuoteLayout, isSidebarOpen,
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setTheme("dark")}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="relative overflow-hidden"
           >
-            <Sun className="h-5 w-5 dark:text-white" />
-
+            <Sun className={`h-5 w-5 dark:text-white absolute transition-all duration-300 ${theme === 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'}`} />
+            <Moon className={`h-5 w-5 dark:text-white absolute transition-all duration-300 ${theme === 'light' ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'}`} />
           </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

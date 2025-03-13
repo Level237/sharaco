@@ -38,24 +38,24 @@ const chartConfig = {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 export function ChartDemo() {
   return (
-    <Card className="bg-slate-900 border-[#ffffff25]">
+    <Card className="dark:bg-slate-900 dark:border-[#ffffff25]">
       <CardHeader>
-      <CardTitle className='text-sm flex items-center justify-between font-medium text-white'>
+        <CardTitle className='text-sm flex items-center justify-between font-medium dark:text-white'>
           <h2 className='flex-1'> Montly Expenses</h2>
-         
+
           <Tabs defaultValue="account" className="">
-      <TabsList className="grid w-44 grid-cols-2">
-        <TabsTrigger value="account">This Week</TabsTrigger>
-        <TabsTrigger value="password">Last Week</TabsTrigger>
-      </TabsList>
-      <TabsContent value="account">
-        
-      </TabsContent>
-      <TabsContent value="password">
-        
-      </TabsContent>
-    </Tabs>
-          </CardTitle>
+            <TabsList className="grid w-44 grid-cols-2">
+              <TabsTrigger value="account">This Week</TabsTrigger>
+              <TabsTrigger value="password">Last Week</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account">
+
+            </TabsContent>
+            <TabsContent value="password">
+
+            </TabsContent>
+          </Tabs>
+        </CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>

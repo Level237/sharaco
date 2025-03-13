@@ -17,11 +17,11 @@ export default function Sidebar({ setIsSidebarOpen, isSidebarOpen }: { setIsSide
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="flex h-full flex-col border-r dark:border-[#ffffff17] bg-background bg-slate-900">
+        <div className="flex h-full flex-col border-r dark:border-[#ffffff17] bg-background bg-gray-100 dark:bg-slate-900">
           {/* Logo */}
           <div className="flex h-16 items-center border-b dark:border-[#ffffff17] px-6">
             <Link to={"/dashboard"}>
-              <Logo width={24} height={12} />
+              <Logo width={28} height={12} />
             </Link>
 
           </div>
