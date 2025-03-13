@@ -11,17 +11,18 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
-import { useTheme } from "../theme-provider"
+
 import { useGetUserQuery, useLogoutMutation } from "@/services/auth"
 import { logoutUser } from "@/store/authSlice"
 import { useDispatch } from "react-redux"
 import ButtonDownloadPdf from "../documents/button-download-pdf"
+import { SwitchTheme } from "../ui/switch-theme"
 
 export default function Header({ setIsSidebarOpen, isQuoteLayout, isSidebarOpen, isShowLogo }: { setIsSidebarOpen: any, isSidebarOpen: boolean, isShowLogo: boolean, isQuoteLayout: boolean }) {
   const { data, isLoading, error } = useGetUserQuery('Auth')
   console.log(error)
   const [logout] = useLogoutMutation()
-  const { setTheme, theme } = useTheme();
+
   const dispatch = useDispatch();
   const handleLogout = async () => {
     await logout("Auth");
@@ -58,15 +59,7 @@ export default function Header({ setIsSidebarOpen, isQuoteLayout, isSidebarOpen,
           <Button variant="ghost" size="icon">
             <LogOut onClick={handleLogout} className="h-5 w-5 dark:text-white" />
           </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="relative overflow-hidden"
-          >
-            <Sun className={`h-5 w-5 dark:text-white absolute transition-all duration-300 ${theme === 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'}`} />
-            <Moon className={`h-5 w-5 dark:text-white absolute transition-all duration-300 ${theme === 'light' ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'}`} />
-          </Button>
+          <SwitchTheme />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="flex items-center space-x-2">

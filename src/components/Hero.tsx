@@ -7,6 +7,7 @@ import hero from '../assets/img/hero.jpg'
 import { Sparkles, BarChart3, Users, CheckCircle, ArrowRight, Menu, X } from 'lucide-react'
 import { Button } from './ui/button'
 import Logo from './ui/logo'
+import { SwitchTheme } from './ui/switch-theme'
 
 // Types
 interface NavItem {
@@ -66,26 +67,28 @@ export default function Hero() {
     <div className="relative min-h-screen">
       {/* Navigation */}
       <div className="fixed top-0 left-0 right-0 z-50">
-        <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <nav className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md dark:border-gray-800 border-b border-gray-200">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               {/* Logo */}
               <Link to="/" className="flex items-center">
-                <Logo width={24} height={12} />
+                <Logo width={28} height={12} />
               </Link>
 
               {/* Desktop Navigation */}
               <div className="hidden lg:flex lg:items-center lg:gap-x-8">
-                <div className="flex items-center space-x-8">
+                <div className="flex items-center  space-x-8">
                   {NAV_ITEMS.map((item) => (
                     <Link
                       key={item.href}
                       to={item.href}
-                      className="text-sm font-medium text-gray-700 hover:text-sky-600 transition-colors"
+                      className="text-sm font-medium text-gray-700 dark:text-white dark:hover:text-sky-600 hover:text-sky-600 transition-colors"
                     >
                       {item.label}
                     </Link>
+
                   ))}
+                  <SwitchTheme />
                 </div>
 
                 {/* Desktop CTA Buttons */}
@@ -100,6 +103,7 @@ export default function Hero() {
                       {CTA_BUTTONS.primary.label}
                     </Button>
                   </Link>
+
                 </div>
               </div>
 
@@ -168,6 +172,7 @@ export default function Hero() {
                     {CTA_BUTTONS.primary.label}
                   </Link>
                 </Button>
+
               </div>
             </div>
           </div>
@@ -175,13 +180,13 @@ export default function Hero() {
       </div>
 
       {/* Main Content with proper spacing */}
-      <main className="pt-16"> {/* Add padding-top to account for fixed header */}
+      <main className="pt-16 dark:bg-gradient-to-tr from-slate-900 to-sky-800 "> {/* Add padding-top to account for fixed header */}
         {/* Hero section */}
         <section className="relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 -z-10">
             <div className="absolute right-1/2 -top-96 -translate-x-1/2 transform">
-              <div className="h-[800px] w-[800px] rounded-full bg-gradient-to-tr from-sky-200 to-sky-50 opacity-20 blur-3xl" />
+              <div className="h-[800px] w-[800px] bg-gradient-to-tr from-sky-200 to-sky-50  opacity-20 blur-3xl" />
             </div>
           </div>
 
@@ -200,7 +205,7 @@ export default function Hero() {
                 </div>
 
                 {/* Hero content */}
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                <h1 className="text-4xl font-bold tracking-tight  text-gray-900 dark:text-white sm:text-6xl">
                   Transform Your
                   <span className="block text-sky-600">Quote Management</span>
                   Into Success
@@ -211,7 +216,7 @@ export default function Hero() {
                 </p>
 
                 <div className="mt-10 flex gap-4">
-                  <Button variant="ghost" size="lg">
+                  <Button variant="ghost" className='dark:text-white' size="lg">
                     Start Free Trial
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -228,8 +233,8 @@ export default function Hero() {
                     ['2x', 'Faster Quote Creation'],
                   ].map(([stat, label]) => (
                     <div key={label} className="text-center">
-                      <div className="text-2xl font-bold text-gray-900">{stat}</div>
-                      <div className="text-sm text-gray-500">{label}</div>
+                      <div className="text-2xl font-bold  text-gray-900 dark:text-white">{stat}</div>
+                      <div className="text-sm text-gray-500 dark:text-white">{label}</div>
                     </div>
                   ))}
                 </div>
@@ -265,13 +270,13 @@ export default function Hero() {
               {FEATURES.map((feature) => (
                 <div
                   key={feature.title}
-                  className={`rounded-2xl ${feature.bgColor} p-8 transition-transform hover:-translate-y-1`}
+                  className={`rounded-2xl dark:bg-slate-900 ${feature.bgColor} dark:text-white p-8 transition-transform hover:-translate-y-1`}
                 >
                   <div className="mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 text-gray-600">{feature.description}</p>
+                  <p className="mt-2 text-gray-600 dark:text-white">{feature.description}</p>
                 </div>
               ))}
             </div>
