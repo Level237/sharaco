@@ -31,7 +31,7 @@ export default function LoginForm() {
     }
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+        <div className="min-h-screen dark:bg-slate-900 flex flex-col items-center justify-center bg-gray-50">
             <div className='mb-12'>
                 <Logo width={28} height={12} />
             </div>
@@ -56,7 +56,7 @@ export default function LoginForm() {
                             value={user}
                             onChange={(e) => setUser(e.target.value)}
                             required
-                            className="w-full px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 dark:text-white dark:bg-slate-800 dark:border-gray-700 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your email"
                         />
                     </div>
@@ -72,7 +72,7 @@ export default function LoginForm() {
                             value={pwd}
                             onChange={(e) => setPwd(e.target.value)}
                             required
-                            className="w-full px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 bg-white dark:bg-slate-800 dark:border-gray-700 text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="••••••••"
                         />
                     </div>
@@ -114,10 +114,10 @@ export default function LoginForm() {
                     {/* Divider */}
                     <div className="relative">
                         <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t border-gray-200" />
+                            <div className="w-full border-t dark:border-gray-700 border-gray-200" />
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="px-2 bg-gray-50 text-gray-500">Or continue with</span>
+                            <span className="px-2 bg-gray-50 dark:bg-slate-800 text-gray-500">Or continue with</span>
                         </div>
                     </div>
 
@@ -125,7 +125,7 @@ export default function LoginForm() {
                     <div className="grid grid-cols-2 gap-4">
                         <button
                             type="button"
-                            className="flex bg items-center justify-center px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            className="flex bg-white dark:bg-slate-800 dark:border-gray-700 items-center justify-center px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         >
                             <img
                                 src="/google.svg"
@@ -135,7 +135,7 @@ export default function LoginForm() {
                         </button>
                         <button
                             type="button"
-                            className="flex items-center justify-center px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            className="flex items-center dark:bg-slate-800 dark:border-gray-700 justify-center px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         >
                             <img
                                 src="/github.svg"
