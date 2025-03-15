@@ -1,6 +1,5 @@
-
 import { Separator } from '@/components/ui/separator';
-import { ChartLine, MoreHorizontal, Share } from 'lucide-react';
+import { ChartLine, MoreHorizontal, Share, AlertCircle } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -20,6 +19,26 @@ export const DashboardPage = () => {
 
   return (
     <section className="flex flex-col gap-5 ">
+      <div className="bg-yellow-50 dark:bg-yellow-900/20 border dark:border-yellow-900/50 p-4 rounded-lg mt-2">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <AlertCircle className="h-5 w-5 text-yellow-600 dark:text-yellow-500" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-yellow-800 dark:text-yellow-200">
+              Complétez votre profil
+            </h3>
+            <div className="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
+              <p>
+                Pour une meilleure expérience, veuillez compléter votre profil en ajoutant votre adresse.{' '}
+                <a href="/profile" className="font-medium underline hover:text-yellow-600">
+                  Compléter maintenant
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className='flex mt-4 items-center justify-between'>
         <h2 className='text-black dark:text-white text-xl font-bold'>Dashboard</h2>
