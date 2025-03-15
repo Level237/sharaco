@@ -37,6 +37,7 @@ const formSchema = z.object({
 
 export const ProfilePage = () => {
   const { data: user, isLoading } = useGetUserQuery('Auth')
+  console.log(user)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [logoFile, setLogoFile] = useState<File | null>(null)
   const [logoPreview, setLogoPreview] = useState<string>("")
@@ -189,9 +190,9 @@ export const ProfilePage = () => {
               </div>
 
               {/* Section Entreprise */}
-              {user?.type === 'company' && (
+              {user?.isCompany === 1 && (
                 <div className="space-y-6">
-                  <h4 className="text-xl font-semibold">Informations de l'entreprise</h4>
+                  <h4 className="text-xl text-black dark:text-white font-semibold">Informations de l'entreprise</h4>
                   <Card className="transition-all duration-200 hover:shadow-lg border-primary/10">
                     <CardContent className="pt-6">
                       <div className="space-y-6">

@@ -20,7 +20,7 @@ export default function AccountGeneratingPage() {
     const [login] = useLoginMutation();
     useEffect(() => {
         const formData = {
-            isCompany: userType === 'entreprise' ? 1 : 0,
+            isCompany: userType === 'enterprise' ? 1 : 0,
             lastName: data.lastname,
             firstName: data.firstname,
             email: data.email,
