@@ -107,7 +107,7 @@ export const ProfilePage = () => {
                     name="address"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium">Adresse</FormLabel>
+                        <FormLabel className="text-sm text-black dark:text-white font-medium">Adresse</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="123 rue de la Paix" 
@@ -126,10 +126,10 @@ export const ProfilePage = () => {
                       name="country"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium">Pays</FormLabel>
+                          <FormLabel className="text-sm text-black dark:text-white font-medium">Pays</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <SelectTrigger>
+                              <SelectTrigger className="text-black dark:text-white">
                                 <SelectValue placeholder="Sélectionnez un pays" />
                               </SelectTrigger>
                             </FormControl>
@@ -151,12 +151,12 @@ export const ProfilePage = () => {
                       name="city"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium">Ville</FormLabel>
+                          <FormLabel className="text-sm text-black dark:text-white font-medium">Ville</FormLabel>
                           <FormControl>
                             <Input 
                               placeholder="Paris" 
                               {...field}
-                              className="transition-all duration-200 focus:ring-2 focus:ring-primary/20" 
+                              className="transition-all  duration-200 focus:ring-2 focus:ring-primary/20" 
                             />
                           </FormControl>
                           <FormMessage />
@@ -170,7 +170,7 @@ export const ProfilePage = () => {
                     name="postalBox"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium">Boîte postale</FormLabel>
+                        <FormLabel className="text-sm text-black dark:text-white font-medium">Boîte postale</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="BP 12345 (optionnel)" 
