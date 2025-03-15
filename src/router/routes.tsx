@@ -18,6 +18,7 @@ import QuoteLayout from "@/components/Layouts/QuoteLayout";
 import ClientListPage from "@/pages/users/clients/ClientListPage";
 import AddClientPage from "@/pages/users/clients/AddClientPage";
 import AccountGeneratingPage from "@/pages/Account/AccountGeneratingPage";
+import { ProfilePage } from "@/pages/users/ProfilePage";
 
 
 
@@ -66,6 +67,12 @@ export const routes = createBrowserRouter([{
             path: 'quotes',
             element: <QuoteListPage />
         },
+        
+            {
+                path: "/complete/profile",
+                element: <ProfilePage />
+              }
+        ,
         {
             path: 'clients',
             element: <ClientListPage />

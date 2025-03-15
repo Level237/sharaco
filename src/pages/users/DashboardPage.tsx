@@ -30,8 +30,8 @@ export const DashboardPage = () => {
             </h3>
             <div className="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
               <p>
-                Pour une meilleure expérience, veuillez compléter votre profil en ajoutant votre adresse.{' '}
-                <a href="/profile" className="font-medium underline hover:text-yellow-600">
+                Pour un meilleur rendu de vos devis, veuillez compléter votre profil en ajoutant votre adresse.{' '}
+                <a href="/complete/profile" className="font-medium underline hover:text-yellow-600">
                   Compléter maintenant
                 </a>
               </p>
