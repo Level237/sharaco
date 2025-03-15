@@ -45,8 +45,8 @@ export const DashboardPage = () => {
         <Button variant="default" className='text-white'>New Quote</Button>
       </div>
       <Separator />
-      <div className='grid grid-cols-4 gap-4'>
-        <Card className="w-full max-h-44 dark:bg-slate-900 dark:border-[#ffffff25]" >
+      <div className='grid grid-cols-4 max-sm:grid-cols-1 gap-4'>
+        <Card className="w-full max-h-44 max-sm:w-[100%] dark:bg-slate-900 dark:border-[#ffffff25]" >
           <CardHeader>
             <CardTitle className='text-sm font-medium text-muted-foreground'>Totals Users</CardTitle>
 
@@ -136,7 +136,7 @@ export const DashboardPage = () => {
         </Card>
       </div>
 
-      <div className='flex gap-3 mt-9'>
+      <div className='flex max-sm:grid max-sm:grid-cols-1 gap-3 mt-9'>
         <Card className="flex-1 dark:bg-slate-900 dark:border-[#ffffff25]" >
           <CardHeader>
             <CardTitle className='text-sm flex items-center justify-between font-medium dark:text-white'>
@@ -155,7 +155,7 @@ export const DashboardPage = () => {
 
           <CardContent className="font-bold text-2xl">
             <section className='flex flex-col gap-5'>
-              <div className='flex flex-row justify-between items-center'>
+              <div className='flex flex-row max justify-between items-center'>
                 <div className="flex flex-row items-center gap-3">
                   <Avatar className="h-12 w-12">
 
