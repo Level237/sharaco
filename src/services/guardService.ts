@@ -14,7 +14,14 @@ export const guardService = createApi({
             }),
             providesTags: ['guard'],
         }),
+        getCountries:builder.query({
+            query: () => ({
+                url: '/api/countries',
+                method: 'GET',
+            }),
+            providesTags: ['guard'],
+        })
     }),
 })
 
-export const { useGetProfessionsQuery } = guardService;
+export const { useGetProfessionsQuery,useGetCountriesQuery } = guardService;

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
 import {
   Form,
   FormControl,
@@ -20,12 +19,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { countries } from "@/data/countries" // Vous devrez créer ce fichier
+
 import { useGetUserQuery } from "@/services/auth"
 import { useState } from "react"
 import { ImagePlus, Loader2 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import { useGetCountriesQuery } from "@/services/guardService"
 
 const formSchema = z.object({
   country: z.string().min(1, "Veuillez sélectionner un pays"),
@@ -37,7 +37,8 @@ const formSchema = z.object({
 
 export const ProfilePage = () => {
   const { data: user, isLoading } = useGetUserQuery('Auth')
-  console.log(user)
+  const {data:countries,isLoading:isLoadingCountry,error}=useGetCountriesQuery("guard");
+  console.log(countries)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [logoFile, setLogoFile] = useState<File | null>(null)
   const [logoPreview, setLogoPreview] = useState<string>("")
@@ -135,9 +136,9 @@ export const ProfilePage = () => {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              {countries.map((country) => (
-                                <SelectItem key={country.code} value={country.code}>
-                                  {country.name}
+                              {!isLoadingCountry && countries.map((country:any) => (
+                                <SelectItem key={(country.id)} value={country.id}>
+                                  {country.country_name}
                                 </SelectItem>
                               ))}
                             </SelectContent>
