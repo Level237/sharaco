@@ -37,7 +37,7 @@ const formSchema = z.object({
 
 export const ProfilePage = () => {
   const { data: user, isLoading } = useGetUserQuery('Auth')
-  const {data:countries,isLoading:isLoadingCountry,error}=useGetCountriesQuery("guard");
+  const {data:countries,isLoading:isLoadingCountry}=useGetCountriesQuery("guard");
   console.log(countries)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [logoFile, setLogoFile] = useState<File | null>(null)
