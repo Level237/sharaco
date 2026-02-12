@@ -1,6 +1,8 @@
+"use client"
+
 import { Sun } from "lucide-react"
 import { Moon } from "lucide-react";
-import { useTheme } from "../theme-provider";
+import { useTheme } from "next-themes";
 import { Button } from "./button"
 
 

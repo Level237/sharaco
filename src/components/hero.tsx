@@ -111,7 +111,7 @@ export default function Hero() {
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center gap-4">
-              <SwitchTheme />
+
               <button
                 type="button"
                 className="p-2 text-gray-700 dark:text-white"
@@ -193,7 +193,7 @@ export default function Hero() {
               {/* Hero content */}
               <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-7xl lg:text-8xl max-w-4xl">
                 Master Your Quotes,
-                <span className="text-gradien block mt-2">Scale Your Empire.</span>
+                <span className="text-gradient block mt-2">Scale Your Empire.</span>
               </h1>
 
               <p className="mt-8 text-xl text-slate-600 dark:text-slate-400 max-w-2xl font-medium leading-relaxed">
